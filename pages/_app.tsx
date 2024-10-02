@@ -1,18 +1,24 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
+import NProgress from '@components/nprogress';
+import ResizeHandler from '@components/resize-handler';
+import '@styles/chrome-bug.css';
+import '@styles/global.css';
+import '@styles/nprogress.css';
+import type { AppProps } from 'next/app';
+import { useEffect } from 'react';
+import { OverlayProvider, SSRProvider } from 'react-aria';
 
-function CustomApp({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
+  // remove loading effect once app has mounted for the first time
+  useEffect(() => {
+    document.body.classList?.remove('loading');
+  }, []);
   return (
-    <>
-      <Head>
-        <title>Welcome to candy-showdown!</title>
-      </Head>
-      <main className="app">
+    <SSRProvider>
+      <OverlayProvider>
         <Component {...pageProps} />
-      </main>
-    </>
+        <ResizeHandler />
+        <NProgress />
+      </OverlayProvider>
+    </SSRProvider>
   );
 }
-
-export default CustomApp;
