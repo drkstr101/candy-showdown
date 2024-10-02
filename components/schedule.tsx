@@ -5,6 +5,7 @@ import TalkCard from './talk-card';
 
 function StageRow({ stage }: { stage: Stage }) {
   // Group talks by the time block
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const timeBlocks = stage.schedule.reduce((allBlocks: any, talk) => {
     allBlocks[talk.start] = [...(allBlocks[talk.start] || []), talk];
     return allBlocks;
