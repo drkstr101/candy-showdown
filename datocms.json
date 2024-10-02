@@ -1,0 +1,11 @@
+{
+  "name": "Candy Showdown",
+  "description": "An interactive online experience for Oktoberfest 2024",
+  "previewImage": "https://candy-showdown.vercel.app/twitter-card.png",
+  "datocmsProjectId": "37685",
+  "deploymentType": "vercel",
+  "vercelIntegrationIds": ["oac_7yeSwUoVR5no3SlA9WM6oR7l"],
+  "buildCommand": "yarn build",
+  "datocmsApiTokenEnvName": "DATOCMS_READ_ONLY_API_TOKEN",
+  "livePreviewUrl": "https://candy-showdown.vercel.app/"
+}

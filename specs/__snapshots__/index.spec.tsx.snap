@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index should render successfully 1`] = `
+<body>
+  <div>
+    <div
+      class="page-container full"
+    >
+      <div
+        data-reach-skip-nav-content=""
+        id="reach-skip-nav"
+      />
+      <div
+        class="background"
+      >
+        <header
+          class="header"
+        >
+          <div
+            class="header-logos"
+          >
+            <button
+              aria-label="Mobile Menu"
+              class="button"
+              type="button"
+            >
+              <svg
+                class="icon"
+                fill="none"
+                height="24"
+                shape-rendering="geometricPrecision"
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="1.5"
+                viewBox="0 0 24 24"
+                width="24"
+              >
+                <path
+                  d="M3 12h18"
+                />
+                <path
+                  d="M3 6h18"
+                />
+                <path
+                  d="M3 18h18"
+                />
+              </svg>
+            </button>
+            <a
+              class="logo"
+              href="/"
+            >
+              <div
+                style="width: 40px; height: 30px;"
+              >
+                <img
+                  alt="APS Logo"
+                  class="mt-0.5 h-full w-full"
+                  data-nimg="1"
+                  decoding="async"
+                  height="40"
+                  loading="lazy"
+                  src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                  srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                  style="color: transparent;"
+                  width="40"
+                />
+              </div>
+            </a>
+          </div>
+          <div
+            class="tabs"
+          >
+            <a
+              class="tab"
+              href="/stage/a"
+            >
+              Live Chat
+            </a>
+            <a
+              class="tab"
+              href="/schedule"
+            >
+              Schedule
+            </a>
+            <a
+              class="tab"
+              href="/speakers"
+            >
+              Candy
+            </a>
+            <a
+              class="tab"
+              href="/expo"
+            >
+              Tournament
+            </a>
+          </div>
+          <div
+            class="header-right"
+          >
+            <div />
+          </div>
+        </header>
+        <svg
+          class="svg"
+          fill="#151513"
+          height="72"
+          viewBox="0 0 250 250"
+          width="72"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <a
+            href="https://github.com/drkstr101/candy-showdown"
+            rel="noopener noreferrer"
+            target="_blank"
+            title="View Source"
+          >
+            <path
+              d="M0 0l115 115h15l12 27 108 108V0z"
+              fill="#fff"
+            />
+            <path
+              class="arm"
+              d="M128 109c-15-9-9-19-9-19 3-7 2-11 2-11-1-7 3-2 3-2 4 5 2 11 2 11-3 10 5 15 9 16"
+            />
+            <path
+              d="M115 115s4 2 5 0l14-14c3-2 6-3 8-3-8-11-15-24 2-41 5-5 10-7 16-7 1-2 3-7 12-11 0 0 5 3 7 16 4 2 8 5 12 9s7 8 9 12c14 3 17 7 17 7-4 8-9 11-11 11 0 6-2 11-7 16-16 16-30 10-41 2 0 3-1 7-5 11l-12 11c-1 1 1 5 1 5z"
+            />
+          </a>
+        </svg>
+        <div
+          class="page"
+        >
+          <main
+            class="main"
+          >
+            <div
+              data-reach-skip-nav-content=""
+              id="reach-skip-nav"
+            />
+            <div
+              class="full"
+            >
+              <div
+                class="container"
+              >
+                <div
+                  class="wrapper"
+                >
+                  <h2
+                    class="appear appear-third show-on-mobile description"
+                  >
+                    An interactive online experience for Oktoberfest 2024
+                  </h2>
+                  <h1
+                    class="appear appear-third hero"
+                  >
+                    Welcome to the
+                    <br
+                      class="show-on-desktop"
+                    />
+                     Candy Showdown
+                  </h1>
+                  <h2
+                    class="appear appear-third show-on-tablet description"
+                  >
+                    An interactive online experience for Oktoberfest 2024
+                  </h2>
+                  <div
+                    class="appear appear-fourth info"
+                  >
+                    <p>
+                      24 October 2024
+                    </p>
+                    <div
+                      class="description-separator"
+                    />
+                    <p>
+                      <strong>
+                        Online
+                      </strong>
+                    </p>
+                  </div>
+                </div>
+                <form
+                  class="form appear appear-fifth"
+                >
+                  <div
+                    class="form-row"
+                  >
+                    <label
+                      class="input-label"
+                      for="email-input-field"
+                    >
+                      <input
+                        aria-label="Your email address"
+                        autocomplete="off"
+                        class="input"
+                        id="email-input-field"
+                        placeholder="Enter email to register free"
+                        required=""
+                        type="email"
+                        value=""
+                      />
+                    </label>
+                    <button
+                      class="submit register default"
+                      type="submit"
+                    >
+                      Register
+                    </button>
+                  </div>
+                </form>
+                <div
+                  class="appear appear-fifth contact"
+                >
+                  Learn more on
+                   
+                  <a
+                    class="contact-email"
+                    href="https://aps.jostle.us/jostle-prod/#~b~:0:0:-1:-1:-1:-1:0:0:~dw~:NEWS2_VIEWER:0000018ae1cdfbd3-0010033e-532301db"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Interactions
+                  </a>
+                  .
+                </div>
+              </div>
+            </div>
+          </main>
+          <footer
+            class="footer"
+          >
+            <div
+              class="footer-legal"
+            >
+              <div
+                class="footer-hostedby"
+              >
+                <a
+                  class="footer-link footer-logo"
+                  href="https://aps.org"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <div
+                    class="secondary-text"
+                  >
+                    Created by 
+                  </div>
+                  <div
+                    style="width: 123px; height: 54px;"
+                  >
+                    <img
+                      alt="APS Logo"
+                      class="h-full w-full"
+                      data-nimg="1"
+                      decoding="async"
+                      height="40"
+                      loading="lazy"
+                      src="/_next/image?url=%2Fimg.jpg&w=96&q=75"
+                      srcset="/_next/image?url=%2Fimg.jpg&w=48&q=75 1x, /_next/image?url=%2Fimg.jpg&w=96&q=75 2x"
+                      style="color: transparent;"
+                      width="40"
+                    />
+                  </div>
+                </a>
+                <div
+                  class="footer-separator"
+                />
+              </div>
+              <div
+                class="footer-copyright"
+              >
+                Copyright © 
+                2024 
+                 
+                American Physical Society.
+                 All rights reserved.
+              </div>
+              <div
+                class="footer-center-group"
+              >
+                <p
+                  class="footer-paragraph"
+                >
+                  <a
+                    class="footer-link"
+                    href="https://github.com/drkstr101/candy-showdown"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Source Code
+                  </a>
+                </p>
+                <div
+                  class="footer-separator"
+                />
+                <p
+                  class="footer-paragraph"
+                >
+                  <a
+                    class="footer-link"
+                    href="https://www.aps.org/about/governance/policies-procedures/code-of-conduct"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    Code of Conduct
+                  </a>
+                </p>
+              </div>
+            </div>
+          </footer>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+`;
