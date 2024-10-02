@@ -15,13 +15,13 @@ type Props = {
 
 export default function Speakers({ speakers }: Props) {
   const meta = {
-    title: 'Speakers - Candy Showdown',
+    title: 'Contestants - Candy Showdown',
     description: META_DESCRIPTION,
   };
   return (
     <Page meta={meta}>
       <Layout>
-        <Header hero="Speakers" description={meta.description} />
+        <Header hero="Contestants" description={meta.description} />
         <SpeakersGrid speakers={speakers} />
       </Layout>
     </Page>

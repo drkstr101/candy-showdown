@@ -5,7 +5,7 @@ import '@styles/global.css';
 import '@styles/nprogress.css';
 import type { AppProps } from 'next/app';
 import { useEffect } from 'react';
-import { OverlayProvider, SSRProvider } from 'react-aria';
+import { OverlayProvider } from 'react-aria';
 
 export default function App({ Component, pageProps }: AppProps) {
   // remove loading effect once app has mounted for the first time
@@ -13,12 +13,10 @@ export default function App({ Component, pageProps }: AppProps) {
     document.body.classList?.remove('loading');
   }, []);
   return (
-    <SSRProvider>
-      <OverlayProvider>
-        <Component {...pageProps} />
-        <ResizeHandler />
-        <NProgress />
-      </OverlayProvider>
-    </SSRProvider>
+    <OverlayProvider>
+      <Component {...pageProps} />
+      <ResizeHandler />
+      <NProgress />
+    </OverlayProvider>
   );
 }
