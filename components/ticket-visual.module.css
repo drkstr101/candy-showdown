@@ -11,7 +11,7 @@
   display: flex;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .horizontal-ticket {
     display: flex;
   }
@@ -30,7 +30,7 @@
   padding: 46px 29px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .profile {
     padding: calc(44px * var(--size)) calc(160px * var(--size)) calc(44px * var(--size))
       calc(63px * var(--size));
@@ -46,7 +46,7 @@
   padding: calc(46px * var(--size)) calc(29px * var(--size));
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .info {
     top: calc(140px * var(--size));
     padding: calc(44px * var(--size)) calc(160px * var(--size)) calc(44px * var(--size))
@@ -60,7 +60,7 @@
   right: 0;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .ticket-number-wrapper {
     bottom: 0;
   }
@@ -74,7 +74,7 @@
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .ticket-number {
     transform: rotate(90deg) translateY(calc(100px * var(--size)));
     transform-origin: bottom right;

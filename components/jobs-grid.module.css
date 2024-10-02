@@ -5,12 +5,10 @@
 .grid {
   margin: 0 auto 50px;
   width: 100%;
-  display: flex;
   flex-wrap: wrap;
   display: grid;
   grid-template-columns: repeat(auto-fill, 1fr);
   grid-gap: 24px;
-  scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -19,7 +17,6 @@
 .companyName {
   color: #f1f1f1;
   font-size: 24px;
-  margin: 0;
   line-height: 1;
   letter-spacing: -0.05em;
   font-weight: 800;
@@ -28,13 +25,13 @@
   display: inline-flex;
 }
 
-@media (min-width: 500px) {
+@media (width >= 500px) {
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .companyRow {
     padding: 0 var(--space-8x);
   }
@@ -48,7 +45,7 @@
   flex-direction: column;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .companyName {
     font-size: 28px;
   }
@@ -66,11 +63,11 @@
 
 .card {
   border-radius: var(--space-2x);
-  background: #111111;
+  background: #111;
   display: flex;
   flex-direction: column;
   background-clip: content-box, border-box;
-  background-image: linear-gradient(#111111, #111111), linear-gradient(to right, #333333, #333333);
+  background-image: linear-gradient(#111, #111), linear-gradient(to right, #333, #333);
   padding: 1px;
   cursor: pointer;
 }
@@ -78,7 +75,7 @@
 .card:hover,
 .card:focus {
   outline: none;
-  background-image: linear-gradient(#111111, #111111),
+  background-image: linear-gradient(#111, #111),
     linear-gradient(to right, var(--brand), var(--brand));
 }
 
@@ -102,10 +99,6 @@
 .company {
   color: #f1f1f1;
   margin: var(--space) 0 0 0;
-}
-
-.title {
-  margin: 0;
 }
 
 .description {

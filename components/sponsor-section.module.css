@@ -17,7 +17,7 @@
   min-width: initial;
 }
 
-@media (min-width: 960px) {
+@media (width >= 960px) {
   .video {
     height: 100%;
     margin: 0 var(--space-4x) 0 0;
@@ -44,7 +44,7 @@
   margin-top: var(--space-16x);
 }
 
-@media (min-width: 500px) {
+@media (width >= 500px) {
   .container {
     padding: var(--space-8x);
   }
@@ -82,7 +82,6 @@
 
 .image {
   overflow: hidden;
-  width: 100%;
   border-radius: 50%;
   width: var(--space-16x);
   height: var(--space-16x);
@@ -95,7 +94,6 @@
   font-weight: 800;
   color: #fff;
   font-size: 30px;
-  margin: 0;
   line-height: 1.4;
   letter-spacing: -0.05em;
   margin: var(--space-4x) 0 0 0;
@@ -136,14 +134,14 @@
 }
 
 .button-resource {
-  background: #111111;
+  background: #111;
   color: #fff;
   border: 1px solid var(--accents-7);
   max-width: 100%;
   margin-bottom: var(--space-4x);
 }
 
-@media (min-width: 500px) {
+@media (width >= 500px) {
   .button-resource {
     max-width: 350px;
   }
@@ -179,7 +177,7 @@
   letter-spacing: -0.05em;
 }
 
-@media (min-width: 500px) {
+@media (width >= 500px) {
   .sponsor-details {
     flex-direction: row;
     padding: var(--space-4x) 0 var(--space-8x) 0;

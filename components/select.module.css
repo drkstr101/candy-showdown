@@ -20,7 +20,6 @@
 .select {
   -webkit-rtl-ordering: logical;
   appearance: none;
-  border: none;
   cursor: default;
   color: #fff;
   font-size: 14px;
@@ -53,7 +52,7 @@
   width: 30px;
   height: 100%;
   position: absolute;
-  right: 0px;
+  right: 0;
   pointer-events: none;
   display: flex;
   align-items: center;

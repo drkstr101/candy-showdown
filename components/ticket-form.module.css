@@ -35,13 +35,13 @@
   margin-left: var(--space-4x);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .form-row {
     margin-bottom: 20px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .form-row {
     margin: 0;
   }

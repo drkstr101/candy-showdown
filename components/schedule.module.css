@@ -22,7 +22,6 @@
 
 .stage-name {
   font-size: 22px;
-  color: #fff;
   line-height: 1.15;
   letter-spacing: -0.05em;
   font-weight: 800;
@@ -44,7 +43,7 @@
   margin-right: 24px;
 }
 
-@media (min-width: 500px) {
+@media (width >= 500px) {
   .container {
     border-top: 1px solid var(--accents-7);
     margin-top: var(--space-4x);

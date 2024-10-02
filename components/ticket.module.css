@@ -7,7 +7,7 @@
   text-align: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .hero {
     font-size: 100px;
     line-height: 1;
@@ -27,7 +27,7 @@
   max-width: 350px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .description {
     font-size: 24px;
     max-width: 415px;
@@ -59,8 +59,8 @@
   margin: 0 auto;
 }
 
-.ticket-visual:before,
-.ticket-visual:after {
+.ticket-visual::before,
+.ticket-visual::after {
   content: '';
   display: block;
   width: 72px;
@@ -71,30 +71,30 @@
   border-radius: 50%;
 }
 
-.ticket-visual:before {
+.ticket-visual::before {
   left: 50%;
   top: -7.5%;
   transform: translateZ(0) translateX(-50%) rotate(90deg);
 }
 
-.ticket-visual:after {
+.ticket-visual::after {
   left: 50%;
   bottom: -7.5%;
   transform: translateZ(0) translateX(-50%) rotate(90deg);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .ticket-visual {
     width: 650px;
   }
 
-  .ticket-visual:before {
+  .ticket-visual::before {
     top: 50%;
     left: -7%;
     transform: translateZ(0) translateY(-50%);
   }
 
-  .ticket-visual:after {
+  .ticket-visual::after {
     top: 50%;
     left: 96%;
     transform: translateZ(0) translateY(-50%);
@@ -117,23 +117,26 @@
   height: 280px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .ticket-actions {
     flex-direction: row;
   }
+
   .ticket-actions-placeholder {
     height: 157px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .ticket-layout {
     grid-template-columns: 1fr 1fr;
   }
+
   .hero {
     font-size: var(--space-16x);
     text-align: left;
   }
+
   .description {
     text-align: left;
     margin: 30px 0;
@@ -144,7 +147,7 @@
   width: 100%;
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (width >= 1280px) {
   .ticket-layout {
     padding: 0 40px;
   }

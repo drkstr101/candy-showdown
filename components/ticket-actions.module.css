@@ -26,7 +26,7 @@
   justify-items: center;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .button {
     width: 200px;
     margin: 0 6px;
@@ -42,9 +42,11 @@
 .first {
   animation-delay: 2s;
 }
+
 .second {
   animation-delay: 2.2s;
 }
+
 .third {
   animation-delay: 2.4s;
 }
@@ -52,9 +54,11 @@
 :global(.ticket-generated) .first {
   animation-delay: 0.6s;
 }
+
 :global(.ticket-generated) .second {
   animation-delay: 0.8s;
 }
+
 :global(.ticket-generated) .third {
   animation-delay: 1s;
 }
@@ -63,7 +67,7 @@
   display: none !important;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .linkedin-button {
     display: grid !important;
   }

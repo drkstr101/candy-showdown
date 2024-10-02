@@ -5,8 +5,8 @@ function calcVh() {
 }
 
 /**
- * Fix iOS 100vh bug (Unlike PostCSS-based solutions,
- * this JS-based solution allows var(--100vh) to be used inside calc())
+ * Fix iOS 100vh bug (Unlike PostCSS-based solutions, this JS-based solution allows
+ * var(--100vh) to be used inside calc())
  */
 export default function ResizeHandler() {
   useEffect(() => {
