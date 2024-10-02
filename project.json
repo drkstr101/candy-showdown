@@ -1,0 +1,17 @@
+{
+  "name": "candy-showdown",
+  "$schema": "node_modules/nx/schemas/project-schema.json",
+  "includedScripts": [],
+  "sourceRoot": ".",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "stylelint": {
+      "executor": "nx-stylelint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["**/*.css"]
+      }
+    }
+  }
+}
