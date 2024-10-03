@@ -10,7 +10,7 @@
   border: 1px solid #333;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .image {
     width: calc(80px * var(--size));
     height: calc(80px * var(--size));
@@ -22,7 +22,7 @@
   margin-left: 10px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .text {
     margin-left: calc(15px * var(--size));
   }
@@ -37,7 +37,7 @@
   margin: 0;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .name {
     font-size: calc(var(--space-8x) * var(--size));
     margin-bottom: 5px;
@@ -45,7 +45,6 @@
 }
 
 .username {
-  display: inline-block;
   font-size: calc(1em * var(--size));
   color: var(--secondary-color);
   display: flex;
@@ -64,7 +63,7 @@
   width: 60px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .empty-icon {
     width: calc(80px * var(--size));
   }
@@ -74,6 +73,7 @@
   0% {
     background-position: 200% 0;
   }
+
   100% {
     background-position: -200% 0;
   }
@@ -89,7 +89,7 @@
   width: unset !important;
 }
 
-.skeleton:not(.wrapper):not(.show) {
+.skeleton:not(.wrapper, .show) {
   display: none;
 }
 
@@ -97,7 +97,7 @@
   content: none;
 }
 
-.skeleton:not(.wrapper):not(.loaded) {
+.skeleton:not(.wrapper, .loaded) {
   border-radius: var(--space);
   background-image: linear-gradient(270deg, #252729, #34383d, #34383d, #252729);
   background-size: 200% 100%;
@@ -111,13 +111,10 @@
 .wrapper::before {
   content: '';
   position: absolute;
-  top: -1px;
-  left: -1px;
-  right: 0;
-  bottom: 0;
+  inset: -1px 0 0 -1px;
   border-radius: var(--space);
   z-index: 100;
-  background-image: linear-gradient(270deg, #111111, #333333, #333333, #111111);
+  background-image: linear-gradient(270deg, #111, #333, #333, #111);
   background-size: 200% 100%;
   animation: loading 2s ease-in-out infinite;
 }
@@ -133,7 +130,7 @@
   border-radius: 50% !important;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .rounded,
   .rounded.wrapper::before {
     width: calc(82px * var(--size));

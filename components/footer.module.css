@@ -49,7 +49,7 @@
   flex-direction: column;
 }
 
-@media screen and (min-width: 960px) {
+@media screen and (width >= 960px) {
   .footer-hostedby {
     display: none;
   }
@@ -84,7 +84,7 @@
   display: none;
 }
 
-@media screen and (min-width: 390px) {
+@media screen and (width >= 390px) {
   .secondary-text {
     display: initial;
   }

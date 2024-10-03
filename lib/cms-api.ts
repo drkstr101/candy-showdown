@@ -1,4 +1,4 @@
-import { Job, Speaker, Sponsor, Stage } from '@lib/types';
+import { Job, Participant, Sponsor, Stage } from '@lib/types';
 
 const API_URL = 'https://graphql.datocms.com/';
 const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
@@ -28,18 +28,16 @@ async function fetchContent(
   return json.data;
 }
 
-export async function getAllSpeakers(): Promise<Speaker[]> {
-  const { allSpeakers } = await fetchContent(`
+export async function getAllParticipants(): Promise<Participant[]> {
+  const { allParticipants } = await fetchContent(`
      {
-       allSpeakers(first: 100) {
+       allParticipants(first: 100) {
          name
          bio
          title
          slug
-         twitter
-         github
          company
-         talk {
+         match {
            title
            description
          }
@@ -55,7 +53,7 @@ export async function getAllSpeakers(): Promise<Speaker[]> {
      }
    `);
 
-  return allSpeakers;
+  return allParticipants;
 }
 
 export async function getAllStages(): Promise<Stage[]> {
@@ -64,15 +62,12 @@ export async function getAllStages(): Promise<Stage[]> {
        allStages(first: 100, orderBy: order_ASC) {
          name
          slug
-         stream
-         discord
          isLive
-         roomId
          schedule {
            title
            start
            end
-           speaker {
+           participant {
              name
              slug
              image {

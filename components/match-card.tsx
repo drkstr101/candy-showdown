@@ -1,14 +1,14 @@
-import { Talk } from '@lib/types';
+import { Match } from '@lib/types';
 import cn from 'clsx';
 import { format, isAfter, isBefore, parseISO } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import styles from './talk-card.module.css';
+import styles from './match-card.module.css';
 
 type Props = {
   key: string;
-  talk: Talk;
+  match: Match;
   showTime: boolean;
 };
 
@@ -17,34 +17,37 @@ const formatDate = (date: string) => {
   return format(parseISO(date), "h:mmaaaaa'm'");
 };
 
-export default function TalkCard({ talk: { title, speaker, start, end }, showTime }: Props) {
-  const [isTalkLive, setIsTalkLive] = useState(false);
+export default function MatchCard({
+  match: { title, participant: participant, start, end },
+  showTime,
+}: Props) {
+  const [isMatchLive, setIsMatchLive] = useState(false);
   const [startAndEndTime, setStartAndEndTime] = useState('');
 
   useEffect(() => {
     const now = Date.now();
-    setIsTalkLive(isAfter(now, parseISO(start)) && isBefore(now, parseISO(end)));
+    setIsMatchLive(isAfter(now, parseISO(start)) && isBefore(now, parseISO(end)));
     setStartAndEndTime(`${formatDate(start)} – ${formatDate(end)}`);
   }, [end, start]);
 
-  const firstSpeakerLink = `/speakers/${speaker[0].slug}`;
+  const firstParticipantLink = `/participants/${participant[0].slug}`;
 
   return (
-    <div key={title} className={styles.talk}>
+    <div key={title} className={styles.match}>
       {showTime && <p className={styles.time}>{startAndEndTime || <>&nbsp;</>}</p>}
       <Link
-        href={firstSpeakerLink}
+        href={firstParticipantLink}
         className={cn(styles.card, {
-          [styles['is-live']]: isTalkLive,
+          [styles['is-live']]: isMatchLive,
         })}
       >
         <div className={styles['card-body']}>
           <h4 title={title} className={styles.title}>
             {title}
           </h4>
-          <div className={styles.speaker}>
+          <div className={styles.participant}>
             <div className={styles['avatar-group']}>
-              {speaker.map((s) => (
+              {participant.map((s) => (
                 <div key={s.name} className={styles['avatar-wrapper']}>
                   <Image
                     loading="lazy"
@@ -59,7 +62,9 @@ export default function TalkCard({ talk: { title, speaker, start, end }, showTim
               ))}
             </div>
             <h5 className={styles.name}>
-              {speaker.length === 1 ? speaker[0].name : `${speaker.length} speakers`}
+              {participant.length === 1
+                ? participant[0].name
+                : `${participant.length} participants`}
             </h5>
           </div>
         </div>

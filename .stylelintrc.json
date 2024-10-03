@@ -1,11 +1,14 @@
 {
-  "ignoreFiles": ["!**/*"],
+  "ignoreFiles": ["!**/*", "coverage/**/*.css"],
   "overrides": [
     {
       "files": ["**/*.css"],
       "extends": ["stylelint-config-standard", "stylelint-config-tailwindcss"],
       "rules": {
-        "no-descending-specificity": null
+        "no-descending-specificity": null,
+        "selector-class-pattern": null,
+        "custom-property-pattern": null,
+        "selector-pseudo-class-no-unknown": [true, { "ignorePseudoClasses": ["global"] }]
       }
     }
   ]

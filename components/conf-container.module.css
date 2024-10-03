@@ -3,7 +3,8 @@
   padding: 0 var(--space-4x);
 }
 
-@media (min-width: 768px) {
+/** Mobile Context **/
+@media (width >= 768px) {
   .container {
     margin: auto;
   }

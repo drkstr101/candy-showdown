@@ -48,7 +48,7 @@
   display: none;
 }
 
-@media screen and (min-width: 770px) {
+@media screen and (width >= 770px) {
   .header-right {
     display: initial;
   }
@@ -59,7 +59,7 @@
   display: none;
 }
 
-@media screen and (min-width: 1032px) {
+@media screen and (width >= 1032px) {
   .tabs {
     display: initial;
   }

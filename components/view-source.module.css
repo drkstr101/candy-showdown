@@ -39,10 +39,10 @@
   }
 }
 
-@media (max-width: 500px) {
-  .svg:hover .arm {
+@media (width <= 500px) {
+  /* .svg:hover .arm {
     animation: none;
-  }
+  } */
 
   .svg:hover .arm {
     animation: wave 560ms ease-in-out;

@@ -9,7 +9,8 @@
   max-height: calc(var(--100vh) - var(--header-height) - 400px);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  --talk-card-width: 100%;
+
+  --match-card-width: 100%;
 }
 
 .schedule::-webkit-scrollbar {
@@ -24,7 +25,7 @@
   font-weight: 800;
 }
 
-.talks {
+.matches {
   margin-top: var(--space-4x);
   display: flex;
   flex-direction: column;
@@ -34,16 +35,17 @@
   scrollbar-width: none;
 }
 
-.talks::-webkit-scrollbar {
+.matches::-webkit-scrollbar {
   display: none;
 }
 
-@media screen and (min-width: 1032px) {
+@media screen and (width >= 1032px) {
   .schedule {
     height: unset;
     min-height: 340px;
     max-width: 303px;
     max-height: calc(var(--100vh) - var(--header-height));
-    --talk-card-width: unset;
+
+    --match-card-width: unset;
   }
 }

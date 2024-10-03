@@ -17,7 +17,7 @@
   height: 100%;
 }
 
-@media screen and (min-width: 1032px) {
+@media screen and (width >= 1032px) {
   .container {
     flex-direction: row;
   }
@@ -94,7 +94,7 @@
   margin-right: var(--space-4x);
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (width >= 600px) {
   .bottom {
     align-items: center;
     flex-direction: row;
@@ -105,7 +105,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .messageContainer {
     flex-direction: row;
     align-items: center;

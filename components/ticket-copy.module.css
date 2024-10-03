@@ -24,7 +24,7 @@
   justify-content: space-between;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .wrapper {
     flex-direction: row;
   }
@@ -32,7 +32,7 @@
   .label {
     width: auto;
     margin-right: 10px;
-    margin-bottom: 0px;
+    margin-bottom: 0;
   }
 
   .label-wrapper {
@@ -47,12 +47,13 @@
   background: var(--gray);
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .field {
     padding-right: 50px;
   }
+
   .field.desktop-copy-disabled {
-    padding-right: 0px;
+    padding-right: 0;
   }
 }
 
@@ -91,22 +92,22 @@
   overflow-x: scroll;
   white-space: nowrap;
   display: block;
-
   padding: var(--space-2x) 14px;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 
-@media (min-width: 436px) {
+@media (width >= 436px) {
   .url {
     width: 400px;
   }
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .url {
     width: 400px;
   }
+
   .mobile-copy {
     margin-bottom: 0;
     display: none;
@@ -119,10 +120,10 @@
 
 .fade {
   position: absolute;
-  background: linear-gradient(90deg, rgba(37, 39, 41, 0%) 0%, #252729 100%);
+  background: linear-gradient(90deg, rgb(37 39 41 / 0%) 0%, #252729 100%);
   top: 0;
   bottom: 0;
-  right: 0px;
+  right: 0;
   width: 50px;
   z-index: 1;
   display: block;
@@ -134,12 +135,13 @@
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .fade {
     right: 50px;
   }
+
   .fade.desktop-copy-disabled {
-    right: 0px;
+    right: 0;
   }
 }
 
@@ -170,21 +172,22 @@
   margin-right: -10px;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .copied {
     position: absolute;
     right: 50px;
-    top: 0px;
-    bottom: 0px;
-    background: linear-gradient(90deg, rgba(37, 39, 41, 0%) 0px, #252729 40px);
+    top: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, rgb(37 39 41 / 0%) 0, #252729 40px);
     padding-left: 50px;
   }
+
   .copy-button {
     position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    margin-right: 0px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin-right: 0;
     width: 50px;
   }
 }

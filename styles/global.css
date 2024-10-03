@@ -253,10 +253,9 @@ input {
 
   /* min-height: 1px; */
   height: 100%;
-  /* stylelint-disable-next-line custom-property-pattern */
   min-height: calc(var(--100vh) - var(--header-height) - 400px);
 
-  --talk-card-width: 100%;
+  --match-card-width: 100%;
 
   display: flex;
   flex-direction: column;
@@ -271,10 +270,9 @@ input {
     height: unset;
     min-height: 340px;
     max-width: 303px;
-    /* stylelint-disable-next-line custom-property-pattern */
     max-height: calc(var(--100vh) - var(--header-height));
 
-    --talk-card-width: unset;
+    --match-card-width: unset;
   }
 }
 

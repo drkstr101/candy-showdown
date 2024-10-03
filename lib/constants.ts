@@ -34,8 +34,8 @@ export const NAVIGATION = [
     route: '/schedule',
   },
   {
-    name: 'Candy',
-    route: '/speakers',
+    name: 'Participants',
+    route: '/participants',
   },
   {
     name: 'Tournament',

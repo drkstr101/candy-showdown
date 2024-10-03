@@ -1,10 +1,7 @@
 .nav-overlay {
   position: fixed;
   z-index: 100;
-  top: 72px;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 72px 0 0;
   background: black;
   display: flex;
   align-items: center;
@@ -51,7 +48,7 @@
   display: block;
 }
 
-@media (min-width: 1032px) {
+@media (width >= 1032px) {
   .button {
     display: none;
   }

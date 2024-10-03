@@ -1,8 +1,10 @@
 .loading {
   display: inline-flex;
   align-items: center;
+
   --loading-dots-height: auto;
   --loading-dots-size: 2px;
+
   height: var(--loading-dots-height);
 }
 
@@ -39,9 +41,11 @@
   0% {
     opacity: 0.2;
   }
+
   20% {
     opacity: 1;
   }
+
   100% {
     opacity: 0.2;
   }
