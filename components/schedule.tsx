@@ -1,13 +1,13 @@
-import { Stage, Talk } from '@lib/types';
+import { Match, Stage } from '@lib/types';
 import cn from 'clsx';
+import MatchCard from './match-card';
 import styles from './schedule.module.css';
-import TalkCard from './talk-card';
 
 function StageRow({ stage }: { stage: Stage }) {
-  // Group talks by the time block
+  // Group matches by the time block
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const timeBlocks = stage.schedule.reduce((allBlocks: any, talk) => {
-    allBlocks[talk.start] = [...(allBlocks[talk.start] || []), talk];
+  const timeBlocks = stage.schedule.reduce((allBlocks: any, match) => {
+    allBlocks[match.start] = [...(allBlocks[match.start] || []), match];
     return allBlocks;
   }, {});
 
@@ -16,11 +16,11 @@ function StageRow({ stage }: { stage: Stage }) {
       <h3 className={cn(styles['stage-name'], styles[stage.slug])}>
         <span>{stage.name}</span>
       </h3>
-      <div className={cn(styles.talks, styles[stage.slug])}>
+      <div className={cn(styles.matches, styles[stage.slug])}>
         {Object.keys(timeBlocks).map((startTime: string) => (
           <div key={startTime}>
-            {timeBlocks[startTime].map((talk: Talk, index: number) => (
-              <TalkCard key={talk.title} talk={talk} showTime={index === 0} />
+            {timeBlocks[startTime].map((match: Match, index: number) => (
+              <MatchCard key={match.title} match={match} showTime={index === 0} />
             ))}
           </div>
         ))}

@@ -3,35 +3,35 @@ export type Image = {
   blurDataURL?: string;
 };
 
-export type Speaker = {
+export type Participant = {
   name: string;
   bio: string;
-  title: string;
   slug: string;
+  title: string;
   company: string;
-  talk: Talk;
   image: Image;
   imageSquare: Image;
+  match: Match;
 };
 
 export type Stage = {
   name: string;
   slug: string;
-  stream: string;
-  discord: string;
-  schedule: Talk[];
+  // stream: string;
+  // discord: string;
+  schedule: Match[];
   isLive: boolean;
-  roomId: string;
+  channelId: string;
   stagePeers: string[];
   backstagePeers: string[];
 };
 
-export type Talk = {
+export type Match = {
   title: string;
   description: string;
   start: string;
   end: string;
-  speaker: Speaker[];
+  participant: Participant[];
 };
 
 export type Link = {

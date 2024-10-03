@@ -86,9 +86,9 @@ exports[`Index should render successfully 1`] = `
             </a>
             <a
               class="tab"
-              href="/speakers"
+              href="/participants"
             >
-              Contestants
+              Participants
             </a>
             <a
               class="tab"
@@ -217,7 +217,7 @@ exports[`Index should render successfully 1`] = `
                   class="appear appear-fifth contact"
                 >
                   Learn more on
-                   
+
                   <a
                     class="contact-email"
                     href="https://aps.jostle.us/jostle-prod/#~b~:0:0:-1:-1:-1:-1:0:0:~dw~:NEWS2_VIEWER:0000018ae1cdfbd3-0010033e-532301db"
@@ -249,7 +249,7 @@ exports[`Index should render successfully 1`] = `
                   <div
                     class="secondary-text"
                   >
-                    Created by 
+                    Created by
                   </div>
                   <div
                     style="width: 123px; height: 54px;"
@@ -275,9 +275,9 @@ exports[`Index should render successfully 1`] = `
               <div
                 class="footer-copyright"
               >
-                Copyright © 
-                2024 
-                 
+                Copyright ©
+                2024
+
                 American Physical Society.
                  All rights reserved.
               </div>

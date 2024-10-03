@@ -87,7 +87,7 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
   return (
     <div className={cn(styles.container, styleUtils.appear, styleUtils['appear-first'])}>
       <h1 className={cn(styles.hero)}>Ready to start chatting live?</h1>
-      <h2 className={cn(styles.description)}>Submit your email below to enter</h2>
+      <h2 className={cn(styles.description)}>Enter a valid APS email address to get started</h2>
       <form onSubmit={onSubmit} className={styles.form}>
         <div className={styles['form-row']}>
           <label
