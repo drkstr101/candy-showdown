@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import apsLogo from '@media/APSLogoTag-WHT.png';
+import apsLogo from '@components/images/APSLogoTag-WHT.png';
 
 type Props = {
   color: string;

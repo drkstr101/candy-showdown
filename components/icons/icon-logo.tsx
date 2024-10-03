@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-import apsLogo from '@media/APSLogo-WHT.png';
+import apsLogo from '@components/images/APSLogo-WHT.png';
 
 export interface IconLogoProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
