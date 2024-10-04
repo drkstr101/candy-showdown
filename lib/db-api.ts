@@ -9,64 +9,54 @@ const supabase =
     ? createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_SECRET)
     : undefined;
 
-export async function getUserByUsername(username: string): Promise<ConfUser> {
-  const { data } = await supabase!
-    .from<ConfUser>('users')
-    .select('name, ticketNumber')
-    .eq('username', username)
-    .single();
+export async function getUserByEmail(email: string): Promise<ConfUser> {
+  const { data } = await supabase!.from('users').select('*').eq('username', email).single();
 
   return data ?? {};
 }
 
 export async function getUserById(id: string): Promise<ConfUser> {
-  const { data, error } = await supabase!
-    .from<ConfUser>('users')
-    .select('name, username, createdAt')
-    .eq('id', id)
-    .single();
+  const { data, error } = await supabase!.from('users').select('*').eq('id', id).single();
   if (error) throw new Error(error.message);
 
   return data ?? {};
 }
 
 export async function createUser(id: string, email: string): Promise<ConfUser> {
-  const { data, error } = await supabase!.from<ConfUser>('users').insert({ id, email }).single();
+  const { data, error } = await supabase!.from('users').insert({ id, email }).single();
   if (error) throw new Error(error.message);
 
   return data ?? {};
 }
 
 export async function getTicketNumberByUserId(id: string): Promise<string | null> {
-  const { data } = await supabase!
-    .from<ConfUser>('users')
-    .select('ticketNumber')
-    .eq('id', id)
-    .single();
-
-  return data?.ticketNumber!.toString() ?? null;
+  throw new Error('TODO: not implemented');
+  // const { data } = await supabase!.from('users').select('ticketNumber').eq('id', id).single();
+  // return data?.ticketNumber!.toString() ?? null;
 }
 
 export async function createAuthUser(user: Record<string, unknown>): Promise<string> {
-  const { data, error } = await supabase!.from('auth_users').insert({ userData: user }).single();
-  if (error) throw new Error(error.message);
+  throw new Error('TODO: not implemented');
+  // const { data, error } = await supabase!.from('auth_users').insert({ userData: user }).single();
+  // if (error) throw new Error(error.message);
 
-  return data.id;
+  // return data.id;
 }
 
 export async function updateUserWithAuthUser(id: string, token: string): Promise<ConfUser> {
-  const { data } = await supabase!.from('auth_users').select('userData').eq('id', token).single();
-  const { login: username, name } = data?.userData ?? {};
-  if (!username) {
-    throw new Error('Invalid or expired token');
-  }
+  throw new Error('TODO: not implemented');
+  // const { data } = await supabase!.from('auth_users').select('userData').eq('id', token).single();
+  // const { login: username, name } = data?.userData ?? {};
+  // if (!username) {
+  //   throw new Error('Invalid or expired token');
+  // }
 
-  const { error } = await supabase!
-    .from<ConfUser>('users')
-    .update({ username, name })
-    .eq('id', id)
-    .single();
-  if (error) console.log(error.message);
+  // const { error } = await supabase!
+  //   .from('users')
+  //   .update({ username, name })
+  //   .eq('id', id)
+  //   .single();
+  // if (error) console.log(error.message);
 
-  return { username, name };
+  // return { username, name };
 }

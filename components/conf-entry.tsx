@@ -25,12 +25,6 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
   const [errorMsg, setErrorMsg] = useState('');
-  // const {
-  //   ref: captchaRef,
-  //   reset: resetCaptcha,
-  //   execute: executeCaptcha,
-  //   isEnabled: isCaptchaEnabled,
-  // } = useCaptcha();
 
   const handleRegister = useCallback(
     async (token?: string) => {
@@ -54,11 +48,6 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
 
       try {
         setFormState('loading');
-
-        // if (isCaptchaEnabled) {
-        //   return executeCaptcha();
-        // }
-
         return handleRegister();
       } catch (err) {
         console.error(err);
@@ -66,21 +55,15 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
         setFormState('error');
       }
     },
-    [/* executeCaptcha, isCaptchaEnabled, */ handleRegister]
+    [handleRegister]
   );
 
-  const onTryAgainClick = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
+  const onTryAgainClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
 
-      setErrorMsg('');
-      setFormState('default');
-      // resetCaptcha();
-    },
-    [
-      /* resetCaptcha */
-    ]
-  );
+    setErrorMsg('');
+    setFormState('default');
+  }, []);
 
   useEmailQueryParam('login', setEmailInput);
 
@@ -128,7 +111,6 @@ export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
             )}
           </button>
         </div>
-        {/* <Captcha ref={captchaRef} onVerify={handleRegister} /> */}
       </form>
     </div>
   );

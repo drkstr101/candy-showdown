@@ -1,4 +1,4 @@
-import { getUserByUsername } from '@lib/db-api';
+import { getUserByEmail } from '@lib/db-api';
 import { SkipNavContent } from '@reach/skip-nav';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Error from 'next/error';
@@ -58,7 +58,7 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   let ticketNumber: number | null | undefined;
 
   if (username) {
-    const user = await getUserByUsername(username);
+    const user = await getUserByEmail(username);
     name = user.name ?? user.username;
     ticketNumber = user.ticketNumber;
   }

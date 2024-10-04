@@ -1,5 +1,5 @@
 import { SAMPLE_TICKET_NUMBER, SITE_URL } from '@lib/constants';
-import { getUserByUsername } from '@lib/db-api';
+import { getUserByEmail } from '@lib/db-api';
 import screenshot from '@lib/screenshot';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -10,7 +10,7 @@ export default async function ticketImages(req: NextApiRequest, res: NextApiResp
   const { username } = req.query || {};
   if (username) {
     const usernameString = username.toString();
-    const user = await getUserByUsername(usernameString);
+    const user = await getUserByEmail(usernameString);
     name = user.name;
     ticketNumber = user.ticketNumber;
     url = `${SITE_URL}/ticket-image?username=${encodeURIComponent(
