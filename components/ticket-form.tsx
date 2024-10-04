@@ -2,7 +2,7 @@ import { InviteStageIcon } from '@100mslive/react-icons';
 import CheckIcon from '@components/icons/icon-check';
 import GithubIcon from '@components/icons/icon-github';
 import { REPO, SITE_ORIGIN, TicketGenerationState } from '@lib/constants';
-import useConfData from '@lib/hooks/use-conf-data';
+import useAppData from '@lib/hooks/use-app-data';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
 import { scrollTo } from '@lib/smooth-scroll';
 import { OAuthData } from '@lib/types';
@@ -27,7 +27,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
   const [username, setUsername] = useState(defaultUsername);
   const [formState, setFormState] = useState<FormState>('default');
   const [errorMsg, setErrorMsg] = useState('');
-  const { userData, setUserData } = useConfData();
+  const { userData, setUserData } = useAppData();
   const formRef = useRef<HTMLFormElement>(null);
 
   return formState === 'error' ? (

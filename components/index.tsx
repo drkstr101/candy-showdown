@@ -1,4 +1,4 @@
-import { ConfDataContext, PageState, UserData } from '@lib/hooks/use-conf-data';
+import { AppDataContext, PageState, UserData } from '@lib/hooks/use-app-data';
 import { useState } from 'react';
 import ConfContainer from './conf-container';
 import Form from './form';
@@ -22,7 +22,7 @@ export default function Conf({
   const [pageState, setPageState] = useState<PageState>(defaultPageState);
 
   return (
-    <ConfDataContext.Provider
+    <AppDataContext.Provider
       value={{
         userData,
         setUserData,
@@ -47,6 +47,6 @@ export default function Conf({
           )}
         </ConfContainer>
       </Layout>
-    </ConfDataContext.Provider>
+    </AppDataContext.Provider>
   );
 }

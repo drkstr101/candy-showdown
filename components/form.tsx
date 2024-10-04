@@ -1,5 +1,5 @@
 import FormError from '@lib/form-error';
-import useConfData from '@lib/hooks/use-conf-data';
+import useAppData from '@lib/hooks/use-app-data';
 import useEmailQueryParam from '@lib/hooks/use-email-query-param';
 import { register } from '@lib/user-api';
 import cn from 'clsx';
@@ -21,14 +21,8 @@ export default function Form({ sharePage }: Props) {
   const [errorTryAgain, setErrorTryAgain] = useState(false);
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
-  const { setPageState, setUserData } = useConfData();
+  const { setPageState, setUserData } = useAppData();
   const router = useRouter();
-  // const {
-  //   ref: captchaRef,
-  //   execute: executeCaptcha,
-  //   reset: resetCaptcha,
-  //   isEnabled: isCaptchaEnabled,
-  // } = useCaptcha();
 
   const handleRegister = useCallback(
     (token?: string) => {

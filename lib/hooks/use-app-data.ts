@@ -9,16 +9,16 @@ export type UserData = {
   name?: string;
 };
 
-type ConfDataContextType = {
+type AppDataContextType = {
   userData: UserData;
   setUserData: React.Dispatch<React.SetStateAction<UserData>>;
   setPageState: React.Dispatch<React.SetStateAction<PageState>>;
 };
 
-export const ConfDataContext = createContext<ConfDataContextType | null>(null);
+export const AppDataContext = createContext<AppDataContextType | null>(null);
 
-export default function useConfData() {
-  const result = useContext(ConfDataContext);
+export default function useAppData() {
+  const result = useContext(AppDataContext);
   if (!result) {
     throw new Error();
   }
