@@ -48,6 +48,7 @@
     "stylelint",
     "stylelintrc",
     "supabase",
+    "upserted",
     "vercel",
     "vite"
   ]
