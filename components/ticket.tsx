@@ -1,5 +1,5 @@
 import { DATE, SITE_NAME, TicketGenerationState } from '@lib/constants';
-import { UserData } from '@lib/hooks/use-conf-data';
+import { UserData } from '@lib/hooks/use-app-data';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
 import { scrollTo } from '@lib/smooth-scroll';
 import cn from 'clsx';
@@ -60,7 +60,7 @@ export default function Ticket({ username, name, ticketNumber, sharePage }: Prop
               )
             ) : (
               <>
-                You're in. <br /> Make it unique.
+                You&amp;re in. <br /> Make it unique.
               </>
             )}
           </h2>
