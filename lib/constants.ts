@@ -1,4 +1,4 @@
-export const SITE_URL = 'https://3000-drkstr101-apscandyshowd-h0jfyjx8y8b.ws-us116.gitpod.io';
+export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
 export const TWITTER_USER_NAME = 'apsphysics';
 export const BRAND_NAME = 'APS';
@@ -6,10 +6,10 @@ export const SITE_NAME_MULTILINE = ['Candy', 'Showdown'];
 export const SITE_NAME = 'Candy Showdown';
 export const META_DESCRIPTION =
   '2024 Oktoberfest Candy Showdown brought to you by the American Physical Society Events Committee';
-export const SITE_DESCRIPTION = 'An interactive online experience for Oktoberfest 2024';
-export const DATE = '24 October 2024';
-export const SHORT_DATE = 'Oct 24 - 1:00pm ET';
-export const FULL_DATE = 'Oct 24th 1:00pm Eastern Time (GMT-5)';
+export const SITE_DESCRIPTION = 'An interactive online tournament for Oktoberfest 2024.';
+export const DATE = '14 October 2024';
+export const SHORT_DATE = 'Oct 14 - 9:00am ET';
+export const FULL_DATE = 'Oct 14th 9:00am Eastern Time (GMT-5)';
 export const TWEET_TEXT = META_DESCRIPTION;
 export const COOKIE = 'user-id';
 
@@ -26,8 +26,8 @@ export const INFO_URL =
 export const SAMPLE_TICKET_NUMBER = 1234;
 export const NAVIGATION = [
   {
-    name: 'Live Chat',
-    route: '/stage/a',
+    name: 'Lobby',
+    route: '/lobby',
   },
   {
     name: 'Schedule',

@@ -17,8 +17,6 @@ export type Participant = {
 export type Stage = {
   name: string;
   slug: string;
-  // stream: string;
-  // discord: string;
   schedule: Match[];
   isLive: boolean;
   channelId: string;
@@ -67,23 +65,3 @@ export type Job = {
   link: string;
   rank: number;
 };
-
-export type ConfUser = {
-  id?: string;
-  email?: string;
-  ticketNumber?: number | null;
-  name?: string | null;
-  username?: string | null;
-  createdAt?: number | null;
-};
-
-export type GitHubOAuthData =
-  | {
-      type: 'token';
-      token: string;
-    }
-  | {
-      type: 'user';
-      name: string;
-      login: string;
-    };

@@ -5,9 +5,10 @@ import { REPO, SITE_ORIGIN, TicketGenerationState } from '@lib/constants';
 import useConfData from '@lib/hooks/use-conf-data';
 import isMobileOrTablet from '@lib/is-mobile-or-tablet';
 import { scrollTo } from '@lib/smooth-scroll';
-import { GitHubOAuthData } from '@lib/types';
+import { OAuthData } from '@lib/types';
 import { saveGithubToken } from '@lib/user-api';
 import cn from 'clsx';
+import Link from 'next/link';
 import React, { useRef, useState } from 'react';
 import formStyles from './form.module.css';
 import LoadingDots from './loading-dots';
@@ -82,7 +83,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           `resizable,scrollbars,status,width=${windowWidth},height=${windowHeight},top=${windowTop},left=${windowLeft}`
         );
 
-        new Promise<GitHubOAuthData | undefined>((resolve) => {
+        new Promise<OAuthData | undefined>((resolve) => {
           const interval = setInterval(() => {
             if (!openedWindow || openedWindow.closed) {
               clearInterval(interval);
@@ -139,7 +140,6 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             fetch(`/tickets/${usernameFromResponse}`).catch((_) => {});
           })
           .catch((err) => {
-            // eslint-disable-next-line no-console
             console.error(err);
             setFormState('error');
             setErrorMsg('Error! Please try again.');
@@ -205,7 +205,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
           </p>
         </div>
         <div className={formStyles['or-divider']}>OR</div>
-        <a
+        <Link
           href="/stage/a"
           className={cn(
             formStyles.submit,
@@ -219,7 +219,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             </span>
             Go to Live Stage
           </div>
-        </a>
+        </Link>
       </div>
     </form>
   );

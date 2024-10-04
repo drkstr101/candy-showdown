@@ -44,7 +44,7 @@
   position: relative;
   border-radius: var(--space-2x);
   overflow: hidden;
-  background: var(--gray);
+  background: theme(colors.neutral.800);
 }
 
 @media (width >= 768px) {

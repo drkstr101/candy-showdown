@@ -74,9 +74,9 @@ exports[`Index should render successfully 1`] = `
           >
             <a
               class="tab"
-              href="/stage/a"
+              href="/lobby"
             >
-              Live Chat
+              Lobby
             </a>
             <a
               class="tab"
@@ -152,7 +152,7 @@ exports[`Index should render successfully 1`] = `
                   <h2
                     class="appear appear-third show-on-mobile description"
                   >
-                    An interactive online experience for Oktoberfest 2024
+                    An interactive online tournament for Oktoberfest 2024.
                   </h2>
                   <h1
                     class="appear appear-third hero"
@@ -166,13 +166,13 @@ exports[`Index should render successfully 1`] = `
                   <h2
                     class="appear appear-third show-on-tablet description"
                   >
-                    An interactive online experience for Oktoberfest 2024
+                    An interactive online tournament for Oktoberfest 2024.
                   </h2>
                   <div
                     class="appear appear-fourth info"
                   >
                     <p>
-                      24 October 2024
+                      14 October 2024
                     </p>
                     <div
                       class="description-separator"
@@ -217,7 +217,7 @@ exports[`Index should render successfully 1`] = `
                   class="appear appear-fifth contact"
                 >
                   Learn more on
-
+                   
                   <a
                     class="contact-email"
                     href="https://aps.jostle.us/jostle-prod/#~b~:0:0:-1:-1:-1:-1:0:0:~dw~:NEWS2_VIEWER:0000018ae1cdfbd3-0010033e-532301db"
@@ -249,7 +249,7 @@ exports[`Index should render successfully 1`] = `
                   <div
                     class="secondary-text"
                   >
-                    Created by
+                    Created by 
                   </div>
                   <div
                     style="width: 123px; height: 54px;"
@@ -275,11 +275,11 @@ exports[`Index should render successfully 1`] = `
               <div
                 class="footer-copyright"
               >
-                Copyright ©
-                2024
-
+                Copyright © 
+                2024 
+                 
                 American Physical Society.
-                 All rights reserved.
+                 For internal use only.
               </div>
               <div
                 class="footer-center-group"

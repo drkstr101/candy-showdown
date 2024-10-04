@@ -17,7 +17,6 @@ const config: Config = {
   moduleNameMapper: {
     '^@components/(.*)$': '<rootDir>/components/$1',
     '^@lib/(.*)$': '<rootDir>/lib/$1',
-    '^@media/(.*)$': '<rootDir>/media/$1',
     '^@styles/(.*)$': '<rootDir>/styles/$1',
   },
 };

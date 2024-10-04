@@ -40,8 +40,10 @@
   "stylelint.packageManager": "yarn",
   "tailwindCSS.lint.invalidConfigPath": "ignore",
   "cSpell.words": [
+    "plpgsql",
     "recma",
     "rehype",
+    "screenshare",
     "shiki",
     "stylelint",
     "stylelintrc",

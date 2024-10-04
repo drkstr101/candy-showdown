@@ -5,12 +5,12 @@
   line-height: 1.5;
   display: flex;
   justify-content: center;
-  color: var(--secondary-color);
+  color: var(--accents-3);
   z-index: 2;
 }
 
 .footer-link {
-  color: var(--secondary-color);
+  color: var(--accents-3);
   font-size: 12px;
   transition: color 0.2s ease;
 }
@@ -70,7 +70,7 @@
     margin: 0 10px;
     height: var(--space-4x);
     width: 1px;
-    background: var(--secondary-color);
+    background: var(--accents-3);
     display: block;
   }
 }
@@ -80,7 +80,7 @@
 }
 
 .secondary-text {
-  color: var(--secondary-color);
+  color: var(--accents-3);
   display: none;
 }
 

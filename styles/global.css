@@ -14,6 +14,28 @@
 @tailwind utilities;
 
 :root {
+  /* Setup color palette */
+  --black: theme(colors.black);
+  --white: theme(colors.white);
+  --accents-1: theme(colors.neutral.100);
+  --accents-2: theme(colors.neutral.200);
+  --accents-3: theme(colors.neutral.300);
+  --accents-4: theme(colors.neutral.400);
+  --accents-5: theme(colors.neutral.500);
+  --accents-6: theme(colors.neutral.600);
+  --accents-7: theme(colors.neutral.700);
+  --accents-8: theme(colors.neutral.800);
+  --gray: theme(colors.neutral.800);
+  --secondary-color: theme(colors.neutral.400);
+  --sidebar: theme(colors.black);
+  --brand: theme(colors.primary.500);
+  --brand-lighter: theme(colors.primary.300);
+  --brand-light: theme(colors.primary.400);
+  --brand-dark: theme(colors.primary.700);
+  --gray1: theme(colors.neutral.900);
+  --error: theme(colors.danger.500);
+
+  /* Spacing */
   --space: 4px;
   --space-2x: 8px;
   --space-3x: 12px;
@@ -23,29 +45,15 @@
   --space-12x: 48px;
   --space-16x: 64px;
   --space-32x: 128px;
+
+  /* Typography options */
   --text-xs: 12px;
   --text-sm: 14px;
   --text-md: 16px;
   --text-lg: 18px;
   --text-xl: 24px;
-  --accents-1: #fafafa;
-  --accents-2: #eaeaea;
-  --accents-3: #999;
-  --accents-4: #888;
-  --accents-5: #666;
-  --accents-6: #444;
-  --accents-7: #333;
-  --accents-8: #111;
-  --gray: #252729;
-  --secondary-color: #8a8f98;
-  --sidebar: #0e0e10;
-  --brand: #00b48d;
-  --brand-lighter: #63f2c9;
-  --brand-light: #25e2b3;
-  --brand-dark: #00836b;
-  --gray1: #222;
-  --error: #ea3323;
-  --foreground: #fff;
+
+  /* Sizing options */
   --header-height: 72px;
   --video-list-height: 150px;
 }
@@ -89,13 +97,13 @@ body {
 
 html,
 body {
-  color: var(--foreground);
+  color: theme(colors.white);
   background-color: var(--accents-8);
 }
 
 ::selection {
-  background-color: #0070f3;
-  color: var(--foreground);
+  background-color: theme(colors.secondary.700);
+  color: theme(colors.white);
 }
 
 [role='grid']:focus {
@@ -111,7 +119,7 @@ h3 {
 a {
   text-decoration: none;
   transition: color 0.2s ease;
-  color: var(--secondary-color);
+  color: theme(colors.neutral.700);
 }
 
 iframe {
@@ -150,7 +158,7 @@ svg circle {
   position: fixed;
   top: 10px;
   left: 10px;
-  background: var(--foreground);
+  background: theme(colors.white);
   z-index: 1;
   width: auto;
   height: auto;
@@ -160,7 +168,7 @@ svg circle {
 button {
   font-size: 16px;
   font-weight: 500;
-  color: var(--foreground);
+  color: theme(colors.white);
   font-family: inherit;
   background-color: transparent;
   border: none;
@@ -170,7 +178,7 @@ button {
 input {
   transition: background 0.2s ease;
   font-family: inherit;
-  color: var(--foreground);
+  color: theme(colors.white);
   border: none;
 }
 
@@ -246,9 +254,9 @@ input {
 
 .sidebar-container {
   width: 100%;
-  background: var(--sidebar);
+  background: theme(colors.black);
   padding: var(--space-4x) 0;
-  color: var(--secondary-color);
+  color: theme(colors.neutral.500);
   font-size: 14px;
 
   /* min-height: 1px; */
@@ -301,25 +309,25 @@ input {
 }
 
 .speaker-badge {
-  border: 1px solid #e9a944;
+  border: 1px solid theme(colors.orange.500);
 }
 
 .moderator-badge {
-  border: 1px solid #4e8ff7;
+  border: 1px solid theme(colors.blue.500);
 }
 
 .guest-badge {
-  border: 1px solid #8465cb;
+  border: 1px solid theme(colors.teal.500);
 }
 
 .attendee-badge {
-  border: 1px solid #8465cb;
+  border: 1px solid theme(colors.neutral.200);
 }
 
 .tabs button[data-state='active'] {
   background-color: var(--accents-7);
   font-weight: 700;
-  color: var(--foreground);
+  color: theme(colors.white);
   outline: none;
 }
 

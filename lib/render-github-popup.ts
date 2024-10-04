@@ -1,8 +1,8 @@
 import { SITE_ORIGIN } from '@lib/constants';
-import { GitHubOAuthData } from '@lib/types';
+import { OAuthData } from '@lib/types';
 import htmlescape from 'htmlescape';
 
-export function renderSuccess(data?: GitHubOAuthData) {
+export function renderSuccess(data?: OAuthData) {
   return `
 <!DOCTYPE html>
 <html lang="en">

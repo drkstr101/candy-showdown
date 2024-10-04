@@ -39,7 +39,6 @@ export async function getAllParticipants(): Promise<Participant[]> {
          company
          match {
            title
-           description
          }
          image {
            url(imgixParams: {fm: jpg, fit: crop, w: 300, h: 400})
