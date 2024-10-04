@@ -1,7 +1,7 @@
 // import { IS_CAPTCHA_ENABLED, validateCaptchaResult } from '@lib/captcha';
 import { COOKIE } from '@lib/constants';
 import { createUser, getTicketNumberByUserId, getUserById } from '@lib/db-api';
-import { ConfUser } from '@lib/types';
+import { AppUser } from '@lib/types';
 import { emailToId } from '@lib/user-api';
 import cookie from 'cookie';
 import ms from 'ms';
@@ -18,7 +18,7 @@ type ErrorResponse = {
 
 export default async function register(
   req: NextApiRequest,
-  res: NextApiResponse<ConfUser | ErrorResponse>
+  res: NextApiResponse<AppUser | ErrorResponse>
 ) {
   if (req.method !== 'POST') {
     return res.status(501).json({

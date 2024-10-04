@@ -1,9 +1,8 @@
 import useLoginStatus from '@lib/hooks/use-login-status';
 import { Stage } from '@lib/types';
-import cn from 'clsx';
+import { default as clsx, default as cn } from 'clsx';
 import useSWR from 'swr';
-import ConfEntry from './conf-entry';
-import clsx from 'clsx';
+import AppEntry from './app-entry';
 import ScheduleSidebar from './schedule-sidebar';
 import styles from './stage-container.module.css';
 import styleUtils from './utils.module.css';
@@ -64,7 +63,7 @@ export default function StageContainer({ stage, allStages }: Props) {
             </div>
           </div>
         ) : loginStatus === 'loading' ? null : (
-          <ConfEntry onRegister={() => mutate()} />
+          <AppEntry onRegister={() => mutate()} />
         )}
       </div>
       <ScheduleSidebar allStages={updatedStages} />

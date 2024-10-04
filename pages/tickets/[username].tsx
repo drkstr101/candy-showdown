@@ -4,7 +4,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import Error from 'next/error';
 import Head from 'next/head';
 
-import ConfContent from '@components/index';
+import AppContent from '@components/app';
 import Page from '@components/page';
 import { META_DESCRIPTION, SAMPLE_TICKET_NUMBER, SITE_NAME, SITE_URL } from '@lib/constants';
 
@@ -40,7 +40,7 @@ export default function TicketShare({ username, ticketNumber, name, usernameFrom
         <meta name="robots" content="noindex" />
       </Head>
       <SkipNavContent />
-      <ConfContent
+      <AppContent
         defaultUserData={{
           username: username || undefined,
           name: name || '',

@@ -1,4 +1,4 @@
-export type { ConfUser, OAuthData } from './auth';
+export type { AppUser, OAuthData } from './auth';
 
 export type {
   Image,

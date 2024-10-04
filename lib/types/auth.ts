@@ -1,4 +1,4 @@
-export type ConfUser = {
+export type AppUser = {
   id?: string;
   email?: string;
   ticketNumber?: number | null;

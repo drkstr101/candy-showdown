@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import { ConfUser } from '@lib/types';
+import { AppUser } from '@lib/types';
 import { createClient } from '@supabase/supabase-js';
 
 const supabase =
@@ -9,20 +9,20 @@ const supabase =
     ? createClient(process.env.SUPABASE_URL, process.env.SUPABASE_SERVICE_ROLE_SECRET)
     : undefined;
 
-export async function getUserByEmail(email: string): Promise<ConfUser> {
+export async function getUserByEmail(email: string): Promise<AppUser> {
   const { data } = await supabase!.from('users').select('*').eq('username', email).single();
 
   return data ?? {};
 }
 
-export async function getUserById(id: string): Promise<ConfUser> {
+export async function getUserById(id: string): Promise<AppUser> {
   const { data, error } = await supabase!.from('users').select('*').eq('id', id).single();
   if (error) throw new Error(error.message);
 
   return data ?? {};
 }
 
-export async function createUser(id: string, email: string): Promise<ConfUser> {
+export async function createUser(id: string, email: string): Promise<AppUser> {
   const { data, error } = await supabase!.from('users').insert({ id, email }).single();
   if (error) throw new Error(error.message);
 
@@ -43,7 +43,7 @@ export async function createAuthUser(user: Record<string, unknown>): Promise<str
   // return data.id;
 }
 
-export async function updateUserWithAuthUser(id: string, token: string): Promise<ConfUser> {
+export async function updateUserWithAuthUser(id: string, token: string): Promise<AppUser> {
   throw new Error('TODO: not implemented');
   // const { data } = await supabase!.from('auth_users').select('userData').eq('id', token).single();
   // const { login: username, name } = data?.userData ?? {};

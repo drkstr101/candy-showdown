@@ -1,6 +1,6 @@
 import { AppDataContext, PageState, UserData } from '@lib/hooks/use-app-data';
 import { useState } from 'react';
-import ConfContainer from './conf-container';
+import AppContainer from './app-container';
 import Form from './form';
 import Hero from './hero';
 import Layout from './layout';
@@ -13,7 +13,7 @@ type Props = {
   defaultPageState?: PageState;
 };
 
-export default function Conf({
+export default function App({
   defaultUserData,
   sharePage,
   defaultPageState = 'registration',
@@ -30,7 +30,7 @@ export default function Conf({
       }}
     >
       <Layout>
-        <ConfContainer>
+        <AppContainer>
           {pageState === 'registration' && !sharePage ? (
             <>
               <Hero />
@@ -45,7 +45,7 @@ export default function Conf({
               sharePage={sharePage}
             />
           )}
-        </ConfContainer>
+        </AppContainer>
       </Layout>
     </AppDataContext.Provider>
   );

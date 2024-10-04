@@ -2,8 +2,7 @@ import useEmailQueryParam from '@lib/hooks/use-email-query-param';
 import { register } from '@lib/user-api';
 import cn from 'clsx';
 import { useCallback, useState } from 'react';
-// import Captcha, { useCaptcha } from './captcha';
-import styles from './conf-entry.module.css';
+import styles from './app-entry.module.css';
 import LoadingDots from './loading-dots';
 import styleUtils from './utils.module.css';
 
@@ -20,7 +19,7 @@ function getErrorMsg(code: string) {
   }
 }
 
-export default function ConfEntry({ onRegister }: { onRegister: () => void }) {
+export default function AppEntry({ onRegister }: { onRegister: () => void }) {
   const [emailInput, setEmailInput] = useState('');
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
