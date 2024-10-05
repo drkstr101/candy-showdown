@@ -1,4 +1,4 @@
-// import { IS_CAPTCHA_ENABLED, validateCaptchaResult } from '@lib/captcha';
+import { isValidEmail } from '@lib/auth/helpers';
 import { COOKIE } from '@lib/constants';
 import { createUser, getTicketNumberByUserId, getUserById } from '@lib/db-api';
 import { AppUser } from '@lib/types';
@@ -7,7 +7,6 @@ import cookie from 'cookie';
 import ms from 'ms';
 import { nanoid } from 'nanoid';
 import { NextApiRequest, NextApiResponse } from 'next';
-import validator from 'validator';
 
 type ErrorResponse = {
   error: {
@@ -30,8 +29,7 @@ export default async function register(
   }
 
   const email: string = ((req.body.email as string) || '').trim().toLowerCase();
-  const token: string = req.body.token as string;
-  if (!validator.isEmail(email)) {
+  if (!isValidEmail(email)) {
     return res.status(400).json({
       error: {
         code: 'bad_email',
@@ -39,19 +37,6 @@ export default async function register(
       },
     });
   }
-
-  // if (IS_CAPTCHA_ENABLED) {
-  //   const isCaptchaValid = await validateCaptchaResult(token);
-
-  //   if (!isCaptchaValid) {
-  //     return res.status(400).json({
-  //       error: {
-  //         code: 'bad_captcha',
-  //         message: 'Invalid captcha',
-  //       },
-  //     });
-  //   }
-  // }
 
   let id = nanoid();
   let ticketNumber: number;

@@ -1,6 +1,6 @@
 import { DATE, SITE_NAME, TicketGenerationState } from '@lib/constants';
+import isMobileOrTablet from '@lib/helpers/is-mobile-or-tablet';
 import { UserData } from '@lib/hooks/use-app-data';
-import isMobileOrTablet from '@lib/is-mobile-or-tablet';
 import { scrollTo } from '@lib/smooth-scroll';
 import cn from 'clsx';
 import { useEffect, useRef, useState } from 'react';

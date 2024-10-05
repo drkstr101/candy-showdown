@@ -1,6 +1,6 @@
 'use client';
 
-import { getURL } from '@lib/helpers';
+import getURL from '@lib/helpers/get-url';
 import { createClient } from '@lib/supabase/client';
 import { type Provider } from '@supabase/supabase-js';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';

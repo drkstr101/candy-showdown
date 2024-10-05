@@ -1,4 +1,4 @@
-import px from '@lib/to-pixels';
+import px from '@lib/helpers/to-pixels';
 import cn from 'clsx';
 import styles from './loading-dots.module.css';
 

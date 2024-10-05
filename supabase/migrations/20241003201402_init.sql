@@ -5,13 +5,13 @@
 -- Custom types
 create type public.app_permission as enum ('channels.delete', 'messages.delete');
 create type public.app_role as enum ('admin', 'moderator');
-create type public.user_status as enum ('o', 'OFFLINE');
+create type public.user_status as enum ('online', 'offline');
 
 -- USERS
 create table public.users (
   id          uuid references auth.users not null primary key, -- UUID from auth.users
   username    text,
-  status      user_status default 'OFFLINE'::public.user_status
+  status      user_status default 'offline'::public.user_status
 );
 comment on table public.users is 'Profile data for each user.';
 comment on column public.users.id is 'References the internal Supabase Auth user.';
@@ -102,13 +102,13 @@ returns trigger as $$
 declare is_admin boolean;
 begin
   insert into public.users (id, username)
-  values (new.id, new.email);
+  values (new.id, split_part(new.email, '@', 1));
 
   select count(*) = 1 from auth.users into is_admin;
 
-  if position('+supaadmin@' in new.email) > 0 then
+  if position('+admin@' in new.email) > 0 then
     insert into public.user_roles (user_id, role) values (new.id, 'admin');
-  elsif position('+supamod@' in new.email) > 0 then
+  elsif position('+moderator@' in new.email) > 0 then
     insert into public.user_roles (user_id, role) values (new.id, 'moderator');
   end if;
 
