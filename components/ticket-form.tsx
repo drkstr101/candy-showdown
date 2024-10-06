@@ -6,7 +6,7 @@ import isMobileOrTablet from '@lib/helpers/is-mobile-or-tablet';
 import useAppData from '@lib/hooks/use-app-data';
 import { scrollTo } from '@lib/smooth-scroll';
 import { OAuthData } from '@lib/types';
-import { saveGithubToken } from '@lib/user-api';
+import { saveAuthToken } from '@lib/user-api';
 import cn from 'clsx';
 import Link from 'next/link';
 import React, { useRef, useState } from 'react';
@@ -113,7 +113,7 @@ export default function Form({ defaultUsername = '', setTicketGenerationState }:
             let usernameFromResponse: string;
             let name: string;
             if (data.type === 'token') {
-              const res = await saveGithubToken({ id: userData.id, token: data.token });
+              const res = await saveAuthToken({ id: userData.id, token: data.token });
 
               if (!res.ok) {
                 throw new Error('Failed to store oauth result');

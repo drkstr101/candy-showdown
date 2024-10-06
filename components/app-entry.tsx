@@ -1,4 +1,4 @@
-import useEmailQueryParam from '@lib/hooks/use-email-query-param';
+import useQueryParam from '@lib/hooks/use-query-param';
 import { register } from '@lib/user-api';
 import cn from 'clsx';
 import { useCallback, useState } from 'react';
@@ -64,7 +64,7 @@ export default function AppEntry({ onRegister }: { onRegister: () => void }) {
     setFormState('default');
   }, []);
 
-  useEmailQueryParam('login', setEmailInput);
+  useQueryParam('login', setEmailInput);
 
   return (
     <div className={cn(styles.container, styleUtils.appear, styleUtils['appear-first'])}>

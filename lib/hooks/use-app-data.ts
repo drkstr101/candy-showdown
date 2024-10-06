@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-export type PageState = 'registration' | 'ticket';
+export type PageState = 'registration' | 'lobby';
 
 export type UserData = {
   id?: string;

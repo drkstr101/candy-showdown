@@ -1,6 +1,6 @@
 import FormError from '@lib/form-error';
 import useAppData from '@lib/hooks/use-app-data';
-import useEmailQueryParam from '@lib/hooks/use-email-query-param';
+import useQueryParam from '@lib/hooks/use-query-param';
 import { register } from '@lib/user-api';
 import cn from 'clsx';
 import { useRouter } from 'next/router';
@@ -52,7 +52,7 @@ export default function Form({ sharePage }: Props) {
             await router.replace(`/?${queryString}`, '/');
           } else {
             setUserData(params);
-            setPageState('ticket');
+            setPageState('lobby');
           }
         })
         .catch(async (err) => {
@@ -82,33 +82,22 @@ export default function Form({ sharePage }: Props) {
 
       if (formState === 'default') {
         setFormState('loading');
-
-        // if (isCaptchaEnabled) {
-        //   return executeCaptcha();
-        // }
-
         return handleRegister();
       } else {
         setFormState('default');
       }
     },
-    [/* executeCaptcha, */ formState, /* isCaptchaEnabled, */ handleRegister]
+    [formState, handleRegister]
   );
 
-  const onTryAgainClick = useCallback(
-    (e: React.MouseEvent) => {
-      e.preventDefault();
+  const onTryAgainClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
 
-      setFormState('default');
-      setErrorTryAgain(true);
-      // resetCaptcha();
-    },
-    [
-      /* resetCaptcha */
-    ]
-  );
+    setFormState('default');
+    setErrorTryAgain(true);
+  }, []);
 
-  useEmailQueryParam('email', setEmail);
+  useQueryParam('email', setEmail);
 
   return formState === 'error' ? (
     <div
@@ -168,7 +157,6 @@ export default function Form({ sharePage }: Props) {
           {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
         </button>
       </div>
-      {/* <Captcha ref={captchaRef} onVerify={handleRegister} /> */}
     </form>
   );
 }

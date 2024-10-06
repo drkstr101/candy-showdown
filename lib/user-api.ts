@@ -1,6 +1,7 @@
 import crypto from 'crypto';
 
 export async function register(email: string, token?: string) {
+  console.log('register(email, token)', email, token);
   return await fetch('/api/register', {
     method: 'POST',
     headers: {
@@ -10,8 +11,8 @@ export async function register(email: string, token?: string) {
   });
 }
 
-export async function saveGithubToken({ id, token }: { id?: string; token: string }) {
-  return await fetch('/api/save-github-token', {
+export async function saveAuthToken({ id, token }: { id?: string; token: string }) {
+  return await fetch('/api/save-auth-token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
-import { isValidEmail } from '@lib/auth/helpers';
 import { COOKIE } from '@lib/constants';
 import { createUser, getTicketNumberByUserId, getUserById } from '@lib/db-api';
+import isValidEmail from '@lib/helpers/is-valid-email';
 import { AppUser } from '@lib/types';
 import { emailToId } from '@lib/user-api';
 import cookie from 'cookie';

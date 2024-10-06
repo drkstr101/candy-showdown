@@ -5,7 +5,7 @@ import AppContent from '@components/app';
 import Page from '@components/page';
 import { META_DESCRIPTION } from '@lib/constants';
 
-export default function App() {
+export default function Index() {
   const { query } = useRouter();
   const meta = {
     title: 'Candy Showdown',
@@ -24,7 +24,7 @@ export default function App() {
       <SkipNavContent />
       <AppContent
         defaultUserData={defaultUserData}
-        defaultPageState={query.ticketNumber ? 'ticket' : 'registration'}
+        defaultPageState={query.ticketNumber ? 'lobby' : 'registration'}
       />
     </Page>
   );

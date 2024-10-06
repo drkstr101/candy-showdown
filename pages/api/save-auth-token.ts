@@ -1,7 +1,7 @@
 import { getTicketNumberByUserId, updateUserWithAuthUser } from '@lib/db-api';
 import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function saveGithubToken(req: NextApiRequest, res: NextApiResponse) {
+export default async function saveAuthToken(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(501).json({
       error: {

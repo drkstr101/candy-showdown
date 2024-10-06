@@ -7,16 +7,16 @@ enabled = true
 # Port to use for the API URL.
 port = 54321
 # Schemas to expose in your API. Tables, views and stored procedures in this schema will get API
-# endpoints. public and storage are always included.
+# endpoints. `public` is always included.
 schemas = ["public", "storage", "graphql_public"]
-# Extra schemas to add to the search_path of every request. public is always included.
+# Extra schemas to add to the search_path of every request. `public` is always included.
 extra_search_path = ["public", "extensions"]
 # The maximum number of rows returns from a view, table, or stored procedure. Limits payload size
 # for accidental or malicious requests.
 max_rows = 1000
 
 [api.tls]
-enabled = true
+enabled = false
 
 [db]
 # Port to use for the local database URL.
@@ -39,12 +39,19 @@ default_pool_size = 20
 # Maximum number of client connections allowed.
 max_client_conn = 100
 
+[db.seed]
+# If enabled, seeds the database after migrations during a db reset.
+enabled = true
+# Specifies an ordered list of seed files to load during db reset.
+# Supports glob patterns relative to supabase directory. For example:
+sql_paths = ['./seed.sql']
+
 [realtime]
 enabled = true
 # Bind realtime via either IPv4 or IPv6. (default: IPv4)
-ip_version = "IPv6"
+# ip_version = "IPv6"
 # The maximum length in bytes of HTTP request headers. (default: 4096)
-max_header_length = 4096
+# max_header_length = 4096
 
 [studio]
 enabled = true
@@ -68,7 +75,7 @@ port = 54324
 [storage]
 enabled = true
 # The maximum file size allowed (e.g. "5MB", "500KB").
-file_size_limit = "5MB"
+file_size_limit = "5MiB"
 
 [storage.image_transformation]
 enabled = true
@@ -76,7 +83,7 @@ enabled = true
 # Uncomment to configure local storage buckets
 # [storage.buckets.images]
 # public = false
-# file_size_limit = "5MB"
+# file_size_limit = "5MiB"
 # allowed_mime_types = ["image/png", "image/jpeg"]
 # objects_path = "./images"
 
@@ -86,9 +93,9 @@ enabled = true
 # in emails.
 site_url = "env(SITE_URL)"
 # A list of *exact* URLs that auth providers are permitted to redirect to post authentication.
-additional_redirect_urls = ["http://localhost:3000", "http://127.0.0.1:3000", "https://3000-drkstr101-candyshowdown-c6xhjneboti.ws-us116.gitpod.io"]
+additional_redirect_urls = ["https://candy-showdown.vercel.app", "https://3000-drkstr101-candyshowdown-*.ws-us116.gitpod.io", "https://127.0.0.1:3000"]
 # How long tokens are valid for, in seconds. Defaults to 3600 (1 hour), maximum 604,800 (1 week).
-jwt_expiry = 432_000 # 5 days
+jwt_expiry = 172800 # 48 hours
 # If disabled, the refresh token will never expire.
 enable_refresh_token_rotation = true
 # Allows refresh tokens to be reused after expiry, up to the specified interval in seconds.
@@ -123,9 +130,9 @@ max_frequency = "15s"
 # admin_email = "admin@email.com"
 # sender_name = "Admin"
 
-# Customize invite email
+# Uncomment to customize email template
 [auth.email.template.invite]
-subject = "User registration | Candy Showdown"
+subject = "You have been invited to to join APS Oktoberfest 2024"
 content_path = "./supabase/templates/invite.html"
 
 # Customize magic-link email
@@ -144,9 +151,8 @@ template = "Your code is {{ .Code }} ."
 max_frequency = "15s"
 
 # Use pre-defined map of phone number to OTP for testing.
-[auth.sms.test_otp]
-enabled = true
-5555555555 = "123456"
+# [auth.sms.test_otp]
+# 4152127777 = "123456"
 
 # Configure logged in session timeouts.
 # [auth.sessions]
@@ -166,7 +172,7 @@ enabled = false
 account_sid = ""
 message_service_sid = ""
 # DO NOT commit your Twilio auth token to git. Use environment variable substitution instead:
-auth_token = "env(SMS_TWILIO_AUTH_TOKEN)"
+auth_token = "env(SUPABASE_AUTH_SMS_TWILIO_AUTH_TOKEN)"
 
 [auth.mfa]
 # Control how many MFA factors can be enrolled at once per user.
@@ -190,11 +196,11 @@ verify_enabled = false
 # `twitter`, `slack`, `spotify`, `workos`, `zoom`.
 [auth.external.github]
 enabled = false
-client_id = "env(GITHUB_OAUTH_CLIENT_ID)"
+client_id = "env(SUPABASE_AUTH_EXTERNAL_GITHUB_CLIENT_ID)"
 # DO NOT commit your OAuth provider secret to git. Use environment variable substitution instead:
-secret = "env(GITHUB_OAUTH_CLIENT_SECRET)"
+secret = "env(SUPABASE_AUTH_EXTERNAL_GITHUB_SECRET)"
 # Overrides the default auth redirectUrl.
-redirect_uri = "env(GITHUB_OAUTH_REDIRECT_URI)"
+redirect_uri = "env(SUPABASE_AUTH_EXTERNAL_GITHUB_REDIRECT_URL)"
 # Overrides the default auth provider URL. Used to support self-hosted gitlab, single-tenant Azure,
 # or any other third-party OIDC providers.
 # url = ""
