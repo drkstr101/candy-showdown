@@ -12,7 +12,7 @@ export default function ViewSource() {
       className={styles.svg}
     >
       <a title="View Source" href={REPO} target="_blank" rel="noopener noreferrer">
-        <path d="M0 0l115 115h15l12 27 108 108V0z" fill="#fff" />
+        <path d="M0 0l115 115h15l12 27 108 108V0z" fill="#fafafa" />
         <path
           className={styles.arm}
           d="M128 109c-15-9-9-19-9-19 3-7 2-11 2-11-1-7 3-2 3-2 4 5 2 11 2 11-3 10 5 15 9 16"

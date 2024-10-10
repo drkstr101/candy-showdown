@@ -16,7 +16,7 @@
 }
 
 .footer-link:hover {
-  color: #fff;
+  color: theme(colors.white);
 }
 
 .footer-logo :global(img) {

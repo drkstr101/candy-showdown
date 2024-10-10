@@ -11,6 +11,11 @@ permissions:
   actions: read
   contents: read
 
+env:
+  # Setting an environment variable with the value of a configuration variable
+  NEXT_PUBLIC_SUPABASE_URL: ${{ vars.NEXT_PUBLIC_SUPABASE_URL }}
+  NEXT_PUBLIC_SUPABASE_ANON_KEY: ${{ vars.NEXT_PUBLIC_SUPABASE_ANON_KEY }}
+
 jobs:
   main:
     runs-on: ubuntu-latest

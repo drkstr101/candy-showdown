@@ -19,7 +19,7 @@
 
 .header {
   font-size: 24px;
-  color: #fff;
+  color: theme(colors.white);
   line-height: 1.15;
   letter-spacing: -0.05em;
   font-weight: 800;

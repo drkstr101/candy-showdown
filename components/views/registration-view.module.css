@@ -1,0 +1,14 @@
+.status {
+  text-align: center;
+  color: theme(colors.neutral.400);
+  margin-bottom: var(--space-12x);
+}
+
+.status-link {
+  color: theme(colors.white);
+}
+
+.status-link:hover {
+  text-decoration: underline;
+  color: theme(colors.white);
+}

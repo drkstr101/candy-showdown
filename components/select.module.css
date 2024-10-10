@@ -21,7 +21,7 @@
   -webkit-rtl-ordering: logical;
   appearance: none;
   cursor: default;
-  color: #fff;
+  color: theme(colors.white);
   font-size: 14px;
   font-family: inherit;
   width: 100%;
@@ -44,8 +44,8 @@
 }
 
 .select option {
-  background-color: black;
-  color: #fff;
+  background-color: theme(colors.black);
+  color: theme(colors.white);
 }
 
 .arrow {
@@ -60,5 +60,5 @@
 }
 
 .arrow > svg {
-  color: #fff;
+  color: theme(colors.white);
 }

@@ -1,31 +1,21 @@
-import { SkipNavContent } from '@reach/skip-nav';
-import { useRouter } from 'next/router';
-
-import AppContent from '@components/app';
+import { useAuth } from '@components/auth-provider';
+import Layout from '@components/layout';
 import Page from '@components/page';
+import Lobby from '@components/views/lobby-view';
+import Registration from '@components/views/registration-view';
+
 import { META_DESCRIPTION } from '@lib/constants';
 
 export default function Index() {
-  const { query } = useRouter();
   const meta = {
     title: 'Candy Showdown',
     description: META_DESCRIPTION,
   };
-  const ticketNumber = query.ticketNumber?.toString();
-  const defaultUserData = {
-    id: query.id?.toString(),
-    ticketNumber: ticketNumber ? parseInt(ticketNumber, 10) : undefined,
-    name: query.name?.toString(),
-    username: query.username?.toString(),
-  };
 
+  const { loginStatus } = useAuth();
   return (
     <Page meta={meta} fullViewport>
-      <SkipNavContent />
-      <AppContent
-        defaultUserData={defaultUserData}
-        defaultPageState={query.ticketNumber ? 'lobby' : 'registration'}
-      />
+      <Layout>{loginStatus === 'loggedIn' ? <Lobby /> : <Registration />}</Layout>
     </Page>
   );
 }

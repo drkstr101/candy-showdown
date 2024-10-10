@@ -26,8 +26,8 @@ export const INFO_URL =
 export const SAMPLE_TICKET_NUMBER = 1234;
 export const NAVIGATION = [
   {
-    name: 'Lobby',
-    route: '/lobby',
+    name: 'Tournament',
+    route: '/tournament',
   },
   {
     name: 'Schedule',
@@ -37,10 +37,9 @@ export const NAVIGATION = [
     name: 'Participants',
     route: '/participants',
   },
-  {
-    name: 'Tournament',
-    route: '/expo',
-  },
 ];
 
-export type TicketGenerationState = 'default' | 'loading';
+export const adminUser = {
+  id: '71e77297-8a48-449c-b089-fca8f1b84e20',
+  username: 'amiller+admin',
+};

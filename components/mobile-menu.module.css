@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 100;
   inset: 72px 0 0;
-  background: black;
+  background: theme(colors.black);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,18 +19,18 @@
   font-size: var(--space-8x);
   letter-spacing: -0.05em;
   font-weight: 800;
-  color: #fff;
+  color: theme(colors.white);
   margin-bottom: var(--space-4x);
   line-height: 1.5;
   width: fit-content;
 }
 
 .nav-item:focus {
-  outline: 1px dotted #fff;
+  outline: 1px dotted theme(colors.white);
 }
 
 .nav-active {
-  color: #fff;
+  color: theme(colors.white);
   background: linear-gradient(90deg, var(--brand), var(--brand)) left bottom transparent no-repeat;
   background-size: 100% 2px;
 }
@@ -44,7 +44,7 @@
 }
 
 .icon {
-  color: #fff;
+  color: theme(colors.white);
   display: block;
 }
 
