@@ -42,5 +42,3 @@ export const NAVIGATION = [
     route: '/expo',
   },
 ];
-
-export type TicketGenerationState = 'default' | 'loading';
