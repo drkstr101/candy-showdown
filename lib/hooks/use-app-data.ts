@@ -1,18 +1,16 @@
-import { createContext, useContext } from 'react';
+import { createContext, Dispatch, SetStateAction, useContext } from 'react';
 
 export type PageState = 'registration' | 'lobby';
 
-export type UserData = {
-  id?: string;
-  ticketNumber?: number;
-  username?: string;
-  name?: string;
+export type AppUser = {
+  id: string;
+  username: string;
+  status: 'online' | 'offline';
 };
 
-type AppDataContextType = {
-  userData: UserData;
-  setUserData: React.Dispatch<React.SetStateAction<UserData>>;
-  setPageState: React.Dispatch<React.SetStateAction<PageState>>;
+export type AppDataContextType = {
+  appUser: AppUser;
+  setAppUser: Dispatch<SetStateAction<AppUser>>;
 };
 
 export const AppDataContext = createContext<AppDataContextType | null>(null);

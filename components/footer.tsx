@@ -3,7 +3,7 @@ import { CODE_OF_CONDUCT, COPYRIGHT_HOLDER, LEGAL_URL, REPO, SITE_NAME } from '@
 import cn from 'clsx';
 import styles from './footer.module.css';
 
-export function HostedByVercel() {
+export function CreatedBy() {
   return (
     <a
       href="https://aps.org"
@@ -22,7 +22,7 @@ export default function Footer() {
     <footer className={cn(styles.footer)}>
       <div className={styles['footer-legal']}>
         <div className={styles['footer-hostedby']}>
-          <HostedByVercel />
+          <CreatedBy />
           <div className={styles['footer-separator']} />
         </div>
         <div className={styles['footer-copyright']}>

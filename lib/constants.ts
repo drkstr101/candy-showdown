@@ -1,3 +1,5 @@
+import { AppUser } from './hooks/use-app-data';
+
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
 export const TWITTER_USER_NAME = 'apsphysics';
@@ -42,4 +44,5 @@ export const NAVIGATION = [
 export const adminUser = {
   id: '71e77297-8a48-449c-b089-fca8f1b84e20',
   username: 'amiller+admin',
-};
+  status: 'offline',
+} satisfies AppUser;
