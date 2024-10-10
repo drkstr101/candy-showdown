@@ -1,35 +1,31 @@
-import { getTicketNumberByUserId, updateUserWithAuthUser } from '@lib/db-api';
+import { createClient } from '@lib/supabase/api';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+/**
+ * The `/auth/callback` route is required for the server-side auth flow implemented
+ * by the SSR package. It exchanges an auth code for the user's session.
+ * https://supabase.com/docs/guides/auth/server-side/nextjs
+ *
+ * @param req
+ * @param res
+ * @returns
+ */
 export default async function saveAuthToken(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== 'POST') {
-    return res.status(501).json({
-      error: {
-        code: 'method_unknown',
-        message: 'This endpoint only responds to POST',
-      },
-    });
-  }
+  const requestUrl = new URL(req.url ?? '');
+  const code = requestUrl.searchParams.get('code');
+  const origin = requestUrl.origin;
+  const redirectTo = requestUrl.searchParams.get('redirect_to')?.toString() ?? '/lobby';
 
-  const body = req.body;
-
-  if (!body.token || !body.id) {
+  if (code) {
+    const supabase = createClient(req, res);
+    await supabase.auth.exchangeCodeForSession(code);
+    return res.redirect(`${origin}${redirectTo}`);
+  } else {
     return res.status(400).json({
       error: {
         code: 'bad_input',
-        message: 'Invalid parameters',
+        message: 'Authorization code required.',
       },
     });
   }
-
-  const ticketNumber = await getTicketNumberByUserId(body.id);
-  if (!ticketNumber) {
-    return res
-      .status(404)
-      .json({ code: 'invalid_id', message: 'The registration does not exist' });
-  }
-
-  const { username, name } = await updateUserWithAuthUser(body.id, body.token);
-
-  res.json({ username, name });
 }
