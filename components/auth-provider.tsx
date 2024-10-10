@@ -39,7 +39,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     function saveSession(session: Session | null) {
-      console.log('Updating Supabase Session: ', session);
+      // console.log('Updating Supabase Session: ', session);
       setSession(session);
       if (session && session.user) {
         const { id, email } = session.user;
