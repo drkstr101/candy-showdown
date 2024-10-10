@@ -36,10 +36,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null);
   const router = useRouter();
   const supabase = createClient();
+  // console.log('Mounted AuthProvider.');
 
   useEffect(() => {
     function saveSession(session: Session | null) {
-      // console.log('Updating Supabase Session: ', session);
+      console.log('saveSession(session)', session);
       setSession(session);
       if (session && session.user) {
         const { id, email } = session.user;
@@ -47,7 +48,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         const role = (jwt.user_role as Enums<'app_role'>) ?? null;
         const user = { id, email, role };
 
-        console.log('User Logged In: ', user);
+        // console.log('User Logged In: ', user);
         setUser(user);
         setLoginStatus('loggedIn');
       } else {
@@ -61,7 +62,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
-      console.log('onAuthStateChange(event, session)', event, session);
+      // console.log('onAuthStateChange(event, session)', event, session);
       saveSession(session);
     });
 

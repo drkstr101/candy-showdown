@@ -40,11 +40,13 @@ export default async function register(
 
   const supabase = createClient(req, res);
 
-  const { data, error } = await supabase.auth.signInWithOtp({ email });
+  const options = { emailRedirectTo: '/', shouldCreateUser: true };
+  const credentials = { email, options };
+  const { data, error } = await supabase.auth.signInWithOtp(credentials);
   if (error) {
     console.error(error);
-    const { code, message } = error;
-    return res.status(500).json({ error: { code: code ?? 'auth_error', message } });
+    const { code = 'auth_error', message } = error;
+    return res.status(500).json({ error: { code, message } });
   }
 
   return res.status(200).json(data);

@@ -73,9 +73,9 @@ exports[`Index should render successfully 1`] = `
             >
               <a
                 class="tab"
-                href="/lobby"
+                href="/tournament"
               >
-                Lobby
+                Tournament
               </a>
               <a
                 class="tab"
@@ -88,12 +88,6 @@ exports[`Index should render successfully 1`] = `
                 href="/participants"
               >
                 Participants
-              </a>
-              <a
-                class="tab"
-                href="/expo"
-              >
-                Tournament
               </a>
             </div>
             <div

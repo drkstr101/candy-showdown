@@ -1,3 +1,4 @@
+import getURL from '@lib/helpers/get-url';
 import { createClient } from '@lib/supabase/api';
 import { NextApiRequest, NextApiResponse } from 'next';
 
@@ -11,15 +12,18 @@ import { NextApiRequest, NextApiResponse } from 'next';
  * @returns
  */
 export default async function saveAuthToken(req: NextApiRequest, res: NextApiResponse) {
-  const requestUrl = new URL(req.url ?? '');
-  const code = requestUrl.searchParams.get('code');
-  const origin = requestUrl.origin;
-  const redirectTo = requestUrl.searchParams.get('redirect_to')?.toString() ?? '/lobby';
+  // const requestUrl = new URL(getURL(req.url));
+  // const code = requestUrl.searchParams.get('code');
+  // const redirectTo = requestUrl.searchParams.get('redirect_to')?.toString();
+  // const origin = requestUrl.origin;
+
+  const code = req.query['code']?.toString();
+  const redirectTo = req.query['redirect_to']?.toString();
 
   if (code) {
     const supabase = createClient(req, res);
     await supabase.auth.exchangeCodeForSession(code);
-    return res.redirect(`${origin}${redirectTo}`);
+    return res.redirect(getURL(redirectTo));
   } else {
     return res.status(400).json({
       error: {

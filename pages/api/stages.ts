@@ -19,9 +19,7 @@ export default async function getStages(_: NextApiRequest, res: NextApiResponse)
 
     return res.status(200).json(allStages);
   } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log(e);
-
+    console.error(e);
     return res.status(500).json({
       error: {
         code: 'server_error',

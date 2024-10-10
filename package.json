@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ci": "nx format && nx lint && nx stylelint && nx build && nx test --coverage --detectOpenHandles",
+    "ci": "nx format && nx lint && nx stylelint && nx build && nx test --coverage -- --detectOpenHandles",
     "dev": "ANALYZE=true nx dev",
     "build": "nx build",
     "lint": "nx run-many -t lint stylelint",

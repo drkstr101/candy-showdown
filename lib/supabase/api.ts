@@ -1,28 +1,26 @@
 import { createServerClient, serializeCookieHeader } from '@supabase/ssr';
 import { type NextApiRequest, type NextApiResponse } from 'next';
 
-import { Database } from './database.types';
+import type { Database } from './database.types';
+import { auth, supabaseAnonKey, supabaseUrl } from './options';
 
 export const createClient = (req: NextApiRequest, res: NextApiResponse) =>
-  createServerClient<Database>(
-    process.env.NEXT_PUBLIC_SUPABASE_URL!,
-    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return Object.keys(req.cookies).map((name) => ({
-            name,
-            value: req.cookies[name] || '',
-          }));
-        },
-        setAll(cookiesToSet) {
-          res.setHeader(
-            'Set-Cookie',
-            cookiesToSet.map(({ name, value, options }) =>
-              serializeCookieHeader(name, value, options)
-            )
-          );
-        },
+  createServerClient<Database>(supabaseUrl, supabaseAnonKey, {
+    auth,
+    cookies: {
+      getAll() {
+        return Object.keys(req.cookies).map((name) => ({
+          name,
+          value: req.cookies[name] || '',
+        }));
       },
-    }
-  );
+      setAll(cookiesToSet) {
+        res.setHeader(
+          'Set-Cookie',
+          cookiesToSet.map(({ name, value, options }) =>
+            serializeCookieHeader(name, value, options)
+          )
+        );
+      },
+    },
+  });
