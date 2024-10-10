@@ -40,7 +40,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     function saveSession(session: Session | null) {
-      console.log('saveSession(session)', session);
+      // console.log('saveSession(session)', session);
       setSession(session);
       if (session && session.user) {
         const { id, email } = session.user;
