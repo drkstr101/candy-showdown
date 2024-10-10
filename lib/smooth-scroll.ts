@@ -7,7 +7,6 @@ export default function scroll(opts: ScrollToOptions) {
     try {
       smoothscroll.polyfill();
     } catch (err) {
-      // eslint-disable-next-line no-console
       console.error('smoothscroll polyfill failed', err);
       return;
     }
@@ -17,7 +16,6 @@ export default function scroll(opts: ScrollToOptions) {
   try {
     window.scroll({ behavior: 'smooth', ...opts });
   } catch (err) {
-    // eslint-disable-next-line no-console
     console.error('smoothscroll polyfill failed', err);
   }
 }
