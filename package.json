@@ -12,7 +12,6 @@
   },
   "private": true,
   "dependencies": {
-    "@g-loot/react-tournament-brackets": "^1.0.31-rc",
     "@headlessui/react": "^2.1.10",
     "@heroicons/react": "^2.1.5",
     "@reach/skip-nav": "^0.18.0",
