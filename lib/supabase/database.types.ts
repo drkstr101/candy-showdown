@@ -7,31 +7,6 @@ export type Json =
   | Json[];
 
 export type Database = {
-  graphql_public: {
-    Tables: {
-      [_ in never]: never;
-    };
-    Views: {
-      [_ in never]: never;
-    };
-    Functions: {
-      graphql: {
-        Args: {
-          operationName?: string;
-          query?: string;
-          variables?: Json;
-          extensions?: Json;
-        };
-        Returns: Json;
-      };
-    };
-    Enums: {
-      [_ in never]: never;
-    };
-    CompositeTypes: {
-      [_ in never]: never;
-    };
-  };
   public: {
     Tables: {
       channels: {
@@ -105,35 +80,35 @@ export type Database = {
       role_permissions: {
         Row: {
           id: number;
-          permission: AppPermission;
-          role: AppRole;
+          permission: Database['public']['Enums']['app_permission'];
+          role: Database['public']['Enums']['app_role'];
         };
         Insert: {
           id?: number;
-          permission: AppPermission;
-          role: AppRole;
+          permission: Database['public']['Enums']['app_permission'];
+          role: Database['public']['Enums']['app_role'];
         };
         Update: {
           id?: number;
-          permission?: AppPermission;
-          role?: AppRole;
+          permission?: Database['public']['Enums']['app_permission'];
+          role?: Database['public']['Enums']['app_role'];
         };
         Relationships: [];
       };
       user_roles: {
         Row: {
           id: number;
-          role: AppRole;
+          role: Database['public']['Enums']['app_role'];
           user_id: string;
         };
         Insert: {
           id?: number;
-          role: AppRole;
+          role: Database['public']['Enums']['app_role'];
           user_id: string;
         };
         Update: {
           id?: number;
-          role?: AppRole;
+          role?: Database['public']['Enums']['app_role'];
           user_id?: string;
         };
         Relationships: [
@@ -149,18 +124,18 @@ export type Database = {
       users: {
         Row: {
           id: string;
-          status: UserStatus | null;
-          username: string | null;
+          status: Database['public']['Enums']['user_status'];
+          username: string;
         };
         Insert: {
           id: string;
-          status?: Database['public']['Enums']['user_status'] | null;
-          username?: string | null;
+          status?: Database['public']['Enums']['user_status'];
+          username: string;
         };
         Update: {
           id?: string;
-          status?: Database['public']['Enums']['user_status'] | null;
-          username?: string | null;
+          status?: Database['public']['Enums']['user_status'];
+          username?: string;
         };
         Relationships: [
           {
@@ -179,7 +154,7 @@ export type Database = {
     Functions: {
       authorize: {
         Args: {
-          requested_permission: AppPermission;
+          requested_permission: Database['public']['Enums']['app_permission'];
         };
         Returns: boolean;
       };
@@ -197,7 +172,7 @@ export type Database = {
       };
     };
     Enums: {
-      app_permission: 'channels.delete' | 'messages.delete';
+      app_permission: 'users.delete' | 'messages.delete';
       app_role: 'admin' | 'moderator';
       user_status: 'online' | 'offline';
     };
@@ -207,11 +182,7 @@ export type Database = {
   };
 };
 
-export type PublicSchema = Database[Extract<keyof Database, 'public'>];
-export type Channel = Database['public']['Tables']['channels']['Row'];
-export type UserStatus = Database['public']['Enums']['user_status'];
-export type AppPermission = Database['public']['Enums']['app_permission'];
-export type AppRole = Database['public']['Enums']['app_role'];
+type PublicSchema = Database[Extract<keyof Database, 'public'>];
 
 export type Tables<
   PublicTableNameOrOptions extends

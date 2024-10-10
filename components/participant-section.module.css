@@ -17,7 +17,7 @@
 }
 
 .backlink:hover {
-  color: #fff;
+  color: theme(colors.white);
 }
 
 .participant-details {
@@ -71,18 +71,18 @@
 
 .name {
   font-weight: 800;
-  color: #fff;
+  color: theme(colors.white);
   font-size: 56px;
   margin: 0;
   line-height: 1.2;
 }
 
 .company {
-  color: #fff;
+  color: theme(colors.white);
 }
 
 .company:hover {
-  color: #fff;
+  color: theme(colors.white);
 }
 
 .title {
@@ -94,13 +94,13 @@
 .bio-header {
   font-size: 30px;
   letter-spacing: -0.05em;
-  color: #fff;
+  color: theme(colors.white);
 }
 
 .socials-header {
   font-size: 24px;
   letter-spacing: -0.05em;
-  color: #fff;
+  color: theme(colors.white);
   margin-bottom: var(--space-4x);
 }
 

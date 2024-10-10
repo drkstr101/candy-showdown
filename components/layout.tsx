@@ -6,16 +6,17 @@ import { useRouter } from 'next/router';
 import React, { CSSProperties } from 'react';
 import Footer from './footer';
 import Logo from './icons/icon-logo';
-import styles from './layout.module.css';
 import MobileMenu from './mobile-menu';
 import ViewSource from './view-source';
+
+import styles from './layout.module.css';
 
 type Props = {
   children: React.ReactNode;
   className?: string;
   hideNav?: boolean;
   layoutStyles?: CSSProperties;
-  isLive?: boolean;
+  // isLive?: boolean;
 };
 
 export default function Layout({
@@ -23,8 +24,8 @@ export default function Layout({
   className,
   hideNav,
   layoutStyles,
-  isLive = false,
-}: Props) {
+}: // isLive = false,
+Props) {
   const router = useRouter();
   const activeRoute = router.asPath;
   return (
@@ -63,7 +64,7 @@ export default function Layout({
             <SkipNavContent />
             <div className={cn(styles.full, className)}>{children}</div>
           </main>
-          {!activeRoute.startsWith('/stage') && <Footer />}
+          <Footer />
         </div>
       </div>
     </>

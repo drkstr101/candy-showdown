@@ -10,5 +10,3 @@ export type {
   SponsorLink,
   Stage,
 } from './content';
-
-export type * from './database';

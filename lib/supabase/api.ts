@@ -1,11 +1,9 @@
 import { createServerClient, serializeCookieHeader } from '@supabase/ssr';
-import { GetServerSidePropsContext } from 'next';
+import { type NextApiRequest, type NextApiResponse } from 'next';
 
 import { Database } from './database.types';
 
-// Define a function to create a Supabase client for server-side operations
-// The function takes a cookie store created with next response cookies as an argument
-export const createClient = ({ req, res }: GetServerSidePropsContext) =>
+export const createClient = (req: NextApiRequest, res: NextApiResponse) =>
   createServerClient<Database>(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,

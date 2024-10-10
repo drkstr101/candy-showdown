@@ -7,12 +7,6 @@
   gap: 12px;
 }
 
-@media (width >= 1200px) {
-  .form.share-page {
-    justify-content: flex-start;
-  }
-}
-
 .input {
   border: none;
   width: 100%;
@@ -22,7 +16,7 @@
   padding-left: 15px;
   padding-right: 15px;
   font-size: var(--text-md);
-  color: #fff;
+  color: theme(colors.white);
   font-family: inherit;
 }
 
@@ -46,15 +40,15 @@
 }
 
 .input-label.focused {
-  background-color: #33373c;
+  background-color: theme(colors.neutral.700);
 }
 
 .input-label.error {
-  background: red;
+  background: theme(colors.danger.800);
 }
 
 .input-label.success {
-  background: #0070f3;
+  background: theme(colors.success.800);
 }
 
 .input-text {
@@ -88,7 +82,7 @@
   letter-spacing: -0.02em;
   outline: none;
   font-weight: 500;
-  color: white;
+  color: theme(colors.white);
   transition: background-color 0.2s ease, color 0.2s ease;
   display: inline-flex;
   align-items: center;
@@ -119,7 +113,7 @@
 
 .submit.default:hover,
 .submit.default:focus {
-  background: black;
+  background: theme(colors.black);
   color: var(--brand);
 }
 
@@ -130,8 +124,8 @@
 
 .submit.error:hover,
 .submit.error:focus {
-  background: #000;
-  color: #fff;
+  background: theme(colors.black);
+  color: theme(colors.white);
 }
 
 .submit.default:disabled,
@@ -140,7 +134,7 @@
   cursor: default;
   background: theme(colors.neutral.800);
   border-color: theme(colors.neutral.800);
-  color: #fff;
+  color: theme(colors.white);
   justify-content: flex-start;
   overflow: hidden;
 }
@@ -148,7 +142,7 @@
 .submit.default.generate-with-github:disabled path,
 .submit.default.generate-with-github:disabled:hover path,
 .submit.default.generate-with-github:disabled:focus path {
-  fill: #fff;
+  fill: theme(colors.white);
 }
 
 .submit.default.generate-with-github.not-allowed:disabled {
