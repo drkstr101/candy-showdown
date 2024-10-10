@@ -7650,7 +7650,6 @@ __metadata:
     autoprefixer: "npm:^10.4.20"
     babel-jest: "npm:^29.7.0"
     clsx: "npm:^2.1.1"
-    cookie: "npm:0.7.1"
     date-fns: "npm:^4.1.0"
     eslint: "npm:^9.11.1"
     eslint-config-next: "npm:14.2.14"
@@ -8129,13 +8128,6 @@ __metadata:
   version: 0.6.0
   resolution: "cookie@npm:0.6.0"
   checksum: 10c0/f2318b31af7a31b4ddb4a678d024514df5e705f9be5909a192d7f116cfb6d45cbacf96a473fa733faa95050e7cff26e7832bb3ef94751592f1387b71c8956686
-  languageName: node
-  linkType: hard
-
-"cookie@npm:0.7.1":
-  version: 0.7.1
-  resolution: "cookie@npm:0.7.1"
-  checksum: 10c0/5de60c67a410e7c8dc8a46a4b72eb0fe925871d057c9a5d2c0e8145c4270a4f81076de83410c4d397179744b478e33cd80ccbcc457abf40a9409ad27dcd21dde
   languageName: node
   linkType: hard
 
