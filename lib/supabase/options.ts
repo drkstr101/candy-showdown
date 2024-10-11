@@ -1,7 +1,5 @@
 export const auth = { debug: false };
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-export const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
+export const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? 'http://localhost:5322';
 
-// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-export const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+export const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ?? 'secret';
