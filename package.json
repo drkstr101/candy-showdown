@@ -8,8 +8,7 @@
     "build": "nx build",
     "lint": "nx run-many -t lint stylelint",
     "start": "nx dev",
-    "test": "nx test --coverage -- --detectOpenHandles",
-    "patch:react-tournament-brackets": "ts-node scripts/patch-react-tournament-brackets.ts"
+    "test": "nx test --coverage -- --detectOpenHandles"
   },
   "private": true,
   "dependencies": {

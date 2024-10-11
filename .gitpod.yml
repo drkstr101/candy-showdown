@@ -3,7 +3,7 @@ image:
   file: Dockerfile.gitpod
 
 tasks:
-  - init: yarn install && patch:react-tournament-brackets
+  - init: yarn install
     command: yarn dev
 
 # List the ports to expose. Learn more: https://www.gitpod.io/docs/configure/workspaces/ports
