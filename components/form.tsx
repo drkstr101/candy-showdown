@@ -6,6 +6,7 @@ import LoadingDots from './loading-dots';
 
 import { UserApi } from '@lib/api/user-api';
 import isValidEmail from '@lib/helpers/is-valid-email';
+import { useLocalStorage } from '@lib/hooks/use-local-storage';
 import { createClient } from '@lib/supabase/client';
 import styles from './form.module.css';
 import styleUtils from './utils.module.css';
@@ -26,7 +27,8 @@ function toStatusMessage(code: 'bad_email' | 'success' | string) {
 type FormState = 'default' | 'loading' | 'error' | 'success';
 
 export default function Form({ onRegister }: { onRegister: () => void }) {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useLocalStorage<string | null>('user.username', null);
+  const [email, setEmail] = useState(username ? `${username}@aps.org` : '');
   const [statusMsg, setStatusMsg] = useState('');
   const [errorTryAgain, setErrorTryAgain] = useState(false);
   const [focused, setFocused] = useState(false);
@@ -48,12 +50,13 @@ export default function Form({ onRegister }: { onRegister: () => void }) {
         setFormState('error');
         setStatusMsg(toStatusMessage(error.message));
       } else {
+        setUsername(email.split('@').at(0) ?? null);
         setFormState('success');
         setStatusMsg(toStatusMessage('success'));
         onRegister();
       }
     },
-    [onRegister, userApi]
+    [onRegister, setUsername, userApi]
   );
 
   const onSubmit = useCallback(
@@ -76,8 +79,6 @@ export default function Form({ onRegister }: { onRegister: () => void }) {
     setFormState('default');
     setErrorTryAgain(true);
   }, []);
-
-  // useQueryParam('email', setEmail);
 
   return formState === 'error' || formState === 'success' ? (
     <div className={cn(styles.form)}>
@@ -133,7 +134,13 @@ export default function Form({ onRegister }: { onRegister: () => void }) {
           className={cn(styles.submit, styles.register, styles[formState])}
           disabled={formState === 'loading'}
         >
-          {formState === 'loading' ? <LoadingDots size={4} /> : <>Register</>}
+          {formState === 'loading' ? (
+            <LoadingDots size={4} />
+          ) : username ? (
+            <>Login</>
+          ) : (
+            <>Register</>
+          )}
         </button>
       </div>
     </form>
