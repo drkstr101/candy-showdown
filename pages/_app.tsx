@@ -6,6 +6,8 @@ import { UserApi } from '@lib/api/user-api';
 import { DEBUG } from '@lib/constants';
 import { createClient } from '@lib/supabase/server';
 import { AuthUser } from '@lib/types';
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import '@styles/chrome-bug.css';
 import '@styles/global.css';
@@ -30,6 +32,8 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <UiProvider initialUser={principal}>
       <Component {...pageProps} />
+      <Analytics />
+      <SpeedInsights />
     </UiProvider>
   );
 }
