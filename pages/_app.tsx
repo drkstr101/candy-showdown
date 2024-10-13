@@ -2,22 +2,33 @@ import { GetServerSideProps } from 'next';
 import type { AppProps } from 'next/app';
 
 import UiProvider from '@components/ui-provider';
-import { adminUser } from '@lib/constants';
-import { AppUser } from '@lib/hooks/use-app-data';
+import { UserApi } from '@lib/api/user-api';
+import { DEBUG } from '@lib/constants';
+import { createClient } from '@lib/supabase/server';
+import { AuthUser } from '@lib/types';
 
 import '@styles/chrome-bug.css';
 import '@styles/global.css';
 import '@styles/nprogress.css';
 
-export const getServerSideProps = (async (ctx) => {
-  // mock current user by auto-logging admin user
-  return { props: { user: adminUser } };
-}) satisfies GetServerSideProps<{ user: AppUser | null }>;
+type Props = { principal: AuthUser | null };
+
+export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
+  const api = new UserApi(createClient(ctx));
+  const {
+    data: { user },
+    error,
+  } = await api.getPrincipal();
+  if (error) console.error(error);
+
+  return { props: { principal: user } };
+};
 
 export default function App({ Component, pageProps }: AppProps) {
-  // console.log('App(props)', pageProps);
+  if (DEBUG) console.log('App(props)', pageProps);
+  const { principal } = pageProps;
   return (
-    <UiProvider>
+    <UiProvider initialUser={principal}>
       <Component {...pageProps} />
     </UiProvider>
   );

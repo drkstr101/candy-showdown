@@ -1,7 +1,7 @@
 import { SupabaseClient } from '@supabase/supabase-js';
 import { cache } from 'react';
 
-import { Database } from './supabase/database.types';
+import { Database } from '../supabase/database.types';
 
 export const getChannels = cache(async (supabase: SupabaseClient<Database>) => {
   const { data, error } = await supabase

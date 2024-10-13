@@ -1,4 +1,4 @@
-import { AppUser } from './hooks/use-app-data';
+export const DEBUG = !!process.env.NEXT_PUBLIC_DEBUG;
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
 export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
@@ -10,8 +10,8 @@ export const META_DESCRIPTION =
   '2024 Oktoberfest Candy Showdown brought to you by the American Physical Society Events Committee';
 export const SITE_DESCRIPTION = 'An interactive online tournament for Oktoberfest 2024.';
 export const DATE = '14 October 2024';
-export const SHORT_DATE = 'Oct 14 - 9:00am ET';
-export const FULL_DATE = 'Oct 14th 9:00am Eastern Time (GMT-5)';
+export const SHORT_DATE = 'Oct 21 - 9:00am ET';
+export const FULL_DATE = 'Oct 21st 9:00am Eastern Time (GMT-5)';
 export const TWEET_TEXT = META_DESCRIPTION;
 export const COOKIE = 'user-id';
 
@@ -40,9 +40,3 @@ export const NAVIGATION = [
     route: '/participants',
   },
 ];
-
-export const adminUser = {
-  id: '71e77297-8a48-449c-b089-fca8f1b84e20',
-  username: 'amiller+admin',
-  status: 'offline',
-} satisfies AppUser;

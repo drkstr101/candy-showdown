@@ -1,5 +1,5 @@
 import { createServerClient, serializeCookieHeader } from '@supabase/ssr';
-import { GetServerSidePropsContext } from 'next';
+import { type GetServerSidePropsContext } from 'next';
 
 import { Database } from './database.types';
 import { auth, supabaseAnonKey, supabaseUrl } from './options';

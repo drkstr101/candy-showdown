@@ -4,7 +4,7 @@ import Layout from '@components/layout';
 import Page from '@components/page';
 import ParticipantSection from '@components/participant-section';
 
-import { getAllParticipants } from '@lib/cms-api';
+import { getAllParticipants } from '@lib/api/content-api';
 import { META_DESCRIPTION } from '@lib/constants';
 import { Participant } from '@lib/types';
 

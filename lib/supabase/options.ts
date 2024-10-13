@@ -1,4 +1,6 @@
-export const auth = { debug: false };
+import { DEBUG } from '@lib/constants';
+
+export const auth = { debug: DEBUG };
 
 export const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? 'http://localhost:5322';
 

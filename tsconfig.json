@@ -26,7 +26,6 @@
     "paths": {
       "@components/*": ["components/*"],
       "@lib/*": ["lib/*"],
-      "@lib/types": ["lib/types/index.ts"],
       "@styles/*": ["styles/*"]
     },
     "plugins": [

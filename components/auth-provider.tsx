@@ -1,18 +1,13 @@
+import { Session } from '@supabase/supabase-js';
 import { jwtDecode } from 'jwt-decode';
+import { useRouter } from 'next/router';
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
 import { createClient } from '@lib/supabase/client';
 import { Enums } from '@lib/supabase/database.types';
-import { Session } from '@supabase/supabase-js';
-import { useRouter } from 'next/router';
+import type { AuthUser } from '@lib/types';
 
 export type LoginStatus = 'loading' | 'loggedOut' | 'loggedIn';
-
-export type AuthUser = {
-  id: string;
-  email?: string;
-  role: Enums<'app_role'> | null;
-};
 
 export type AuthContextType = {
   user: AuthUser | null;
@@ -30,25 +25,30 @@ export function useAuth() {
   return result;
 }
 
-export function AuthProvider({ children }: { children: ReactNode }) {
-  const [loginStatus, setLoginStatus] = useState<LoginStatus>('loading');
-  const [user, setUser] = useState<AuthUser | null>(null);
-  const [session, setSession] = useState<Session | null>(null);
+type Props = {
+  children: ReactNode;
+  initialUser: AuthUser | null;
+};
+
+export function AuthProvider({ children, initialUser }: Props) {
+  const [loginStatus, setLoginStatus] = useState<LoginStatus>(
+    initialUser ? 'loggedIn' : 'loading'
+  );
+  const [user, setUser] = useState<AuthUser | null>(initialUser);
+  const setSession = useState<Session | null>(null)[1];
   const router = useRouter();
   const supabase = createClient();
-  // console.log('Mounted AuthProvider.');
 
   useEffect(() => {
     function saveSession(session: Session | null) {
-      // console.log('saveSession(session)', session);
+      console.log('Session Update:', session);
       setSession(session);
       if (session && session.user) {
-        const { id, email } = session.user;
-        const jwt = jwtDecode<{ user_role: string }>(session.access_token);
-        const role = (jwt.user_role as Enums<'app_role'>) ?? null;
-        const user = { id, email, role };
+        const { user, access_token } = session;
+        const jwt = jwtDecode<{ user_role: Enums<'app_role'> }>(access_token);
+        user.app_metadata['user_role'] = jwt.user_role ?? 'user';
 
-        // console.log('User Logged In: ', user);
+        console.log('Authenticated User: ', user);
         setUser(user);
         setLoginStatus('loggedIn');
       } else {
@@ -62,14 +62,14 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
-      // console.log('onAuthStateChange(event, session)', event, session);
+      console.log('onAuthStateChange(event, session)', event, session);
       saveSession(session);
     });
 
     return () => {
       subscription.unsubscribe();
     };
-  }, [router, supabase.auth]);
+  }, [setSession, supabase.auth]);
 
   const signOut = async () => {
     const { error } = await supabase.auth.signOut();

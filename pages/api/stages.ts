@@ -1,4 +1,4 @@
-import { getAllStages } from '@lib/cms-api';
+import { getAllStages } from '@lib/api/content-api';
 import ms from 'ms';
 import { NextApiRequest, NextApiResponse } from 'next';
 

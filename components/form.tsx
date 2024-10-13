@@ -1,9 +1,10 @@
 // import useAppData from '@lib/hooks/use-app-data';
 import cn from 'clsx';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import LoadingDots from './loading-dots';
 
+import { UserApi } from '@lib/api/user-api';
 import isValidEmail from '@lib/helpers/is-valid-email';
 import { createClient } from '@lib/supabase/client';
 import styles from './form.module.css';
@@ -30,7 +31,7 @@ export default function Form({ onRegister }: { onRegister: () => void }) {
   const [errorTryAgain, setErrorTryAgain] = useState(false);
   const [focused, setFocused] = useState(false);
   const [formState, setFormState] = useState<FormState>('default');
-  const supabase = createClient();
+  const userApi = useMemo(() => new UserApi(createClient()), []);
 
   const handleRegister = useCallback(
     async (email: string, token?: string) => {
@@ -41,23 +42,18 @@ export default function Form({ onRegister }: { onRegister: () => void }) {
         return;
       }
 
-      // TODO this should not be hard-coded here
-      const options = { emailRedirectTo: '/', shouldCreateUser: true };
-      const { data, error } = await supabase.auth.signInWithOtp({ email, options });
-      // console.log('data = ', data);
-
+      const { error } = await userApi.signIn(email);
       if (error) {
         console.error(error);
         setFormState('error');
         setStatusMsg(toStatusMessage(error.message));
-        return;
+      } else {
+        setFormState('success');
+        setStatusMsg(toStatusMessage('success'));
+        onRegister();
       }
-
-      setFormState('success');
-      setStatusMsg(toStatusMessage('success'));
-      onRegister();
     },
-    [onRegister, supabase.auth]
+    [onRegister, userApi]
   );
 
   const onSubmit = useCallback(

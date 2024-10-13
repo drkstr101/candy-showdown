@@ -1,3 +1,13 @@
+import type { User } from '@supabase/supabase-js';
+
+export type AuthUser = User;
+
+export type AppUser = {
+  id: string;
+  username: string;
+  status: 'offline' | 'online';
+};
+
 export type Image = {
   url: string;
   blurDataURL?: string;

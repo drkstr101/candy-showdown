@@ -1,4 +1,4 @@
-import { Job, Participant, Sponsor, Stage } from '@lib/types';
+import { Participant, Stage } from '@lib/types';
 
 const API_URL = 'https://graphql.datocms.com/';
 const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
@@ -82,50 +82,50 @@ export async function getAllStages(): Promise<Stage[]> {
   return allStages;
 }
 
-export async function getAllSponsors(): Promise<Sponsor[]> {
-  const { allCompanies } = await fetchContent(`
-     {
-       allCompanies(first: 100, orderBy: tierRank_ASC) {
-         name
-         description
-         slug
-         website
-         callToAction
-         callToActionLink
-         discord
-         youtubeSlug
-         tier
-         links {
-           url
-           text
-         }
-         cardImage {
-           url(imgixParams: {fm: jpg, fit: crop})
-         }
-         logo {
-           url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100})
-         }
-       }
-     }
-   `);
+// export async function getAllSponsors(): Promise<Sponsor[]> {
+//   const { allCompanies } = await fetchContent(`
+//      {
+//        allCompanies(first: 100, orderBy: tierRank_ASC) {
+//          name
+//          description
+//          slug
+//          website
+//          callToAction
+//          callToActionLink
+//          discord
+//          youtubeSlug
+//          tier
+//          links {
+//            url
+//            text
+//          }
+//          cardImage {
+//            url(imgixParams: {fm: jpg, fit: crop})
+//          }
+//          logo {
+//            url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100})
+//          }
+//        }
+//      }
+//    `);
 
-  return allCompanies;
-}
+//   return allCompanies;
+// }
 
-export async function getAllJobs(): Promise<Job[]> {
-  const { allJobs } = await fetchContent(`
-     {
-       allJobs(first: 100, orderBy: rank_ASC) {
-         id
-         companyName
-         title
-         description
-         discord
-         link
-         rank
-       }
-     }
-   `);
+// export async function getAllJobs(): Promise<Job[]> {
+//   const { allJobs } = await fetchContent(`
+//      {
+//        allJobs(first: 100, orderBy: rank_ASC) {
+//          id
+//          companyName
+//          title
+//          description
+//          discord
+//          link
+//          rank
+//        }
+//      }
+//    `);
 
-  return allJobs;
-}
+//   return allJobs;
+// }

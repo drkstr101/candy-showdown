@@ -5,7 +5,7 @@ import Layout from '@components/layout';
 import Page from '@components/page';
 import Schedule from '@components/schedule';
 
-import { getAllStages } from '@lib/cms-api';
+import { getAllStages } from '@lib/api/content-api';
 import { META_DESCRIPTION } from '@lib/constants';
 import { Stage } from '@lib/types';
 
