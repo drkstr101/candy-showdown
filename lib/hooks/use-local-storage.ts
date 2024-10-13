@@ -27,7 +27,8 @@ const useLocalStorageSubscribe = (callback: (this: Window, ev: StorageEvent) => 
 };
 
 const getLocalStorageServerSnapshot = () => {
-  throw Error('useLocalStorage is a client-only hook');
+  console.warn('useLocalStorage is a client-only hook');
+  return null;
 };
 
 /**
