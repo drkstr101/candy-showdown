@@ -2,7 +2,8 @@ import cn from 'clsx';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
-import { SITE_NAME, SITE_URL } from '@lib/constants';
+import { SITE_NAME } from '@lib/constants';
+import getUrl from '@lib/helpers/get-url';
 
 type Meta = {
   title: string | null;
@@ -21,7 +22,7 @@ export default function Page({ meta, children, fullViewport = false }: Props) {
   const router = useRouter();
   const image = meta.image || '/twitter-card.png';
   const title = meta.title || SITE_NAME;
-  const url = meta.url || `${SITE_URL}${router.asPath}`;
+  const url = meta.url || getUrl(router.asPath);
   const description = meta.description || SITE_NAME;
 
   return (
@@ -52,7 +53,7 @@ export default function Page({ meta, children, fullViewport = false }: Props) {
         {image && (
           <meta
             property="og:image"
-            content={image.startsWith('https://') ? image : `${SITE_URL}${image}`}
+            content={image.startsWith('https://') ? image : getUrl(image)}
           />
         )}
       </Head>

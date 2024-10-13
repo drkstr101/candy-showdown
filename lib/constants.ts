@@ -1,7 +1,5 @@
 export const DEBUG = !!process.env.NEXT_PUBLIC_DEBUG;
 
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000';
-export const SITE_ORIGIN = process.env.NEXT_PUBLIC_SITE_ORIGIN || new URL(SITE_URL).origin;
 export const TWITTER_USER_NAME = 'apsphysics';
 export const BRAND_NAME = 'APS';
 export const SITE_NAME_MULTILINE = ['Candy', 'Showdown'];

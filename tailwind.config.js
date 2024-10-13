@@ -32,9 +32,9 @@ module.exports = {
       minWidth: {
         btn: '160px',
       },
-      fontFamily: (fontFamily) => ({
-        sans: ['Inter', ...fontFamily.sans],
-      }),
+      fontFamily: {
+        sans: 'Inter',
+      },
     },
   },
   plugins: [require('@tailwindcss/forms')],

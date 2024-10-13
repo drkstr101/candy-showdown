@@ -91,7 +91,7 @@ enabled = true
 enabled = true
 # The base URL of your website. Used as an allow-list for redirects and for constructing URLs used
 # in emails.
-site_url = "env(SITE_URL)"
+site_url = "env(NEXT_PUBLIC_SITE_URL)"
 # A list of *exact* URLs that auth providers are permitted to redirect to post authentication.
 additional_redirect_urls = ["https://candy-showdown.vercel.app", "https://3000-drkstr101-candyshowdown-*.ws-us116.gitpod.io", "https://127.0.0.1:3000"]
 # How long tokens are valid for, in seconds. Defaults to 3600 (1 hour), maximum 604,800 (1 week).
