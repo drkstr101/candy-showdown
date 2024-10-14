@@ -8046,6 +8046,7 @@ __metadata:
     stylelint-config-tailwindcss: "npm:^0.0.7"
     supabase: "npm:^1.204.3"
     tailwindcss: "npm:^3.4.13"
+    tailwindcss-animate: "npm:^1.0.7"
     ts-jest: "npm:^29.2.5"
     ts-node: "npm:^10.9.2"
     tslib: "npm:^2.7.0"
@@ -17391,6 +17392,15 @@ __metadata:
     string-width: "npm:^4.2.3"
     strip-ansi: "npm:^6.0.1"
   checksum: 10c0/f8b348af38ee34e419d8ce7306ba00671ce6f20e861ccff22555f491ba264e8416086063ce278a8d81abfa8d23b736ec2cca7ac4029b5472f63daa4b4688b803
+  languageName: node
+  linkType: hard
+
+"tailwindcss-animate@npm:^1.0.7":
+  version: 1.0.7
+  resolution: "tailwindcss-animate@npm:1.0.7"
+  peerDependencies:
+    tailwindcss: "*"
+  checksum: 10c0/ec7dbd1631076b97d66a1fbaaa06e0725fccfa63119221e8d87a997b02dcede98ad88bb1ef6665b968f5d260fcefb10592e0299ca70208d365b37761edf5e19a
   languageName: node
   linkType: hard
 
