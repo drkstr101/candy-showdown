@@ -7,7 +7,7 @@ export const SITE_NAME = 'Candy Showdown';
 export const META_DESCRIPTION =
   '2024 Oktoberfest Candy Showdown brought to you by the American Physical Society Events Committee';
 export const SITE_DESCRIPTION = 'An interactive online tournament for Oktoberfest 2024.';
-export const DATE = '14 October 2024';
+export const DATE = '21 October 2024';
 export const SHORT_DATE = 'Oct 21 - 9:00am ET';
 export const FULL_DATE = 'Oct 21st 9:00am Eastern Time (GMT-5)';
 export const TWEET_TEXT = META_DESCRIPTION;
