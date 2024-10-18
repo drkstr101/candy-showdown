@@ -1,4 +1,4 @@
-import { Participant, Stage } from '@lib/types';
+import { Participant, Round } from '@lib/types';
 
 const API_URL = 'https://graphql.datocms.com/';
 const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
@@ -55,10 +55,10 @@ export async function getAllParticipants(): Promise<Participant[]> {
   return allParticipants;
 }
 
-export async function getAllStages(): Promise<Stage[]> {
-  const { allStages } = await fetchContent(`
+export async function getAllRounds(): Promise<Round[]> {
+  const { allRounds } = await fetchContent(`
      {
-       allStages(first: 100, orderBy: order_ASC) {
+       allRounds(first: 100, orderBy: order_ASC) {
          name
          slug
          isLive
@@ -79,7 +79,7 @@ export async function getAllStages(): Promise<Stage[]> {
      }
    `);
 
-  return allStages;
+  return allRounds;
 }
 
 // export async function getAllSponsors(): Promise<Sponsor[]> {

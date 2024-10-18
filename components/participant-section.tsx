@@ -45,7 +45,7 @@ export default function ParticipantSection({ participant }: Props) {
               {`${participant.title} @ `}
               <span className={styles.company}>{participant.company}</span>
             </p>
-            <h2 className={styles['bio-header']}>Bio</h2>
+            <h2 className={styles['bio-header']}>Description</h2>
             <p className={styles.bio}>{participant.bio}</p>
           </div>
         </div>

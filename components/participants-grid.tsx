@@ -35,10 +35,7 @@ export default function ParticipantsGrid({ participants }: Props) {
           <div className={styles.cardBody}>
             <div>
               <h2 className={styles.name}>{participant.name}</h2>
-              <p className={styles.title}>
-                {`${participant.title} @ `}
-                <span className={styles.company}>{participant.company}</span>
-              </p>
+              <p className={styles.title}>{participant.title}</p>
             </div>
           </div>
         </Link>

@@ -1,4 +1,4 @@
-const BringToStageIcon = () => (
+const BringToRoundIcon = () => (
   <svg
     width={20}
     style={{ marginRight: '10px' }}
@@ -30,4 +30,4 @@ const BringToStageIcon = () => (
   </svg>
 );
 
-export default BringToStageIcon;
+export default BringToRoundIcon;

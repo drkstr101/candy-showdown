@@ -5,15 +5,15 @@ import Layout from '@components/layout';
 import Page from '@components/page';
 import Schedule from '@components/schedule';
 
-import { getAllStages } from '@lib/api/content-api';
+import { getAllRounds } from '@lib/api/content-api';
 import { META_DESCRIPTION } from '@lib/constants';
-import { Stage } from '@lib/types';
+import { Round } from '@lib/types';
 
 type Props = {
-  allStages: Stage[];
+  allRounds: Round[];
 };
 
-export default function SchedulePage({ allStages }: Props) {
+export default function SchedulePage({ allRounds }: Props) {
   const meta = {
     title: 'Schedule - Candy Showdown',
     description: META_DESCRIPTION,
@@ -23,18 +23,18 @@ export default function SchedulePage({ allStages }: Props) {
     <Page meta={meta}>
       <Layout>
         <Header hero="Schedule" description={meta.description} />
-        <Schedule allStages={allStages} />
+        <Schedule allRounds={allRounds} />
       </Layout>
     </Page>
   );
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const allStages = await getAllStages();
+  const allRounds = await getAllRounds();
 
   return {
     props: {
-      allStages: allStages || [],
+      allRounds: allRounds || [],
     },
     revalidate: 60,
   };

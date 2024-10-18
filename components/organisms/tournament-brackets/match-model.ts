@@ -1,12 +1,12 @@
 import { MatchType } from '@g-loot/react-tournament-brackets';
 
-const matches: MatchType[] = [
+const finals: MatchType[] = [
   {
     id: 19874,
     name: 'Final - Match',
     nextMatchId: null,
     // nextLooserMatchId: null,
-    tournamentRoundText: '6',
+    tournamentRoundText: 'Finals',
     startTime: '2021-05-30',
     state: 'DONE',
     participants: [
@@ -20,12 +20,15 @@ const matches: MatchType[] = [
       },
     ],
   },
+];
+
+const semiFinals: MatchType[] = [
   {
     id: 19875,
     name: 'Semi Final - Match 1',
     nextMatchId: 19874,
     // nextLooserMatchId: null,
-    tournamentRoundText: '5',
+    tournamentRoundText: 'Semi-final',
     startTime: '2021-05-30',
     state: 'SCHEDULED',
     participants: [
@@ -44,13 +47,13 @@ const matches: MatchType[] = [
     name: 'Semi Final - Match 2',
     nextMatchId: 19874,
     // nextLooserMatchId: null,
-    tournamentRoundText: '5',
+    tournamentRoundText: 'Semi-final',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '0be9036e-4cb4-4d95-b45a-b8725b4a2b73',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test357375',
@@ -58,7 +61,7 @@ const matches: MatchType[] = [
       },
       {
         id: '354506c4-d07d-4785-9759-755941a6cccc',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TestTeam1234',
@@ -66,12 +69,15 @@ const matches: MatchType[] = [
       },
     ],
   },
+];
+
+const roundD: MatchType[] = [
   {
     id: 19876,
     name: 'Round 4 - Match 1',
     nextMatchId: 19875,
     // nextLooserMatchId: null,
-    tournamentRoundText: '4',
+    tournamentRoundText: 'D',
     startTime: '2021-05-30',
     state: 'DONE',
     participants: [
@@ -90,13 +96,13 @@ const matches: MatchType[] = [
     name: 'Round 4 - Match 2',
     nextMatchId: 19875,
     // nextLooserMatchId: null,
-    tournamentRoundText: '4',
+    tournamentRoundText: 'D',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'e7fe8889-13e8-46f7-8515-3c9d89c07ba1',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test87',
@@ -104,7 +110,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'c266ef2c-eab7-4b14-b41a-03265b6dfd74',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'adamamd',
@@ -117,13 +123,13 @@ const matches: MatchType[] = [
     name: 'Round 4 - Match 3',
     nextMatchId: 19906,
     // nextLooserMatchId: null,
-    tournamentRoundText: '4',
+    tournamentRoundText: 'D',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '0be9036e-4cb4-4d95-b45a-b8725b4a2b73',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test357375',
@@ -131,7 +137,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'de637dbe-363b-40cd-bae9-5a5e97a61ccc',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Test Post',
@@ -144,13 +150,13 @@ const matches: MatchType[] = [
     name: 'Round 4 - Match 4',
     nextMatchId: 19906,
     // nextLooserMatchId: null,
-    tournamentRoundText: '4',
+    tournamentRoundText: 'D',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '4ce605b1-28c5-4359-a2b8-5aa232299f2e',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TESTWTF',
@@ -158,7 +164,7 @@ const matches: MatchType[] = [
       },
       {
         id: '354506c4-d07d-4785-9759-755941a6cccc',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TestTeam1234',
@@ -166,12 +172,15 @@ const matches: MatchType[] = [
       },
     ],
   },
+];
+
+const roundC: MatchType[] = [
   {
     id: 19877,
     name: 'Round 3 - Match 1',
     nextMatchId: 19876,
     // nextLooserMatchId: null,
-    tournamentRoundText: '3',
+    tournamentRoundText: 'C',
     startTime: '2021-05-30',
     state: 'DONE',
     participants: [
@@ -190,13 +199,13 @@ const matches: MatchType[] = [
     name: 'Round 3 - Match 2',
     nextMatchId: 19876,
     // nextLooserMatchId: null,
-    tournamentRoundText: '3',
+    tournamentRoundText: 'C',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '51c449a7-fb04-445a-b478-1ca95feeeafa',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test73',
@@ -204,7 +213,7 @@ const matches: MatchType[] = [
       },
       {
         id: '059743f7-9501-471e-8f9e-2d1032eccc67',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TestTeamz',
@@ -217,13 +226,13 @@ const matches: MatchType[] = [
     name: 'Round 3 - Match 3',
     nextMatchId: 19891,
     // nextLooserMatchId: null,
-    tournamentRoundText: '3',
+    tournamentRoundText: 'C',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'e7fe8889-13e8-46f7-8515-3c9d89c07ba1',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test87',
@@ -231,7 +240,7 @@ const matches: MatchType[] = [
       },
       {
         id: '7eac0db4-2e53-4f42-a670-58847b1f5e4c',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Test 1',
@@ -244,13 +253,13 @@ const matches: MatchType[] = [
     name: 'Round 3 - Match 4',
     nextMatchId: 19891,
     // nextLooserMatchId: null,
-    tournamentRoundText: '3',
+    tournamentRoundText: 'C',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '9d13814a-81b9-43d1-b9f9-42da1fe22578',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'adam peleback',
@@ -258,7 +267,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'c266ef2c-eab7-4b14-b41a-03265b6dfd74',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'adamamd',
@@ -271,13 +280,13 @@ const matches: MatchType[] = [
     name: 'Round 3 - Match 5',
     nextMatchId: 19907,
     // nextLooserMatchId: null,
-    tournamentRoundText: '3',
+    tournamentRoundText: 'C',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'de637dbe-363b-40cd-bae9-5a5e97a61ccc',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Test Post',
@@ -285,7 +294,7 @@ const matches: MatchType[] = [
       },
       {
         id: '02aae6b1-bd99-4469-9d5a-4a83019d7dbc',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test6000',
@@ -298,13 +307,13 @@ const matches: MatchType[] = [
     name: 'Round 3 - Match 6',
     nextMatchId: 19907,
     // nextLooserMatchId: null,
-    tournamentRoundText: '3',
+    tournamentRoundText: 'C',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '0be9036e-4cb4-4d95-b45a-b8725b4a2b73',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test357375',
@@ -312,7 +321,7 @@ const matches: MatchType[] = [
       },
       {
         id: '390f872a-fe15-48a3-9283-4191ff4263e7',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Test123',
@@ -325,13 +334,13 @@ const matches: MatchType[] = [
     name: 'Round 3 - Match 7',
     nextMatchId: 19922,
     // nextLooserMatchId: null,
-    tournamentRoundText: '3',
+    tournamentRoundText: 'C',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'ad2a0a89-d3bb-49dd-b8fc-2ec100e33477',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Testing new Team',
@@ -339,7 +348,7 @@ const matches: MatchType[] = [
       },
       {
         id: '4ce605b1-28c5-4359-a2b8-5aa232299f2e',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TESTWTF',
@@ -352,13 +361,13 @@ const matches: MatchType[] = [
     name: 'Round 3 - Match 8',
     nextMatchId: 19922,
     // nextLooserMatchId: null,
-    tournamentRoundText: '3',
+    tournamentRoundText: 'C',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '354506c4-d07d-4785-9759-755941a6cccc',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TestTeam1234',
@@ -366,7 +375,7 @@ const matches: MatchType[] = [
       },
       {
         id: '7fbd66f3-7eaa-4567-bc87-5a82f10417ad',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'adamapexnice',
@@ -374,12 +383,15 @@ const matches: MatchType[] = [
       },
     ],
   },
+];
+
+const roundB: MatchType[] = [
   {
     id: 19878,
     name: 'Round 2 - Match 1',
     nextMatchId: 19877,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'DONE',
     participants: [
@@ -406,13 +418,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 2',
     nextMatchId: 19877,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'fdce979a-002e-4906-a80f-d161f108bcde',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'omar boi',
@@ -420,7 +432,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'acf45434-78a1-4907-bf19-92235d180e8b',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'omaromar',
@@ -433,13 +445,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 3',
     nextMatchId: 19884,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '059743f7-9501-471e-8f9e-2d1032eccc67',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TestTeamz',
@@ -447,7 +459,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'c7a2ec6b-389f-429d-819e-53594e94d475',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test123',
@@ -460,13 +472,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 4',
     nextMatchId: 19884,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '51c449a7-fb04-445a-b478-1ca95feeeafa',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test73',
@@ -474,7 +486,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'ce914b1b-fe1e-4be9-8409-681049265614',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test5',
@@ -487,13 +499,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 5',
     nextMatchId: 19892,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '43ddad56-5798-4364-bd5c-81ba2640e22a',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'testing',
@@ -501,7 +513,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'e7fe8889-13e8-46f7-8515-3c9d89c07ba1',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test87',
@@ -514,13 +526,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 6',
     nextMatchId: 19892,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '7eac0db4-2e53-4f42-a670-58847b1f5e4c',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Test 1',
@@ -528,7 +540,7 @@ const matches: MatchType[] = [
       },
       {
         id: '85568369-9f06-4098-be5f-1922e2ae61e5',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Testpubg',
@@ -541,13 +553,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 7',
     nextMatchId: 19899,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '9d13814a-81b9-43d1-b9f9-42da1fe22578',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'adam peleback',
@@ -555,7 +567,7 @@ const matches: MatchType[] = [
       },
       {
         id: '5b29528f-0dab-4dea-97d8-e6528b6cfc6c',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'glltest',
@@ -568,13 +580,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 8',
     nextMatchId: 19899,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '8055f16b-3cc9-495a-b40a-2742712be6c6',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Adam testar',
@@ -582,7 +594,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'c266ef2c-eab7-4b14-b41a-03265b6dfd74',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'adamamd',
@@ -595,13 +607,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 9',
     nextMatchId: 19908,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '02aae6b1-bd99-4469-9d5a-4a83019d7dbc',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test6000',
@@ -609,7 +621,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'cb177e1d-6e6c-44b5-829a-45b699529274',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test50',
@@ -622,13 +634,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 10',
     nextMatchId: 19908,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'de637dbe-363b-40cd-bae9-5a5e97a61ccc',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Test Post',
@@ -636,7 +648,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'b4889d7a-5e25-4bae-aa4a-40776f44ef2d',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'omarapexnice',
@@ -649,13 +661,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 11',
     nextMatchId: 19915,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '3a353047-4af3-4320-b2cf-2d83ddc9115a',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TestTeamData',
@@ -663,7 +675,7 @@ const matches: MatchType[] = [
       },
       {
         id: '390f872a-fe15-48a3-9283-4191ff4263e7',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Test123',
@@ -676,13 +688,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 12',
     nextMatchId: 19915,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '4b5c9937-9e69-4e5b-8344-6a68d6c12a64',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test9',
@@ -690,7 +702,7 @@ const matches: MatchType[] = [
       },
       {
         id: '0be9036e-4cb4-4d95-b45a-b8725b4a2b73',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test357375',
@@ -703,13 +715,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 13',
     nextMatchId: 19923,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '4ce605b1-28c5-4359-a2b8-5aa232299f2e',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TESTWTF',
@@ -717,7 +729,7 @@ const matches: MatchType[] = [
       },
       {
         id: '0f8844f8-91a3-4969-9557-8ac560f3a7d2',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TestTeam12344',
@@ -730,7 +742,7 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 14',
     nextMatchId: 19923,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
@@ -744,7 +756,7 @@ const matches: MatchType[] = [
       },
       {
         id: '613f708c-b000-4aa7-a9b1-47de355c9fac',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'testteam',
@@ -757,13 +769,13 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 15',
     nextMatchId: 19930,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'b5edee08-6d0a-4e3d-9587-57a2d585e490',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Adam testar',
@@ -784,7 +796,7 @@ const matches: MatchType[] = [
     name: 'Round 2 - Match 16',
     nextMatchId: 19930,
     // nextLooserMatchId: null,
-    tournamentRoundText: '2',
+    tournamentRoundText: 'B',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
@@ -798,7 +810,7 @@ const matches: MatchType[] = [
       },
       {
         id: '3dce492c-ecad-453c-98e7-2b96ddbf8800',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'gloot3 test',
@@ -806,18 +818,21 @@ const matches: MatchType[] = [
       },
     ],
   },
+];
+
+const roundA: MatchType[] = [
   {
     id: 19879,
-    name: 'Round 1 - Match 1',
+    name: 'Match A-1',
     nextMatchId: 19878,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'bcbe20a3-82b5-4818-bb29-4c1149e9f04e',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'AdamsinLaDoncu',
@@ -825,7 +840,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'a552ca06-579d-41ee-9405-4cedd187c5bf',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Test of Tests',
@@ -835,16 +850,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19880,
-    name: 'Round 1 - Match 2',
+    name: 'Match A-2',
     nextMatchId: 19878,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '5acb196d-5f82-47f3-ae5a-2e87d070f610',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'testtesttetstst',
@@ -852,7 +867,7 @@ const matches: MatchType[] = [
       },
       {
         id: '6d9ec9e8-d10d-424b-a00f-2078d4e08d39',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test9',
@@ -862,16 +877,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19882,
-    name: 'Round 1 - Match 3',
+    name: 'Match A-3',
     nextMatchId: 19881,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'acf45434-78a1-4907-bf19-92235d180e8b',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'omaromar',
@@ -879,7 +894,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'be2db859-515f-4159-9051-6723d0b47eb7',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Test3',
@@ -889,16 +904,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19883,
-    name: 'Round 1 - Match 4',
+    name: 'Match A-4',
     nextMatchId: 19881,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'fdce979a-002e-4906-a80f-d161f108bcde',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'omar boi',
@@ -906,7 +921,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'b264744c-0114-46b9-ab28-a7f56aded7bd',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'omar',
@@ -916,16 +931,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19886,
-    name: 'Round 1 - Match 5',
+    name: 'Match A-5',
     nextMatchId: 19885,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'd9a7b576-9d7e-430c-aa7e-6401d6eb7cf8',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Testteam2',
@@ -933,7 +948,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'c7a2ec6b-389f-429d-819e-53594e94d475',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test123',
@@ -943,16 +958,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19887,
-    name: 'Round 1 - Match 6',
+    name: 'Match A-6',
     nextMatchId: 19885,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '8411c4ef-f337-42c9-bff9-63c2f0e80255',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TESTGLL',
@@ -960,7 +975,7 @@ const matches: MatchType[] = [
       },
       {
         id: '059743f7-9501-471e-8f9e-2d1032eccc67',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TestTeamz',
@@ -970,16 +985,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19889,
-    name: 'Round 1 - Match 7',
+    name: 'Match A-7',
     nextMatchId: 19888,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'ce914b1b-fe1e-4be9-8409-681049265614',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test5',
@@ -987,7 +1002,7 @@ const matches: MatchType[] = [
       },
       {
         id: '86cd4ff0-14ae-445c-820a-777fe448cddb',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'ALEX',
@@ -997,16 +1012,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19890,
-    name: 'Round 1 - Match 8',
+    name: 'Match A-8',
     nextMatchId: 19888,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '51c449a7-fb04-445a-b478-1ca95feeeafa',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test73',
@@ -1014,7 +1029,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'b370498e-5e54-4d98-88ef-ba039ee7fb62',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'adam24',
@@ -1024,16 +1039,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19894,
-    name: 'Round 1 - Match 9',
+    name: 'Match A-9',
     nextMatchId: 19893,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'f00e68b3-70d4-46c6-8004-1b2726adb0dc',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'testforcontentful',
@@ -1041,7 +1056,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'e7fe8889-13e8-46f7-8515-3c9d89c07ba1',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test87',
@@ -1051,16 +1066,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19895,
-    name: 'Round 1 - Match 10',
+    name: 'Match A-10',
     nextMatchId: 19893,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '43ddad56-5798-4364-bd5c-81ba2640e22a',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'testing',
@@ -1068,7 +1083,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'a34587db-a088-44ba-98b2-c8efd07df9ed',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TestTeam2253',
@@ -1078,16 +1093,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19897,
-    name: 'Round 1 - Match 11',
+    name: 'Match A-11',
     nextMatchId: 19896,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '7eac0db4-2e53-4f42-a670-58847b1f5e4c',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Test 1',
@@ -1095,7 +1110,7 @@ const matches: MatchType[] = [
       },
       {
         id: '20bc489c-6c63-402f-908e-586e531a96b2',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Test146',
@@ -1105,16 +1120,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19898,
-    name: 'Round 1 - Match 12',
+    name: 'Match A-12',
     nextMatchId: 19896,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '3947ccbc-18d4-47e3-ba19-f1ba697800e3',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'omarnice',
@@ -1122,7 +1137,7 @@ const matches: MatchType[] = [
       },
       {
         id: '85568369-9f06-4098-be5f-1922e2ae61e5',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Testpubg',
@@ -1132,16 +1147,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19901,
-    name: 'Round 1 - Match 13',
+    name: 'Match A-13',
     nextMatchId: 19900,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'e44b992f-676c-492e-98d2-b238162cc2e0',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test team 1234',
@@ -1149,7 +1164,7 @@ const matches: MatchType[] = [
       },
       {
         id: '5b29528f-0dab-4dea-97d8-e6528b6cfc6c',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'glltest',
@@ -1159,16 +1174,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19902,
-    name: 'Round 1 - Match 14',
+    name: 'Match A-14',
     nextMatchId: 19900,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '5a02ce4d-ad2a-4ee7-b3d2-4dad7b9b164a',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TestTeam1243',
@@ -1176,7 +1191,7 @@ const matches: MatchType[] = [
       },
       {
         id: '9d13814a-81b9-43d1-b9f9-42da1fe22578',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'adam peleback',
@@ -1186,16 +1201,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19904,
-    name: 'Round 1 - Match 15',
+    name: 'Match A-15',
     nextMatchId: 19903,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '856abe5e-5e46-4113-8485-f7829aeb27ba',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'omarpubgnotnice',
@@ -1203,7 +1218,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'c266ef2c-eab7-4b14-b41a-03265b6dfd74',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'adamamd',
@@ -1213,16 +1228,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19905,
-    name: 'Round 1 - Match 16',
+    name: 'Match A-16',
     nextMatchId: 19903,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '8055f16b-3cc9-495a-b40a-2742712be6c6',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Adam testar',
@@ -1230,7 +1245,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'c934f0ee-c9d8-4cf7-ad55-7f98a7b19b6f',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test2',
@@ -1240,16 +1255,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19910,
-    name: 'Round 1 - Match 17',
+    name: 'Match A-17',
     nextMatchId: 19909,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'cb177e1d-6e6c-44b5-829a-45b699529274',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test50',
@@ -1257,7 +1272,7 @@ const matches: MatchType[] = [
       },
       {
         id: '2ae79460-4d1c-42a9-88cc-cf76adb4bb08',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Adamadamsms',
@@ -1267,16 +1282,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19911,
-    name: 'Round 1 - Match 18',
+    name: 'Match A-18',
     nextMatchId: 19909,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '348c0a6b-5499-421a-9125-6b3d08bcef9c',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TestingAgain',
@@ -1284,7 +1299,7 @@ const matches: MatchType[] = [
       },
       {
         id: '02aae6b1-bd99-4469-9d5a-4a83019d7dbc',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test6000',
@@ -1294,16 +1309,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19913,
-    name: 'Round 1 - Match 19',
+    name: 'Match A-19',
     nextMatchId: 19912,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '91c101fd-d744-4eb1-abf1-7edfe09e7429',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TestTeamz123',
@@ -1311,7 +1326,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'de637dbe-363b-40cd-bae9-5a5e97a61ccc',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Test Post',
@@ -1321,16 +1336,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19914,
-    name: 'Round 1 - Match 20',
+    name: 'Match A-20',
     nextMatchId: 19912,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '1262eafb-9d48-4536-a428-fb43d0da2e07',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Test 2',
@@ -1338,7 +1353,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'b4889d7a-5e25-4bae-aa4a-40776f44ef2d',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'omarapexnice',
@@ -1348,16 +1363,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19917,
-    name: 'Round 1 - Match 21',
+    name: 'Match A-21',
     nextMatchId: 19916,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '390f872a-fe15-48a3-9283-4191ff4263e7',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Test123',
@@ -1365,7 +1380,7 @@ const matches: MatchType[] = [
       },
       {
         id: '59a941da-398d-4dbd-baa6-1769314e5826',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'teståtestätestö',
@@ -1375,16 +1390,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19918,
-    name: 'Round 1 - Match 22',
+    name: 'Match A-22',
     nextMatchId: 19916,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'cc4b8479-e825-40a8-b24b-3f0fbfb421f4',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test9',
@@ -1392,7 +1407,7 @@ const matches: MatchType[] = [
       },
       {
         id: '3a353047-4af3-4320-b2cf-2d83ddc9115a',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TestTeamData',
@@ -1402,16 +1417,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19920,
-    name: 'Round 1 - Match 23',
+    name: 'Match A-23',
     nextMatchId: 19919,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '4b5c9937-9e69-4e5b-8344-6a68d6c12a64',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test9',
@@ -1419,7 +1434,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'a37c7aeb-38bd-46b8-87f7-3cbaf212a9fb',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TestingClient',
@@ -1429,16 +1444,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19921,
-    name: 'Round 1 - Match 24',
+    name: 'Match A-24',
     nextMatchId: 19919,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '0be9036e-4cb4-4d95-b45a-b8725b4a2b73',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'test357375',
@@ -1446,7 +1461,7 @@ const matches: MatchType[] = [
       },
       {
         id: '2486582b-574a-40fc-a8d3-b426cda99abf',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Chat test',
@@ -1456,16 +1471,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19925,
-    name: 'Round 1 - Match 25',
+    name: 'Match A-25',
     nextMatchId: 19924,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '3ae53b5b-958d-4f01-a40e-bab340036a29',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'testadam',
@@ -1473,7 +1488,7 @@ const matches: MatchType[] = [
       },
       {
         id: '4ce605b1-28c5-4359-a2b8-5aa232299f2e',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TESTWTF',
@@ -1483,16 +1498,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19926,
-    name: 'Round 1 - Match 26',
+    name: 'Match A-26',
     nextMatchId: 19924,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'DONE',
     participants: [
       {
         id: 'c85a0d8a-4e22-4781-8494-d2cd600a3396',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Gloot1 test',
@@ -1500,7 +1515,7 @@ const matches: MatchType[] = [
       },
       {
         id: '0f8844f8-91a3-4969-9557-8ac560f3a7d2',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TestTeam12344',
@@ -1510,16 +1525,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19928,
-    name: 'Round 1 - Match 27',
+    name: 'Match A-27',
     nextMatchId: 19927,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'ad2a0a89-d3bb-49dd-b8fc-2ec100e33477',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Testing new Team',
@@ -1527,7 +1542,7 @@ const matches: MatchType[] = [
       },
       {
         id: '241150ef-951e-4e4c-82b5-9a26125521d1',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test200',
@@ -1537,16 +1552,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19929,
-    name: 'Round 1 - Match 28',
+    name: 'Match A-28',
     nextMatchId: 19927,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'a35b99fb-fd75-4ed5-9a51-6cd772beebf0',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TestTeam1696',
@@ -1554,7 +1569,7 @@ const matches: MatchType[] = [
       },
       {
         id: '613f708c-b000-4aa7-a9b1-47de355c9fac',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'testteam',
@@ -1564,16 +1579,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19932,
-    name: 'Round 1 - Match 29',
+    name: 'Match A-29',
     nextMatchId: 19931,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '7fbd66f3-7eaa-4567-bc87-5a82f10417ad',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'adamapexnice',
@@ -1581,7 +1596,7 @@ const matches: MatchType[] = [
       },
       {
         id: '6eefadaa-11e0-4551-8874-faec113f875f',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test500000',
@@ -1591,16 +1606,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19933,
-    name: 'Round 1 - Match 30',
+    name: 'Match A-30',
     nextMatchId: 19931,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'bb31a7b7-8563-416c-8c8f-b57b7b56fdca',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'test teamsfsfsfsfs',
@@ -1608,7 +1623,7 @@ const matches: MatchType[] = [
       },
       {
         id: 'b5edee08-6d0a-4e3d-9587-57a2d585e490',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'Adam testar',
@@ -1618,16 +1633,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19935,
-    name: 'Round 1 - Match 31',
+    name: 'Match A-31',
     nextMatchId: 19934,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: 'f4e36b1f-ba40-4368-ab2e-97cad78c2932',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'Testabc',
@@ -1635,7 +1650,7 @@ const matches: MatchType[] = [
       },
       {
         id: '354506c4-d07d-4785-9759-755941a6cccc',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'TestTeam1234',
@@ -1645,16 +1660,16 @@ const matches: MatchType[] = [
   },
   {
     id: 19936,
-    name: 'Round 1 - Match 32',
+    name: 'Match A-32',
     nextMatchId: 19934,
     // nextLooserMatchId: null,
-    tournamentRoundText: '1',
+    tournamentRoundText: 'A',
     startTime: '2021-05-30',
     state: 'SCORE_DONE',
     participants: [
       {
         id: '3dce492c-ecad-453c-98e7-2b96ddbf8800',
-        resultText: 'Won',
+        resultText: '1',
         isWinner: true,
         status: 'PLAYED',
         name: 'gloot3 test',
@@ -1662,7 +1677,7 @@ const matches: MatchType[] = [
       },
       {
         id: '8ef16ac0-358b-4d6a-8049-1f3962d060e0',
-        resultText: 'Lost',
+        resultText: '0',
         isWinner: false,
         status: 'PLAYED',
         name: 'TestTeam1253',
@@ -1670,6 +1685,15 @@ const matches: MatchType[] = [
       },
     ],
   },
+];
+
+const matches: MatchType[] = [
+  ...finals,
+  ...semiFinals,
+  ...roundD,
+  ...roundC,
+  ...roundB,
+  ...roundA,
 ];
 
 export default matches;

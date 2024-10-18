@@ -24,7 +24,7 @@ export type Participant = {
   match: Match;
 };
 
-export type Stage = {
+export type Round = {
   name: string;
   slug: string;
   schedule: Match[];

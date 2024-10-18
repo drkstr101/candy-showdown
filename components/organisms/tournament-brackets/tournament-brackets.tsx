@@ -1,6 +1,6 @@
 import { Match, SingleEliminationBracket } from '@g-loot/react-tournament-brackets';
 
-import matches from './matches';
+import matches from './match-model';
 import theme from './theme';
 
 export default function TournamentBrackets() {

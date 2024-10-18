@@ -1,21 +1,21 @@
 import { SHORT_DATE } from '@lib/constants';
-import { Stage } from '@lib/types';
+import { Round } from '@lib/types';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import MatchCard from './match-card';
 import styles from './schedule-sidebar.module.css';
 
 type Props = {
-  allStages: Stage[];
+  allRounds: Round[];
 };
 
-export default function ScheduleSidebar({ allStages }: Props) {
+export default function ScheduleSidebar({ allRounds }: Props) {
   const router = useRouter();
-  const [currentStageSlug, setCurrentStageSlug] = useState(router.query.slug);
-  const currentStage = allStages.find((s: Stage) => s.slug === currentStageSlug);
+  const [currentRoundSlug, setCurrentRoundSlug] = useState(router.query.slug);
+  const currentRound = allRounds.find((s: Round) => s.slug === currentRoundSlug);
 
   useEffect(() => {
-    setCurrentStageSlug(router.query.slug);
+    setCurrentRoundSlug(router.query.slug);
   }, [router.query.slug]);
 
   return (
@@ -24,7 +24,7 @@ export default function ScheduleSidebar({ allStages }: Props) {
       <p>{SHORT_DATE}</p>
 
       <div className={styles.matches}>
-        {currentStage?.schedule.map((match) => (
+        {currentRound?.schedule.map((match) => (
           <MatchCard key={match.title} match={match} showTime />
         ))}
       </div>

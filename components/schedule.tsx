@@ -1,9 +1,9 @@
-import { Match, Stage } from '@lib/types';
+import { Match, Round } from '@lib/types';
 import cn from 'clsx';
 import MatchCard from './match-card';
 import styles from './schedule.module.css';
 
-function StageRow({ stage }: { stage: Stage }) {
+function RoundRow({ stage }: { stage: Round }) {
   // Group matches by the time block
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const timeBlocks = stage.schedule.reduce((allBlocks: any, match) => {
@@ -30,15 +30,15 @@ function StageRow({ stage }: { stage: Stage }) {
 }
 
 type Props = {
-  allStages: Stage[];
+  allRounds: Round[];
 };
 
-export default function Schedule({ allStages }: Props) {
+export default function Schedule({ allRounds }: Props) {
   return (
     <div className={styles.container}>
       <div className={styles['row-wrapper']}>
-        {allStages.map((stage) => (
-          <StageRow key={stage.slug} stage={stage} />
+        {allRounds.map((stage) => (
+          <RoundRow key={stage.slug} stage={stage} />
         ))}
       </div>
     </div>
