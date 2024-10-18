@@ -5,6 +5,7 @@ declare module '@g-loot/react-tournament-brackets' {
     Match,
     SVGViewer,
     SingleEliminationBracket,
+    Theme,
     createTheme,
   } from '@g-loot/react-tournament-brackets/dist/cjs';
   export type {

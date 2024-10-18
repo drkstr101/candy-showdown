@@ -1,6 +1,6 @@
-import type { MatchType } from '@g-loot/react-tournament-brackets';
+import { MatchType } from '@g-loot/react-tournament-brackets';
 
-export const simpleBracket: MatchType[] = [
+const matches: MatchType[] = [
   {
     id: 19874,
     name: 'Final - Match',
@@ -1671,3 +1671,5 @@ export const simpleBracket: MatchType[] = [
     ],
   },
 ];
+
+export default matches;
