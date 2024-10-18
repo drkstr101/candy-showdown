@@ -12,6 +12,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import '@styles/chrome-bug.css';
 import '@styles/global.css';
 import '@styles/nprogress.css';
+import { inspect } from 'util';
 
 type Props = { principal: AuthUser | null };
 
@@ -27,7 +28,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
 };
 
 export default function App({ Component, pageProps }: AppProps) {
-  if (DEBUG) console.log('App(props)', pageProps);
+  if (DEBUG) console.log('App(props)', inspect(pageProps, { depth: null }));
   const { principal } = pageProps;
   return (
     <UiProvider initialUser={principal}>

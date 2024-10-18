@@ -3,8 +3,9 @@ import { createTheme } from '@g-loot/react-tournament-brackets';
 // export type Theme = typeof theme;
 
 export default createTheme({
-  fontFamily: '"Inter", "Arial", "Helvetica", "sans-serif"',
+  fontFamily: '"Inter", "sans-serif"',
   transitionTimingFunction: 'cubic-bezier(0, 0.92, 0.77, 0.99)',
+  smooth: 'ease-in-out',
 
   disabledColor: '#737373',
   roundHeaders: {

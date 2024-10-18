@@ -32,6 +32,7 @@ export async function getAllParticipants(): Promise<Participant[]> {
   const { allParticipants } = await fetchContent(`
      {
        allParticipants(first: 100) {
+         id
          name
          bio
          title

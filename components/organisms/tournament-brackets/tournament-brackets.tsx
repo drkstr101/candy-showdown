@@ -1,5 +1,7 @@
-import { Match, SingleEliminationBracket } from '@g-loot/react-tournament-brackets';
+import { SingleEliminationBracket } from '@g-loot/react-tournament-brackets';
+import { useAsyncList } from '@react-stately/data';
 
+import Match from './match';
 import matches from './match-model';
 import theme from './theme';
 

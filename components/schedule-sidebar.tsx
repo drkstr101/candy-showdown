@@ -1,7 +1,7 @@
 import { SHORT_DATE } from '@lib/constants';
 import { Round } from '@lib/types';
 import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import MatchCard from './match-card';
 import styles from './schedule-sidebar.module.css';
 import Select from './select';
@@ -12,12 +12,12 @@ type Props = {
 
 export default function ScheduleSidebar({ allRounds }: Props) {
   const router = useRouter();
-  const [currentRoundSlug, setCurrentRoundSlug] = useState(router.query.slug);
+  const [currentRoundSlug, setCurrentRoundSlug] = useState('round-a');
   const currentRound = allRounds.find((s: Round) => s.slug === currentRoundSlug);
 
-  useEffect(() => {
-    setCurrentRoundSlug(router.query.slug);
-  }, [router.query.slug]);
+  // useEffect(() => {
+  //   setCurrentRoundSlug('round-a');
+  // }, []);
 
   return (
     <div className={styles.schedule}>
