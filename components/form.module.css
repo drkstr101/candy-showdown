@@ -159,7 +159,7 @@
   }
 }
 
-.stage-btn {
+.round-btn {
   background: theme(colors.neutral.900);
   border: 2px solid theme(colors.primary.700);
 }

@@ -20,7 +20,7 @@
   width: 100%;
 }
 
-.stage-name {
+.round-name {
   font-size: 22px;
   line-height: 1.15;
   letter-spacing: -0.05em;
@@ -60,7 +60,7 @@
     margin-top: 0;
   }
 
-  .stage-name {
+  .round-name {
     font-size: var(--space-8x);
     position: sticky;
     left: 0;

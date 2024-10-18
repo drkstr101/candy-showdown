@@ -24,17 +24,17 @@ export default function ScheduleSidebar({ allRounds }: Props) {
       <h3 className={styles.header}>Schedule</h3>
       <p>{SHORT_DATE}</p>
       <Select
-        aria-label="Select a stage"
+        aria-label="Select a round"
         value={currentRoundSlug}
         onChange={(e) => {
           const slug = e.target.value;
           setCurrentRoundSlug(slug);
-          router.push(`/stage/${slug}`);
+          router.push(`/round/${slug}`);
         }}
       >
-        {allRounds.map((stage) => (
-          <option key={stage.slug} value={stage.slug}>
-            {stage.name}
+        {allRounds.map((round) => (
+          <option key={round.slug} value={round.slug}>
+            {round.name}
           </option>
         ))}
       </Select>

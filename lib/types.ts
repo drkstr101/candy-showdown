@@ -30,8 +30,8 @@ export type Round = {
   schedule: Match[];
   isLive: boolean;
   channelId: string;
-  stagePeers: string[];
-  backstagePeers: string[];
+  roundPeers: string[];
+  backroundPeers: string[];
 };
 
 export type Match = {
