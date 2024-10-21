@@ -23,10 +23,10 @@ export default function HomeView({ participants, user }: HomeViewProps) {
   const handleSelection = useCallback(
     (item: Participant) => {
       // console.log(`handleSelection(${item.slug})`);
-      list.setSelectedKeys(new Set([item.slug]));
+      // list.setSelectedKeys(new Set([item.slug]));
       setSelection(item);
     },
-    [list, setSelection]
+    [setSelection]
   );
 
   return (
