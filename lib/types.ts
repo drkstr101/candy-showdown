@@ -1,12 +1,19 @@
+import { Enums } from '@lib/supabase/database.types';
 import type { User } from '@supabase/supabase-js';
 
 export type AuthUser = User;
 
-export type AppUser = {
+export type AppRole = Enums<'app_role'>;
+export type UserStatus = Enums<'user_status'>;
+
+export type AsyncStatus = 'error' | 'loading' | 'ready';
+
+export interface AppUser {
   id: string;
   username: string;
-  status: 'offline' | 'online';
-};
+  status: UserStatus;
+  selection: string;
+}
 
 export type Image = {
   url: string;
@@ -21,25 +28,27 @@ export type Participant = {
   company: string;
   image: Image;
   imageSquare: Image;
-  match: Match;
+  // match: Match;
 };
 
 export type Round = {
   name: string;
   slug: string;
   schedule: Match[];
-  isLive: boolean;
-  channelId: string;
-  roundPeers: string[];
-  backroundPeers: string[];
+  start: string;
+  end: string;
+
+  // isLive: boolean;
+  // channelId: string;
+  // roundPeers: string[];
+  // backroundPeers: string[];
 };
 
 export type Match = {
   title: string;
   description: string;
-  start: string;
-  end: string;
-  participant: Participant[];
+  participants: Participant[];
+  nextMatch: Match | null;
 };
 
 export type Link = {

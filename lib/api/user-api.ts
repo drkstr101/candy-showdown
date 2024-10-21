@@ -1,3 +1,4 @@
+import { AppUser } from '@lib/types';
 import { SupabaseClient } from '@supabase/supabase-js';
 import { Database } from '../supabase/database.types';
 
@@ -17,7 +18,7 @@ export class UserApi {
     return await this.supabase.auth.signOut();
   }
 
-  async fetchUserById(id: string) {
-    return await this.supabase.from('users').select('*').eq('id', id).maybeSingle();
+  async fetchUserById(id: string): Promise<AppUser | null> {
+    return (await this.supabase.from('users').select('*').eq('id', id).single()).data;
   }
 }

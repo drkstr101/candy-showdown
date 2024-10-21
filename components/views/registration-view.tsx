@@ -3,7 +3,7 @@ import { useState } from 'react';
 
 import Container from '@components/container';
 import Form from '@components/form';
-import Hero from '@components/hero';
+import Hero from '@components/molecules/hero';
 import styleUtils from '@components/utils.module.css';
 import { INFO_URL } from '@lib/constants';
 

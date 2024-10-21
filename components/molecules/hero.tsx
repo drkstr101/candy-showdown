@@ -1,7 +1,7 @@
+import styleUtils from '@components/utils.module.css';
 import { DATE, SITE_DESCRIPTION } from '@lib/constants';
 import cn from 'clsx';
 import styles from './hero.module.css';
-import styleUtils from './utils.module.css';
 
 export default function Hero() {
   return (

@@ -1,7 +1,7 @@
 import { Participant, Round } from '@lib/types';
 
 const API_URL = 'https://graphql.datocms.com/';
-const API_TOKEN = process.env.DATOCMS_READ_ONLY_API_TOKEN;
+const API_TOKEN = process.env.NEXT_PUBLIC_DATOCMS_API_TOKEN;
 
 async function fetchContent(
   query: string,
@@ -28,105 +28,75 @@ async function fetchContent(
   return json.data;
 }
 
+const roundsFragment = `
+  allRounds(first: 100, orderBy: order_ASC) {
+    id
+    name
+    slug
+    order
+    start
+    end
+    schedule {
+      id
+      title
+      participants {
+        id
+        name
+        title
+        slug
+        image {
+          url(imgixParams: {fm: jpg, fit: crop, w: 300, h: 400})
+          blurDataURL: blurUpThumb
+        }
+        imageSquare: image {
+          url(imgixParams: {fm: jpg, fit: crop, w: 192, h: 192})
+          blurDataURL: blurUpThumb
+        }
+      }
+      nextMatch {
+        id
+      }
+    }
+  }
+`;
+
+const participantsFragment = `
+  allParticipants(first: 100) {
+    id
+    name
+    title
+    slug
+    image {
+      url(imgixParams: {fm: jpg, fit: crop, w: 300, h: 400})
+      blurDataURL: blurUpThumb
+    }
+    imageSquare: image {
+      url(imgixParams: {fm: jpg, fit: crop, w: 192, h: 192})
+      blurDataURL: blurUpThumb
+    }
+  }
+`;
+
 export async function getAllParticipants(): Promise<Participant[]> {
-  const { allParticipants } = await fetchContent(`
-     {
-       allParticipants(first: 100) {
-         id
-         name
-         bio
-         title
-         slug
-         company
-         match {
-           title
-         }
-         image {
-           url(imgixParams: {fm: jpg, fit: crop, w: 300, h: 400})
-           blurDataURL: blurUpThumb
-         }
-         imageSquare: image {
-           url(imgixParams: {fm: jpg, fit: crop, w: 192, h: 192})
-           blurDataURL: blurUpThumb
-         }
-       }
-     }
-   `);
+  const { allParticipants } = await fetchContent(`{ ${participantsFragment} }`);
 
   return allParticipants;
 }
 
 export async function getAllRounds(): Promise<Round[]> {
-  const { allRounds } = await fetchContent(`
-     {
-       allRounds(first: 100, orderBy: order_ASC) {
-         name
-         slug
-         isLive
-         schedule {
-           title
-           start
-           end
-           participant {
-             name
-             slug
-             image {
-               url(imgixParams: {fm: jpg, fit: crop, w: 120, h: 120})
-               blurDataURL: blurUpThumb
-             }
-           }
-         }
-       }
-     }
-   `);
+  const { allRounds } = await fetchContent(`{ ${roundsFragment} }`);
 
   return allRounds;
 }
 
-// export async function getAllSponsors(): Promise<Sponsor[]> {
-//   const { allCompanies } = await fetchContent(`
-//      {
-//        allCompanies(first: 100, orderBy: tierRank_ASC) {
-//          name
-//          description
-//          slug
-//          website
-//          callToAction
-//          callToActionLink
-//          discord
-//          youtubeSlug
-//          tier
-//          links {
-//            url
-//            text
-//          }
-//          cardImage {
-//            url(imgixParams: {fm: jpg, fit: crop})
-//          }
-//          logo {
-//            url(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100})
-//          }
-//        }
-//      }
-//    `);
+export async function getStaticContent(): Promise<{
+  participants: Participant[];
+  rounds: Round[];
+}> {
+  const { allRounds, allParticipants } = await fetchContent(`{
+    ${participantsFragment}
+    ${roundsFragment}
+  }`);
 
-//   return allCompanies;
-// }
-
-// export async function getAllJobs(): Promise<Job[]> {
-//   const { allJobs } = await fetchContent(`
-//      {
-//        allJobs(first: 100, orderBy: rank_ASC) {
-//          id
-//          companyName
-//          title
-//          description
-//          discord
-//          link
-//          rank
-//        }
-//      }
-//    `);
-
-//   return allJobs;
-// }
+  return { rounds: allRounds, participants: allParticipants };
+}

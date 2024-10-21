@@ -2,7 +2,7 @@ import { SHORT_DATE } from '@lib/constants';
 import { Round } from '@lib/types';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import MatchCard from './match-card';
+import MatchCard from './molecules/match-card';
 import styles from './schedule-sidebar.module.css';
 
 type Props = {
@@ -25,7 +25,13 @@ export default function ScheduleSidebar({ allRounds }: Props) {
 
       <div className={styles.matches}>
         {currentRound?.schedule.map((match) => (
-          <MatchCard key={match.title} match={match} showTime />
+          <MatchCard
+            key={match.title}
+            match={match}
+            start={currentRound.start}
+            end={currentRound.end}
+            showTime
+          />
         ))}
       </div>
     </div>

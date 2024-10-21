@@ -1,15 +1,18 @@
 import { Match, Round } from '@lib/types';
 import cn from 'clsx';
-import MatchCard from './match-card';
+import MatchCard from './molecules/match-card';
 import styles from './schedule.module.css';
 
 function RoundRow({ round }: { round: Round }) {
   // Group matches by the time block
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // console.log('round = ', round);
   const timeBlocks = round.schedule.reduce((allBlocks: any, match) => {
-    allBlocks[match.start] = [...(allBlocks[match.start] || []), match];
+    allBlocks[round.start] = [...(allBlocks[round.start] || []), match];
     return allBlocks;
   }, {});
+
+  // console.log('timeBlocks = ', timeBlocks);
 
   return (
     <div key={round.name} className={styles.row}>
@@ -20,7 +23,13 @@ function RoundRow({ round }: { round: Round }) {
         {Object.keys(timeBlocks).map((startTime: string) => (
           <div key={startTime}>
             {timeBlocks[startTime].map((match: Match, index: number) => (
-              <MatchCard key={match.title} match={match} showTime={index === 0} />
+              <MatchCard
+                key={match.title}
+                match={match}
+                showTime={index === 0}
+                start={round.start}
+                end={round.end}
+              />
             ))}
           </div>
         ))}

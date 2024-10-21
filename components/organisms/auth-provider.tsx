@@ -41,14 +41,14 @@ export function AuthProvider({ children, initialUser }: Props) {
 
   useEffect(() => {
     function saveSession(session: Session | null) {
-      console.log('Session Update:', session);
+      // console.log('Session Update:', session);
       setSession(session);
       if (session && session.user) {
         const { user, access_token } = session;
         const jwt = jwtDecode<{ user_role: Enums<'app_role'> }>(access_token);
         user.app_metadata['user_role'] = jwt.user_role ?? 'user';
 
-        console.log('Authenticated User: ', user);
+        // console.log('Authenticated User: ', user);
         setUser(user);
         setLoginStatus('loggedIn');
       } else {
@@ -62,7 +62,7 @@ export function AuthProvider({ children, initialUser }: Props) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
-      console.log('onAuthStateChange(event, session)', event, session);
+      // console.log('onAuthStateChange(event, session)', event, session);
       saveSession(session);
     });
 

@@ -1,7 +1,7 @@
 import { GetStaticProps } from 'next';
 
-import Header from '@components/header';
 import Layout from '@components/layout';
+import Header from '@components/molecules/header';
 import Page from '@components/page';
 import Schedule from '@components/schedule';
 

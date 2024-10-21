@@ -1,13 +1,14 @@
 import { GetStaticProps } from 'next';
 
-import Header from '@components/header';
 import Layout from '@components/layout';
+import Header from '@components/molecules/header';
 import Page from '@components/page';
 import ParticipantsGrid from '@components/participants-grid';
 
 import { getAllParticipants } from '@lib/api/content-api';
 import { META_DESCRIPTION } from '@lib/constants';
 import { Participant } from '@lib/types';
+import shuffle from 'lodash/shuffle';
 
 type Props = {
   participants: Participant[];
@@ -29,7 +30,7 @@ export default function Participants({ participants }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const participants = await getAllParticipants();
+  const participants = shuffle(await getAllParticipants());
 
   return {
     props: {

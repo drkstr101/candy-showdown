@@ -1,12 +1,12 @@
+import MobileMenu from '@components/organisms/mobile-menu';
 import { NAVIGATION } from '@lib/constants';
 import { SkipNavContent } from '@reach/skip-nav';
 import cn from 'clsx';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { CSSProperties } from 'react';
-import Footer from './footer';
+import Footer from './molecules/footer';
 import Logo from './icons/icon-logo';
-import MobileMenu from './mobile-menu';
 import ViewSource from './view-source';
 
 import styles from './layout.module.css';

@@ -10,7 +10,9 @@ import { useRouter } from 'next/router';
 import { useRef } from 'react';
 import styles from './mobile-menu.module.css';
 
-function ModalDialog(props: Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0]) {
+export type MobileMenuProps = Parameters<typeof useOverlay>[0] & Parameters<typeof useDialog>[0];
+
+function ModalDialog(props: MobileMenuProps) {
   const router = useRouter();
   const activeRoute = router.asPath;
 

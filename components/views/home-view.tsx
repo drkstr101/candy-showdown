@@ -241,9 +241,9 @@ function NewMessageInput() {
 
 export default function HomeView() {
   return (
-    <div className="container mx-auto flex h-full w-full flex-row px-4 py-8 sm:px-6 lg:px-8">
+    <div className="mx-auto flex h-full w-full max-w-7xl flex-row px-4 py-8 sm:px-6 lg:px-8">
       <div className="grow">
-        <div className="relative h-[672px] w-full overflow-hidden rounded-xl border border-dashed border-neutral-400 opacity-75">
+        <div className="relative h-full w-full overflow-hidden rounded-xl border border-dashed border-neutral-400 opacity-75">
           <svg className="absolute inset-0 h-full w-full stroke-neutral-100/15" fill="none">
             <defs>
               <pattern

@@ -142,7 +142,7 @@ export default function Match({
   return (
     <Wrapper>
       <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-        {/* <TopText>{topText}</TopText> */}
+        <TopText>{topText}</TopText>
         {(match.href || typeof onMatchClick === 'function') && (
           <Anchor
             href={match.href}
@@ -160,7 +160,7 @@ export default function Match({
           hovered={topHovered}
           onClick={() => onPartyClick?.(topParty, topWon)}
         >
-          <Team>{topParty?.name}</Team>
+          <Team>{topParty?.name ?? 'TBD'}</Team>
           <Score won={topWon}>{topParty?.resultText}</Score>
         </Side>
         <Line highlighted={topHovered || bottomHovered} />
@@ -171,7 +171,7 @@ export default function Match({
           hovered={bottomHovered}
           onClick={() => onPartyClick?.(bottomParty, bottomWon)}
         >
-          <Team>{bottomParty?.name}</Team>
+          <Team>{bottomParty?.name ?? 'TBD'}</Team>
           <Score won={bottomWon}>{bottomParty?.resultText}</Score>
         </Side>
       </StyledMatch>

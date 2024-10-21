@@ -6,6 +6,6 @@
   "deploymentType": "vercel",
   "vercelIntegrationIds": ["oac_7yeSwUoVR5no3SlA9WM6oR7l"],
   "buildCommand": "yarn build",
-  "datocmsApiTokenEnvName": "DATOCMS_READ_ONLY_API_TOKEN",
+  "datocmsApiTokenEnvName": "NEXT_PUBLIC_DATOCMS_API_TOKEN",
   "livePreviewUrl": "https://candy-showdown.vercel.app/"
 }

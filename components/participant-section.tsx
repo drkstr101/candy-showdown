@@ -50,12 +50,6 @@ export default function ParticipantSection({ participant }: Props) {
           </div>
         </div>
       </div>
-      {participant.match && (
-        <div className={styles['match-details']}>
-          <h3 className={styles['socials-header']}>{participant.match.title}</h3>
-          <p>{participant.match.description}</p>
-        </div>
-      )}
     </>
   );
 }

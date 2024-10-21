@@ -126,6 +126,7 @@ export type Database = {
           id: string;
           status: Database['public']['Enums']['user_status'];
           username: string;
+          selection: string;
         };
         Insert: {
           id: string;
@@ -136,6 +137,7 @@ export type Database = {
           id?: string;
           status?: Database['public']['Enums']['user_status'];
           username?: string;
+          selection?: string;
         };
         Relationships: [
           {

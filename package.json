@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@datocms/cma-client-node": "^3.3.12",
     "@g-loot/react-tournament-brackets": "^1.0.31-rc",
     "@headlessui/react": "^2.1.10",
     "@heroicons/react": "^2.1.5",

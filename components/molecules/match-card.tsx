@@ -1,6 +1,6 @@
 import { Match } from '@lib/types';
 import cn from 'clsx';
-import { format, isAfter, isBefore, parseISO } from 'date-fns';
+import { isAfter, isBefore } from 'date-fns';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -10,15 +10,19 @@ type Props = {
   key: string;
   match: Match;
   showTime: boolean;
+  start: string;
+  end: string;
 };
 
 const formatDate = (date: string) => {
   // https://github.com/date-fns/date-fns/issues/946
-  return format(parseISO(date), "h:mmaaaaa'm'");
+  return Date.parse(date).toLocaleString();
 };
 
 export default function MatchCard({
-  match: { title, participant: participant, start, end },
+  match: { title, participants },
+  start,
+  end,
   showTime,
 }: Props) {
   const [isMatchLive, setIsMatchLive] = useState(false);
@@ -26,11 +30,12 @@ export default function MatchCard({
 
   useEffect(() => {
     const now = Date.now();
-    setIsMatchLive(isAfter(now, parseISO(start)) && isBefore(now, parseISO(end)));
+    setIsMatchLive(isAfter(now, Date.parse(start)) && isBefore(now, Date.parse(end)));
     setStartAndEndTime(`${formatDate(start)} – ${formatDate(end)}`);
   }, [end, start]);
 
-  const firstParticipantLink = `/participants/${participant[0].slug}`;
+  const firstParticipantLink =
+    participants.length === 0 ? '#' : `/participants/${participants[0]?.slug}`;
 
   return (
     <div key={title} className={styles.match}>
@@ -47,7 +52,7 @@ export default function MatchCard({
           </h4>
           <div className={styles.participant}>
             <div className={styles['avatar-group']}>
-              {participant.map((s) => (
+              {participants.map((s) => (
                 <div key={s.name} className={styles['avatar-wrapper']}>
                   <Image
                     loading="lazy"
@@ -62,9 +67,9 @@ export default function MatchCard({
               ))}
             </div>
             <h5 className={styles.name}>
-              {participant.length === 1
-                ? participant[0].name
-                : `${participant.length} participants`}
+              {participants.length === 1
+                ? participants[0].name
+                : `${participants.length} participants`}
             </h5>
           </div>
         </div>
