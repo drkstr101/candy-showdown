@@ -3,6 +3,7 @@ const { join } = require('path');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'selector',
   content: [
     join(__dirname, '{src,pages,components,app}/**/*!(*.stories|*.spec).{ts,tsx,html}'),
     ...createGlobPatternsForDependencies(__dirname),
@@ -21,14 +22,14 @@ module.exports = {
         success: colors.emerald,
         info: colors.sky,
       }),
-      fontSize: {
-        xxs: '10px',
-        xs: 'var(--text-xs)',
-        sm: 'var(--text-sm)',
-        md: 'var(--text-md)',
-        lg: 'var(--text-lg)',
-        xl: 'var(--text-xl)',
-      },
+      // fontSize: {
+      //   xxs: '10px',
+      //   xs: 'var(--text-xs)',
+      //   sm: 'var(--text-sm)',
+      //   md: 'var(--text-md)',
+      //   lg: 'var(--text-lg)',
+      //   xl: 'var(--text-xl)',
+      // },
       minWidth: {
         btn: '160px',
       },
@@ -37,5 +38,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('tailwindcss-animate')],
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('tailwindcss-react-aria-components'),
+    require('tailwindcss-animate'),
+  ],
 };

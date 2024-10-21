@@ -2,7 +2,7 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 
 import Layout from '@components/layout';
 import Page from '@components/page';
-import ParticipantSection from '@components/participant-section';
+import ParticipantSection from '@components/molecules/participant-section';
 
 import { getAllParticipants } from '@lib/api/content-api';
 import { META_DESCRIPTION } from '@lib/constants';

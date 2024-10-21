@@ -2,14 +2,12 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { AppProps } from 'next/app';
 
-import UiProvider from '@components/organisms/ui-provider';
-import { AuthUser } from '@lib/types';
+import UiProvider, { AppContextType } from '@components/organisms/ui-provider';
 
+import { DEBUG } from '@lib/constants';
 import '@styles/chrome-bug.css';
 import '@styles/global.css';
 import '@styles/nprogress.css';
-
-type ServerProps = { principal: AuthUser | null };
 
 // export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
 //   const api = new UserApi(createClient(ctx));
@@ -22,11 +20,11 @@ type ServerProps = { principal: AuthUser | null };
 //   return { props: { principal: user } };
 // };
 
-export default function App({ Component, pageProps }: AppProps<ServerProps>) {
+export default function App({ Component, pageProps }: AppProps<AppContextType>) {
   // if (DEBUG) console.log('App(props)', pageProps);
-  const { principal } = pageProps;
+  const { principal = null, participants = [], rounds = [], user = null } = pageProps;
   return (
-    <UiProvider principal={principal} participants={[]} rounds={[]} user={null}>
+    <UiProvider principal={principal} participants={participants} rounds={rounds} user={user}>
       <Component {...pageProps} />
       <Analytics />
       <SpeedInsights />

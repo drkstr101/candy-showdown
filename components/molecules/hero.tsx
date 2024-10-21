@@ -1,4 +1,4 @@
-import styleUtils from '@components/utils.module.css';
+import styleUtils from '@components/style-utils.module.css';
 import { DATE, SITE_DESCRIPTION } from '@lib/constants';
 import cn from 'clsx';
 import styles from './hero.module.css';

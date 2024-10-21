@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import React, { CSSProperties } from 'react';
 import Footer from './molecules/footer';
 import Logo from './icons/icon-logo';
-import ViewSource from './view-source';
+import ViewSource from './atoms/view-source';
 
 import styles from './layout.module.css';
 

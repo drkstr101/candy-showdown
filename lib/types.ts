@@ -1,5 +1,6 @@
 import { Enums } from '@lib/supabase/database.types';
 import type { User } from '@supabase/supabase-js';
+import { Key } from 'react';
 
 export type AuthUser = User;
 
@@ -21,6 +22,7 @@ export type Image = {
 };
 
 export type Participant = {
+  id: Key;
   name: string;
   bio: string;
   slug: string;
@@ -32,6 +34,7 @@ export type Participant = {
 };
 
 export type Round = {
+  id: Key;
   name: string;
   slug: string;
   schedule: Match[];
@@ -45,42 +48,43 @@ export type Round = {
 };
 
 export type Match = {
+  id: Key;
   title: string;
   description: string;
   participants: Participant[];
   nextMatch: Match | null;
 };
 
-export type Link = {
-  url: string;
-};
+// export type Link = {
+//   url: string;
+// };
 
-export type Sponsor = {
-  name: string;
-  description: string;
-  slug: string;
-  website: string;
-  callToAction: string;
-  callToActionLink: string;
-  links: SponsorLink[];
-  discord: string;
-  tier: string;
-  cardImage: Image;
-  logo: Image;
-  youtubeSlug: string;
-};
+// export type Sponsor = {
+//   name: string;
+//   description: string;
+//   slug: string;
+//   website: string;
+//   callToAction: string;
+//   callToActionLink: string;
+//   links: SponsorLink[];
+//   discord: string;
+//   tier: string;
+//   cardImage: Image;
+//   logo: Image;
+//   youtubeSlug: string;
+// };
 
-export type SponsorLink = {
-  text: string;
-  url: string;
-};
+// export type SponsorLink = {
+//   text: string;
+//   url: string;
+// };
 
-export type Job = {
-  id: string;
-  companyName: string;
-  title: string;
-  description: string;
-  discord: string;
-  link: string;
-  rank: number;
-};
+// export type Job = {
+//   id: string;
+//   companyName: string;
+//   title: string;
+//   description: string;
+//   discord: string;
+//   link: string;
+//   rank: number;
+// };

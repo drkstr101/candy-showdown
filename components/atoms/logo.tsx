@@ -1,5 +1,5 @@
 import { SITE_NAME_MULTILINE } from '@lib/constants';
-import IconLogo from './icons/icon-logo';
+import IconLogo from '../icons/icon-logo';
 import styles from './logo.module.css';
 
 export default function Logo({ textSecondaryColor = 'var(--accents-5)' }) {

@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import Layout from '@components/layout';
 import Header from '@components/molecules/header';
 import Page from '@components/page';
-import ParticipantsGrid from '@components/participants-grid';
+import ParticipantsGrid from '@components/molecules/participants-grid';
 
 import { getAllParticipants } from '@lib/api/content-api';
 import { META_DESCRIPTION } from '@lib/constants';

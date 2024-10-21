@@ -1,10 +1,10 @@
 import cn from 'clsx';
 import { useState } from 'react';
 
-import Container from '@components/container';
-import Form from '@components/form';
+import Container from '@components/atoms/container';
 import Hero from '@components/molecules/hero';
-import styleUtils from '@components/utils.module.css';
+import Form from '@components/organisms/login-form';
+import styleUtils from '@components/style-utils.module.css';
 import { INFO_URL } from '@lib/constants';
 
 import styles from './registration-view.module.css';

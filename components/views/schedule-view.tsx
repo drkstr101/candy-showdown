@@ -1,13 +1,14 @@
 import { Match, Round } from '@lib/types';
 import cn from 'clsx';
-import MatchCard from './molecules/match-card';
-import styles from './schedule.module.css';
+import MatchCard from '../molecules/match-card';
+import styles from './schedule-view.module.css';
 
 function RoundRow({ round }: { round: Round }) {
   // Group matches by the time block
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+
   // console.log('round = ', round);
-  const timeBlocks = round.schedule.reduce((allBlocks: any, match) => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const timeBlocks = round.schedule.reduce((allBlocks: Record<string, any>, match) => {
     allBlocks[round.start] = [...(allBlocks[round.start] || []), match];
     return allBlocks;
   }, {});

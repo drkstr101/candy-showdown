@@ -48,11 +48,11 @@
   --space-32x: 128px;
 
   /* Typography options */
-  --text-xs: 12px;
-  --text-sm: 14px;
-  --text-md: 16px;
-  --text-lg: 18px;
-  --text-xl: 24px;
+  --text-xs: theme(fontSize.xs);
+  --text-sm: theme(fontSize.sm);
+  --text-md: theme(fontSize.base);
+  --text-lg: theme(fontSize.lg);
+  --text-xl: theme(fontSize.xl);
 
   /* Sizing options */
   --header-height: 72px;
@@ -71,6 +71,18 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Scale up hit targets on high resolution mobile devices. */
+@media (resolution >= 200dpi) {
+  html {
+    font-size: theme(fontSize.lg);
+  }
+
+  .text-sm {
+    /* ensure minimum font size of 16px */
+    font-size: 0.9rem;
+  }
+}
+
 *,
 *::before,
 *::after {
@@ -85,7 +97,7 @@ body {
   line-height: 1.65;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
     Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: var(--text-md);
+  font-size: theme(fontSize.base);
   font-weight: 400;
   min-width: 320px;
   direction: ltr;
@@ -94,6 +106,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+
+  /* color-scheme: dark light; */
 }
 
 html,
@@ -314,7 +328,7 @@ input {
 }
 
 .moderator-badge {
-  border: 1px solid theme(colors.blue.500);
+  border: 1px solid theme(colors.primary.500);
 }
 
 .guest-badge {

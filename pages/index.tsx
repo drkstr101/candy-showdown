@@ -1,7 +1,7 @@
 import Layout from '@components/layout';
 import { useAuth } from '@components/organisms/auth-provider';
 import Page from '@components/page';
-import Home from '@components/views/home-view';
+import HomeView from '@components/views/home-view/home-view';
 import Registration from '@components/views/registration-view';
 import { type GetServerSideProps } from 'next';
 
@@ -9,7 +9,8 @@ import { getAllParticipants, getAllRounds } from '@lib/api/content-api';
 import { UserApi } from '@lib/api/user-api';
 import { META_DESCRIPTION } from '@lib/constants';
 import { createClient } from '@lib/supabase/server';
-import { AppUser, AuthUser, Participant, Round } from '@lib/types';
+import { AppUser, AuthUser, Round } from '@lib/types';
+import { useAppContext } from '@components/organisms/ui-provider';
 
 type ServerProps = {
   principal: AuthUser | null;
@@ -23,7 +24,7 @@ export const getServerSideProps: GetServerSideProps<ServerProps> = async (ctx) =
   const { data, error } = await userApi.getPrincipal();
   if (error) console.error(error);
 
-  // const participants = (await getAllParticipants()) ?? [];
+  const participants = (await getAllParticipants()) ?? [];
   const rounds = (await getAllRounds()) ?? [];
 
   if (!data.user) return { props: { rounds, principal: null, user: null } };
@@ -31,7 +32,7 @@ export const getServerSideProps: GetServerSideProps<ServerProps> = async (ctx) =
   const principal = data.user;
   const user: AppUser | null = await userApi.fetchUserById(principal.id);
 
-  return { props: { principal, rounds, user } };
+  return { props: { principal, rounds, participants, user } };
 };
 
 // export const getStaticProps: GetStaticProps<StaticProps> = async () => {
@@ -68,9 +69,16 @@ export default function Index(props: unknown) {
   };
 
   const { loginStatus } = useAuth();
+  const { participants, user } = useAppContext();
   return (
     <Page meta={meta} fullViewport>
-      <Layout>{loginStatus === 'loggedIn' ? <Home /> : <Registration />}</Layout>
+      <Layout>
+        {loginStatus === 'loggedIn' ? (
+          <HomeView participants={participants} user={user} />
+        ) : (
+          <Registration />
+        )}
+      </Layout>
     </Page>
   );
 }

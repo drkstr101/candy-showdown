@@ -3,7 +3,7 @@ import { GetStaticProps } from 'next';
 import Layout from '@components/layout';
 import Header from '@components/molecules/header';
 import Page from '@components/page';
-import Schedule from '@components/schedule';
+import Schedule from '@components/views/schedule-view';
 
 import { getAllRounds } from '@lib/api/content-api';
 import { META_DESCRIPTION } from '@lib/constants';
