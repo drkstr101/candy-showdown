@@ -1,1 +1,1 @@
-export { default, type HomeViewProps } from './home-view';
+export { default } from './home-view';

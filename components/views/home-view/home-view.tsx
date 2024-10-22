@@ -1,47 +1,19 @@
 import { GridList, GridListItem } from '@components/grid-list';
-import { UserApi } from '@lib/api/user-api';
-import { createClient } from '@lib/supabase/client';
-import { AppUser, AsyncStatus, Participant } from '@lib/types';
+import { useAppContext } from '@components/organisms/ui-provider';
+import { Participant } from '@lib/types';
 import { useListData } from '@react-stately/data';
 import Image from 'next/image';
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import SidePanel from './side-panel';
 
-export interface HomeViewProps {
-  participants: Participant[];
-  user: AppUser;
-}
-export default function HomeView({ participants, user }: HomeViewProps) {
-  const userApi = useMemo(() => new UserApi(createClient()), []);
-  const [status, setStatus] = useState<AsyncStatus>('ready');
-  const [selectedItem, setSelectedItem] = useState<Participant | null>(
-    participants.find((p) => p.slug === user?.selection) ?? null
-  );
+export default function HomeView() {
+  const { participantsById, user, selectedItem, setSelectedItem, status } = useAppContext();
+  const participants = useMemo(() => Object.values(participantsById), [participantsById]);
   const list = useListData<Participant>({
     initialItems: participants,
-    initialSelectedKeys: selectedItem ? new Set([selectedItem.slug]) : new Set(),
-    getKey: (item: Participant) => item.slug,
+    initialSelectedKeys: selectedItem ? new Set([selectedItem.id]) : new Set(),
+    getKey: (item: Participant) => item.id,
   });
-
-  const handleSelection = useCallback(
-    async (item: Participant) => {
-      // console.log(`handleSelection(id=${item.id}, slug=${item.slug})`);
-      if (selectedItem?.slug !== item.slug) {
-        setStatus('loading');
-        setSelectedItem(item);
-        // user.selection = item.slug;
-        const { error, statusText } = await userApi.updateSelection(user.id, item.slug);
-        if (error) {
-          console.error(error);
-          setStatus('error');
-        } else {
-          console.info('Update Response:', statusText);
-          setStatus('ready');
-        }
-      }
-    },
-    [user.id, selectedItem?.slug, userApi]
-  );
 
   return (
     <div className="mx-auto flex h-full w-full max-w-7xl flex-row px-4 py-8 sm:px-6 lg:px-8">
@@ -50,18 +22,16 @@ export default function HomeView({ participants, user }: HomeViewProps) {
           <GridList<Participant>
             className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3"
             selectedKeys={list.selectedKeys}
-            // TODO: does not work with onAction bellow
             onSelectionChange={list.setSelectedKeys}
             selectionMode="single"
             aria-label="Tournament participants"
           >
             {list.items.map((item) => (
               <GridListItem
-                key={item.slug}
+                key={item.id}
                 value={item}
                 aria-label={item.name}
-                onAction={() => handleSelection(item)}
-                className={selectedItem?.slug === item.slug ? '' : ''}
+                onAction={() => setSelectedItem(item)}
               >
                 <div className="flex-shrink-0">
                   <Image

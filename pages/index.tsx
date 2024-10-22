@@ -1,16 +1,15 @@
 import Layout from '@components/layout';
-import { useAuth } from '@components/organisms/auth-provider';
 import Page from '@components/page';
 import HomeView from '@components/views/home-view/home-view';
 import Registration from '@components/views/registration-view';
 import { type GetServerSideProps } from 'next';
 
+import { useAppContext } from '@components/organisms/ui-provider';
 import { getAllParticipants, getAllRounds } from '@lib/api/content-api';
 import { UserApi } from '@lib/api/user-api';
 import { META_DESCRIPTION } from '@lib/constants';
 import { createClient } from '@lib/supabase/server';
 import { AppUser, AuthUser, Round } from '@lib/types';
-import { useAppContext } from '@components/organisms/ui-provider';
 
 type ServerProps = {
   principal: AuthUser | null;
@@ -68,16 +67,10 @@ export default function Index(props: unknown) {
     description: META_DESCRIPTION,
   };
 
-  const { participants, user } = useAppContext();
+  const { user } = useAppContext();
   return (
     <Page meta={meta} fullViewport>
-      <Layout>
-        {user ? (
-          <HomeView participants={participants} user={user} />
-        ) : (
-          <Registration />
-        )}
-      </Layout>
+      <Layout>{user ? <HomeView /> : <Registration />}</Layout>
     </Page>
   );
 }

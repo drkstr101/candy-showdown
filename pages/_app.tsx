@@ -2,25 +2,25 @@ import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { AppProps } from 'next/app';
 
-import UiProvider, { AppContextType } from '@components/organisms/ui-provider';
+import UiProvider from '@components/organisms/ui-provider';
 
-import { DEBUG } from '@lib/constants';
+import { AppUser, AsyncStatus, Participant, Round } from '@lib/types';
 import '@styles/chrome-bug.css';
 import '@styles/global.css';
 import '@styles/nprogress.css';
+import { AuthUser } from '@supabase/supabase-js';
 
-// export const getServerSideProps: GetServerSideProps<Props> = async (ctx) => {
-//   const api = new UserApi(createClient(ctx));
-//   const {
-//     data: { user },
-//     error,
-//   } = await api.getPrincipal();
-//   if (error) console.error(error);
+type Props = {
+  principal: AuthUser | null;
+  selectedItem: Participant | null;
+  setSelectedItem: (selectedItem: Participant) => void;
+  participants: Participant[];
+  rounds: Round[];
+  user: AppUser | null;
+  status: AsyncStatus;
+};
 
-//   return { props: { principal: user } };
-// };
-
-export default function App({ Component, pageProps }: AppProps<AppContextType>) {
+export default function App({ Component, pageProps }: AppProps<Props>) {
   // if (DEBUG) console.log('App(props)', pageProps);
   const { principal = null, participants = [], rounds = [], user = null } = pageProps;
   return (

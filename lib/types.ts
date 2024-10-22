@@ -1,6 +1,5 @@
 import { Enums } from '@lib/supabase/database.types';
 import type { User } from '@supabase/supabase-js';
-import { Key } from 'react';
 
 export type AuthUser = User;
 
@@ -22,7 +21,7 @@ export type Image = {
 };
 
 export type Participant = {
-  id: Key;
+  id: string;
   name: string;
   bio: string;
   slug: string;
@@ -34,7 +33,7 @@ export type Participant = {
 };
 
 export type Round = {
-  id: Key;
+  id: string;
   name: string;
   slug: string;
   schedule: Match[];
@@ -48,7 +47,7 @@ export type Round = {
 };
 
 export type Match = {
-  id: Key;
+  id: string;
   title: string;
   description: string;
   participants: Participant[];
