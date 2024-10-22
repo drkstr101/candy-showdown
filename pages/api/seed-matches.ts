@@ -665,7 +665,7 @@ export default async function seedMatches(req: NextApiRequest, res: NextApiRespo
         return id;
       }),
     });
-    console.log(item);
+    // console.log(item);
     return item;
   });
 

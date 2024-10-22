@@ -1,8 +1,10 @@
 import { GridList, GridListItem } from '@components/grid-list';
-import { AppUser, Participant } from '@lib/types';
+import { UserApi } from '@lib/api/user-api';
+import { createClient } from '@lib/supabase/client';
+import { AppUser, AsyncStatus, Participant } from '@lib/types';
 import { useListData } from '@react-stately/data';
 import Image from 'next/image';
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import SidePanel from './side-panel';
 
 export interface HomeViewProps {
@@ -10,6 +12,8 @@ export interface HomeViewProps {
   user: AppUser | null;
 }
 export default function HomeView({ participants, user }: HomeViewProps) {
+  const userApi = useMemo(() => new UserApi(createClient()), []);
+  const [status, setStatus] = useState<AsyncStatus>('ready');
   const [selection, setSelection] = useState<Participant | null>(
     participants.find((p) => p.slug === user?.selection) ?? null
   );
@@ -21,21 +25,28 @@ export default function HomeView({ participants, user }: HomeViewProps) {
 
   // const { setSelectedKeys } = list;
   const handleSelection = useCallback(
-    (item: Participant) => {
-      // console.log(`handleSelection(${item.slug})`);
-      // list.setSelectedKeys(new Set([item.slug]));
-      setSelection(item);
+    async (item: Participant) => {
+      // console.log(`handleSelection(id=${item.id}, slug=${item.slug})`);
+      if (user?.selection !== item.slug) {
+        setStatus('loading');
+        setSelection(item);
+        userApi
+          .updateSelection(item.slug)
+          .then(() => setStatus('ready'))
+          .catch(() => setStatus('error'));
+      }
     },
-    [setSelection]
+    [user?.selection, userApi]
   );
 
   return (
     <div className="mx-auto flex h-full w-full max-w-7xl flex-row px-4 py-8 sm:px-6 lg:px-8">
       <div className="grow">
-        <div className="relative h-full w-full overflow-hidden p-2">
+        <div className="relative h-full w-full min-w-64 overflow-hidden p-2">
           <GridList<Participant>
             className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3"
             selectedKeys={list.selectedKeys}
+            // TODO: does not work with onAction bellow
             onSelectionChange={list.setSelectedKeys}
             selectionMode="single"
           >
@@ -77,6 +88,7 @@ export default function HomeView({ participants, user }: HomeViewProps) {
           <SidePanel
             user={user}
             selectedItem={selection ?? null}
+            status={status}
             className="rounded-lg bg-neutral-900 shadow-sm ring-1 ring-neutral-100/25"
           />
         )}

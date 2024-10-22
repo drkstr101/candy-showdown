@@ -13,7 +13,7 @@ export const FULL_DATE = 'Oct 21st 9:00am Eastern Time (GMT-5)';
 export const TWEET_TEXT = META_DESCRIPTION;
 export const COOKIE = 'user-id';
 export const INTRO_TEXT = `
-Please select your favorite candy on the left to start the tournament. This cannot be changed once the tournament has started.
+Please select your favorite candy on the left to start the tournament. You may change your selection as often as you want up until the tournament starts.
 `;
 
 // Remove process.env.NEXT_PUBLIC_... below and replace them with

@@ -1,4 +1,5 @@
 import { AppUser } from '@lib/types';
+import { PostgrestSingleResponse } from '@supabase/postgrest-js';
 import { SupabaseClient } from '@supabase/supabase-js';
 import { Database } from '../supabase/database.types';
 
@@ -20,5 +21,9 @@ export class UserApi {
 
   async fetchUserById(id: string): Promise<AppUser | null> {
     return (await this.supabase.from('users').select('*').eq('id', id).single()).data;
+  }
+
+  async updateSelection(id: string, selection?: string): Promise<PostgrestSingleResponse<null>> {
+    return await this.supabase.from('users').update({ selection }).eq('id', id);
   }
 }

@@ -20,13 +20,13 @@
   width: var(--loading-dots-size);
   height: var(--loading-dots-size);
   border-radius: 50%;
-  background-color: var(--accents-6);
+  background-color: theme(colors.primary.500);
   display: inline-block;
   margin: 0 1px;
 }
 
 .loading.reverse span {
-  background-color: var(--accents-2);
+  background-color: theme(colors.primary.300);
 }
 
 .loading span:nth-of-type(2) {
