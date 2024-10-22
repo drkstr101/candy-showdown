@@ -68,12 +68,11 @@ export default function Index(props: unknown) {
     description: META_DESCRIPTION,
   };
 
-  const { loginStatus } = useAuth();
   const { participants, user } = useAppContext();
   return (
     <Page meta={meta} fullViewport>
       <Layout>
-        {loginStatus === 'loggedIn' ? (
+        {user ? (
           <HomeView participants={participants} user={user} />
         ) : (
           <Registration />
