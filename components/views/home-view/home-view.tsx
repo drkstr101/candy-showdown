@@ -9,34 +9,34 @@ import SidePanel from './side-panel';
 
 export interface HomeViewProps {
   participants: Participant[];
-  user: AppUser | null;
+  user: AppUser;
 }
 export default function HomeView({ participants, user }: HomeViewProps) {
   const userApi = useMemo(() => new UserApi(createClient()), []);
   const [status, setStatus] = useState<AsyncStatus>('ready');
-  const [selection, setSelection] = useState<Participant | null>(
+  const [selectedItem, setSelectedItems] = useState<Participant | null>(
     participants.find((p) => p.slug === user?.selection) ?? null
   );
   const list = useListData<Participant>({
     initialItems: participants,
-    initialSelectedKeys: selection ? new Set([selection.slug]) : new Set(),
+    initialSelectedKeys: selectedItem ? new Set([selectedItem.slug]) : new Set(),
     getKey: (item: Participant) => item.slug,
   });
 
-  // const { setSelectedKeys } = list;
+  const { id, selection } = user;
   const handleSelection = useCallback(
     async (item: Participant) => {
       // console.log(`handleSelection(id=${item.id}, slug=${item.slug})`);
-      if (user?.selection !== item.slug) {
+      if (selection !== item.slug) {
         setStatus('loading');
-        setSelection(item);
+        setSelectedItems(item);
         userApi
-          .updateSelection(item.slug)
+          .updateSelection(id, item.slug)
           .then(() => setStatus('ready'))
           .catch(() => setStatus('error'));
       }
     },
-    [user?.selection, userApi]
+    [id, selection, userApi]
   );
 
   return (
@@ -55,7 +55,7 @@ export default function HomeView({ participants, user }: HomeViewProps) {
                 key={item.slug}
                 value={item}
                 onAction={() => handleSelection(item)}
-                className={selection?.slug === item.slug ? '' : ''}
+                className={selectedItem?.slug === item.slug ? '' : ''}
               >
                 <div className="flex-shrink-0">
                   <Image
@@ -87,7 +87,7 @@ export default function HomeView({ participants, user }: HomeViewProps) {
         {user && (
           <SidePanel
             user={user}
-            selectedItem={selection ?? null}
+            selectedItem={selectedItem ?? null}
             status={status}
             className="rounded-lg bg-neutral-900 shadow-sm ring-1 ring-neutral-100/25"
           />
