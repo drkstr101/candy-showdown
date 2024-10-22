@@ -23,7 +23,7 @@ export class UserApi {
     return (await this.supabase.from('users').select('*').eq('id', id).single()).data;
   }
 
-  async updateSelection(id: string, selection?: string): Promise<PostgrestSingleResponse<null>> {
+  async updateSelection(id: string, selection: string): Promise<PostgrestSingleResponse<null>> {
     return await this.supabase.from('users').update({ selection }).eq('id', id);
   }
 }

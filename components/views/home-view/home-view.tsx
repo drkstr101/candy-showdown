@@ -14,7 +14,7 @@ export interface HomeViewProps {
 export default function HomeView({ participants, user }: HomeViewProps) {
   const userApi = useMemo(() => new UserApi(createClient()), []);
   const [status, setStatus] = useState<AsyncStatus>('ready');
-  const [selectedItem, setSelectedItems] = useState<Participant | null>(
+  const [selectedItem, setSelectedItem] = useState<Participant | null>(
     participants.find((p) => p.slug === user?.selection) ?? null
   );
   const list = useListData<Participant>({
@@ -23,37 +23,43 @@ export default function HomeView({ participants, user }: HomeViewProps) {
     getKey: (item: Participant) => item.slug,
   });
 
-  const { id, selection } = user;
   const handleSelection = useCallback(
     async (item: Participant) => {
       // console.log(`handleSelection(id=${item.id}, slug=${item.slug})`);
-      if (selection !== item.slug) {
+      if (selectedItem?.slug !== item.slug) {
         setStatus('loading');
-        setSelectedItems(item);
-        userApi
-          .updateSelection(id, item.slug)
-          .then(() => setStatus('ready'))
-          .catch(() => setStatus('error'));
+        setSelectedItem(item);
+        // user.selection = item.slug;
+        const { error, statusText } = await userApi.updateSelection(user.id, item.slug);
+        if (error) {
+          console.error(error);
+          setStatus('error');
+        } else {
+          console.info('Update Response:', statusText);
+          setStatus('ready');
+        }
       }
     },
-    [id, selection, userApi]
+    [user.id, selectedItem?.slug, userApi]
   );
 
   return (
     <div className="mx-auto flex h-full w-full max-w-7xl flex-row px-4 py-8 sm:px-6 lg:px-8">
       <div className="grow">
-        <div className="relative h-full w-full min-w-64 overflow-hidden p-2">
+        <div className="relative h-full w-full min-w-64 overflow-hidden p-2 sm:min-w-72">
           <GridList<Participant>
             className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3"
             selectedKeys={list.selectedKeys}
             // TODO: does not work with onAction bellow
             onSelectionChange={list.setSelectedKeys}
             selectionMode="single"
+            aria-label="Tournament participants"
           >
             {list.items.map((item) => (
               <GridListItem
                 key={item.slug}
                 value={item}
+                aria-label={item.name}
                 onAction={() => handleSelection(item)}
                 className={selectedItem?.slug === item.slug ? '' : ''}
               >
