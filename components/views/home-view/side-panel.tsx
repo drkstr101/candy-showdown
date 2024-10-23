@@ -32,7 +32,7 @@ function ParticipantCard({ participant }: { participant: Participant | null }) {
             <p className="whitespace-nowrap text-sm font-medium text-neutral-100">
               {participant.name}
             </p>
-            <p className="truncate whitespace-nowrap text-sm text-neutral-300">
+            <p className="truncate whitespace-nowrap text-sm text-neutral-400">
               {participant.title}
             </p>
           </div>

@@ -29,7 +29,7 @@ export default function HomeView() {
   return (
     <div className="mx-auto flex h-full w-full max-w-7xl flex-row px-4 py-8 sm:px-6 lg:px-8">
       <div className="grow">
-        <div className="relative h-full w-full min-w-64 overflow-hidden p-2 sm:min-w-72">
+        <div className="relative h-full w-full min-w-64 overflow-hidden sm:min-w-72">
           <GridList<Participant>
             className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3"
             selectionMode="single"
@@ -41,7 +41,13 @@ export default function HomeView() {
             aria-label="Tournament participants"
           >
             {list.items.map((item) => (
-              <GridListItem id={item.slug} key={item.slug} value={item} aria-label={item.name}>
+              <GridListItem
+                id={item.slug}
+                key={item.slug}
+                value={item}
+                textValue={item.name}
+                aria-label={item.name}
+              >
                 <div className="flex-shrink-0">
                   <Image
                     alt=""
@@ -57,7 +63,7 @@ export default function HomeView() {
                     <p className="whitespace-nowrap text-sm font-medium text-neutral-100">
                       {item.name}
                     </p>
-                    <p className="truncate whitespace-nowrap text-sm text-neutral-300">
+                    <p className="truncate whitespace-nowrap text-sm text-neutral-400">
                       {item.title}
                     </p>
                   </a>
