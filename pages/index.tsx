@@ -38,13 +38,7 @@ export default function Index(props: Props) {
   const { loginStatus } = useAuth();
   return (
     <Page meta={meta} fullViewport>
-      <Layout>
-        {loginStatus === 'loading' ? null : loginStatus === 'loggedIn' ? (
-          <HomeView />
-        ) : (
-          <Registration />
-        )}
-      </Layout>
+      <Layout>{loginStatus === 'loggedIn' ? <HomeView /> : <Registration />}</Layout>
     </Page>
   );
 }
