@@ -46,11 +46,9 @@ const roundsFragment = `
         slug
         image {
           url(imgixParams: {fm: jpg, fit: crop, w: 300, h: 400})
-          blurDataURL: blurUpThumb
         }
         imageSquare: image {
           url(imgixParams: {fm: jpg, fit: crop, w: 192, h: 192})
-          blurDataURL: blurUpThumb
         }
       }
       nextMatch {
