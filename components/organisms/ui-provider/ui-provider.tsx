@@ -3,15 +3,15 @@ import { OverlayProvider } from 'react-aria';
 
 import NProgress from '@components/nprogress';
 import ResizeHandler from '@components/resize-handler';
-import { AppUser, AuthUser, Participant, Round } from '@lib/types';
+import { Participant, Round } from '@lib/types';
 import { AppContextProvider } from './app-context';
 
 export interface UiProviderProps {
   children: ReactNode;
-  principal: AuthUser | null;
+  // principal: AuthUser | null;
   participants: Participant[];
   rounds: Round[];
-  user: AppUser | null;
+  // user: AppUser | null;
 }
 
 export default function UiProvider({ ...props }: UiProviderProps) {

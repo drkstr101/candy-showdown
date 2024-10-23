@@ -2,64 +2,32 @@ import Layout from '@components/layout';
 import Page from '@components/page';
 import HomeView from '@components/views/home-view/home-view';
 import Registration from '@components/views/registration-view';
-import { type GetServerSideProps } from 'next';
 
-import { useAppContext } from '@components/organisms/ui-provider';
+import { useAuth } from '@components/organisms/auth-provider';
 import { getAllParticipants, getAllRounds } from '@lib/api/content-api';
-import { UserApi } from '@lib/api/user-api';
 import { META_DESCRIPTION } from '@lib/constants';
-import { createClient } from '@lib/supabase/server';
-import { AppUser, AuthUser, Round } from '@lib/types';
+import { Participant, Round } from '@lib/types';
+import { GetStaticProps } from 'next';
 
-type ServerProps = {
-  principal: AuthUser | null;
-  // participants: Participant[];
+type Props = {
   rounds: Round[];
-  user: AppUser | null;
+  participants: Participant[];
 };
 
-export const getServerSideProps: GetServerSideProps<ServerProps> = async (ctx) => {
-  const userApi = new UserApi(createClient(ctx));
-  const { data, error } = await userApi.getPrincipal();
-  if (error) console.error(error);
-
-  const participants = (await getAllParticipants()) ?? [];
+export const getStaticProps: GetStaticProps<Props> = async () => {
   const rounds = (await getAllRounds()) ?? [];
+  const participants = (await getAllParticipants()) ?? [];
 
-  if (!data.user) return { props: { rounds, principal: null, user: null } };
-
-  const principal = data.user;
-  const user: AppUser | null = await userApi.fetchUserById(principal.id);
-
-  return { props: { principal, rounds, participants, user } };
+  return {
+    props: {
+      rounds,
+      participants,
+    },
+    revalidate: 60,
+  };
 };
 
-// export const getStaticProps: GetStaticProps<StaticProps> = async () => {
-//   const rounds = (await getAllRounds()) ?? [];
-
-//   return {
-//     props: { rounds },
-//     revalidate: 60,
-//   };
-// };
-
-export interface IndexProps {
-  principal: AuthUser | null;
-}
-
-// export const getServerSideProps = (async (ctx) => {
-//   // Fetch data from external API
-//   // const res = await fetch('https://api.github.com/repos/vercel/next.js')
-//   // const repo: Repo = await res.json()
-//   // Pass data to the page via props
-//   const userApi = new UserApi(createClient(ctx));
-//   const { data, error } = await userApi.getPrincipal();
-//   if (error) console.error(error);
-
-//   return { props: { principal: data.user } };
-// }) satisfies GetServerSideProps<IndexProps>;
-
-export default function Index(props: unknown) {
+export default function Index(props: Props) {
   // console.log('Index(props)', props);
 
   const meta = {
@@ -67,10 +35,16 @@ export default function Index(props: unknown) {
     description: META_DESCRIPTION,
   };
 
-  const { user } = useAppContext();
+  const { loginStatus } = useAuth();
   return (
     <Page meta={meta} fullViewport>
-      <Layout>{user ? <HomeView /> : <Registration />}</Layout>
+      <Layout>
+        {loginStatus === 'loading' ? null : loginStatus === 'loggedIn' ? (
+          <HomeView />
+        ) : (
+          <Registration />
+        )}
+      </Layout>
     </Page>
   );
 }

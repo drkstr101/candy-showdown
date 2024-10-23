@@ -3,6 +3,7 @@ import { jwtDecode } from 'jwt-decode';
 import { useRouter } from 'next/router';
 import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
+import { DEBUG } from '@lib/constants';
 import { createClient } from '@lib/supabase/client';
 import { Enums } from '@lib/supabase/database.types';
 import type { AuthUser } from '@lib/types';
@@ -27,28 +28,25 @@ export function useAuth() {
 
 type Props = {
   children: ReactNode;
-  initialUser: AuthUser | null;
 };
 
-export function AuthProvider({ children, initialUser }: Props) {
-  const [loginStatus, setLoginStatus] = useState<LoginStatus>(
-    initialUser ? 'loggedIn' : 'loading'
-  );
-  const [user, setUser] = useState<AuthUser | null>(initialUser);
+export function AuthProvider({ children }: Props) {
+  const [loginStatus, setLoginStatus] = useState<LoginStatus>('loading');
+  const [user, setUser] = useState<AuthUser | null>(null);
   const setSession = useState<Session | null>(null)[1];
   const router = useRouter();
   const supabase = createClient();
 
   useEffect(() => {
     function saveSession(session: Session | null) {
-      // console.log('Session Update:', session);
+      if (DEBUG) console.log('Session Update:', session);
       setSession(session);
       if (session && session.user) {
         const { user, access_token } = session;
         const jwt = jwtDecode<{ user_role: Enums<'app_role'> }>(access_token);
         user.app_metadata['user_role'] = jwt.user_role ?? 'user';
 
-        // console.log('Authenticated User: ', user);
+        if (DEBUG) console.log('Authenticated User: ', user);
         setUser(user);
         setLoginStatus('loggedIn');
       } else {
@@ -62,7 +60,7 @@ export function AuthProvider({ children, initialUser }: Props) {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange(async (event, session) => {
-      // console.log('onAuthStateChange(event, session)', event, session);
+      if (DEBUG) console.log('onAuthStateChange(event, session)', event, session);
       saveSession(session);
     });
 

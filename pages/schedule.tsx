@@ -5,15 +5,29 @@ import Header from '@components/molecules/header';
 import Page from '@components/page';
 import Schedule from '@components/views/schedule-view';
 
-import { getAllRounds } from '@lib/api/content-api';
+import { getAllParticipants, getAllRounds } from '@lib/api/content-api';
 import { META_DESCRIPTION } from '@lib/constants';
-import { Round } from '@lib/types';
+import { Participant, Round } from '@lib/types';
 
 type Props = {
-  allRounds: Round[];
+  rounds: Round[];
+  participants: Participant[];
 };
 
-export default function SchedulePage({ allRounds }: Props) {
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const rounds = (await getAllRounds()) ?? [];
+  const participants = (await getAllParticipants()) ?? [];
+
+  return {
+    props: {
+      rounds,
+      participants,
+    },
+    revalidate: 60,
+  };
+};
+
+export default function SchedulePage({ rounds }: Props) {
   const meta = {
     title: 'Schedule - Candy Showdown',
     description: META_DESCRIPTION,
@@ -23,19 +37,8 @@ export default function SchedulePage({ allRounds }: Props) {
     <Page meta={meta}>
       <Layout>
         <Header hero="Schedule" description={meta.description} />
-        <Schedule allRounds={allRounds} />
+        <Schedule allRounds={rounds} />
       </Layout>
     </Page>
   );
 }
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  const allRounds = await getAllRounds();
-
-  return {
-    props: {
-      allRounds: allRounds || [],
-    },
-    revalidate: 60,
-  };
-};

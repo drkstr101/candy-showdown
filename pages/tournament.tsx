@@ -2,27 +2,30 @@ import Layout from '@components/layout';
 import Page from '@components/page';
 import TournamentView from '@components/views/tournament-view';
 
-import { getAllRounds } from '@lib/api/content-api';
+import { getAllParticipants, getAllRounds } from '@lib/api/content-api';
 import { META_DESCRIPTION } from '@lib/constants';
-import { Round } from '@lib/types';
+import { Participant, Round } from '@lib/types';
 import { GetStaticProps } from 'next';
 
 type Props = {
-  allRounds: Round[];
+  rounds: Round[];
+  participants: Participant[];
 };
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const allRounds = await getAllRounds();
+  const rounds = (await getAllRounds()) ?? [];
+  const participants = (await getAllParticipants()) ?? [];
 
   return {
     props: {
-      allRounds: allRounds || [],
+      rounds,
+      participants,
     },
     revalidate: 60,
   };
 };
 
-export default function Tournament({ allRounds }: Props) {
+export default function Tournament({ rounds }: Props) {
   const meta = {
     title: 'Candy Showdown',
     description: META_DESCRIPTION,
@@ -31,7 +34,7 @@ export default function Tournament({ allRounds }: Props) {
   return (
     <Page meta={meta} fullViewport>
       <Layout>
-        <TournamentView rounds={allRounds} />
+        <TournamentView rounds={rounds} />
       </Layout>
     </Page>
   );

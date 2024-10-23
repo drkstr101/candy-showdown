@@ -3,28 +3,28 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { AppProps } from 'next/app';
 
 import UiProvider from '@components/organisms/ui-provider';
+import { DEBUG } from '@lib/constants';
+import { Participant, Round } from '@lib/types';
 
-import { AppUser, AsyncStatus, Participant, Round } from '@lib/types';
 import '@styles/chrome-bug.css';
 import '@styles/global.css';
 import '@styles/nprogress.css';
-import { AuthUser } from '@supabase/supabase-js';
 
 type Props = {
-  principal: AuthUser | null;
-  selectedItem: Participant | null;
-  setSelectedItem: (selectedItem: Participant) => void;
+  // principal: AuthUser | null;
+  // selectedItem: Participant | null;
+  // setSelectedItem: (selectedItem: Participant) => void;
   participants: Participant[];
   rounds: Round[];
-  user: AppUser | null;
-  status: AsyncStatus;
+  // user: AppUser | null;
+  // status: AsyncStatus;
 };
 
 export default function App({ Component, pageProps }: AppProps<Props>) {
-  // if (DEBUG) console.log('App(props)', pageProps);
-  const { principal = null, participants = [], rounds = [], user = null } = pageProps;
+  if (DEBUG) console.log('App(props)', pageProps);
+  const { participants = [], rounds = [] } = pageProps;
   return (
-    <UiProvider principal={principal} participants={participants} rounds={rounds} user={user}>
+    <UiProvider participants={participants} rounds={rounds}>
       <Component {...pageProps} />
       <Analytics />
       <SpeedInsights />

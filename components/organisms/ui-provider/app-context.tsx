@@ -1,16 +1,16 @@
 import { UserApi } from '@lib/api/user-api';
 import { createClient } from '@lib/supabase/client';
-import type { AppUser, AsyncStatus, AuthUser, Participant, Round } from '@lib/types';
-import { createContext, ReactNode, useMemo, useState } from 'react';
+import type { AppUser, AsyncStatus, Participant, Round } from '@lib/types';
+import { createContext, Dispatch, ReactNode, SetStateAction, useMemo, useState } from 'react';
 import { AuthProvider } from '../auth-provider';
 
 export interface AppContextType {
-  principal: AuthUser | null;
   selectedItem: Participant | null;
   setSelectedItem: (selectedItem: Participant) => void;
   participantsById: Record<string, Participant>;
   rounds: Round[];
   user: AppUser | null;
+  setUser: Dispatch<SetStateAction<AppUser | null>>;
   status: AsyncStatus;
 }
 
@@ -20,18 +20,12 @@ type Props = {
   children: ReactNode;
   participants: Participant[];
   rounds: Round[];
-  principal: AuthUser | null;
-  user: AppUser | null;
 };
 
-export function AppContextProvider({
-  children,
-  participants = [],
-  rounds = [],
-  principal = null,
-  user = null,
-}: Props) {
+export function AppContextProvider({ children, participants = [], rounds = [] }: Props) {
   // console.log('Initializing application state', { principal, participants, rounds, user });
+  const userApi = useMemo(() => new UserApi(createClient()), []);
+  const [user, setUser] = useState<AppUser | null>(null);
   const [status, setStatus] = useState<AsyncStatus>('ready');
   const [selectedItem, _setSelectedItem] = useState<Participant | null>(
     participants.find((p) => p.id === user?.selection) ?? null
@@ -44,7 +38,6 @@ export function AppContextProvider({
       }, {} as Record<string, Participant>),
     [participants]
   );
-  const userApi = useMemo(() => new UserApi(createClient()), []);
 
   async function setSelectedItem(item: Participant) {
     if (selectedItem?.id !== item.id) {
@@ -65,18 +58,18 @@ export function AppContextProvider({
   }
 
   return (
-    <AppContext.Provider
-      value={{
-        rounds,
-        participantsById,
-        principal,
-        selectedItem,
-        setSelectedItem,
-        status,
-        user,
-      }}
-    >
-      <AuthProvider initialUser={principal}>{children}</AuthProvider>
-    </AppContext.Provider>
+    <AuthProvider>
+      <AppContext.Provider
+        value={{
+          rounds,
+          participantsById,
+          selectedItem,
+          setSelectedItem,
+          status,
+          user,
+          setUser,
+        }}
+      ></AppContext.Provider>
+    </AuthProvider>
   );
 }
