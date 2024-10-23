@@ -15,5 +15,6 @@ declare module '@g-loot/react-tournament-brackets' {
   export type {
     MatchComponentProps,
     MatchType,
+    ParticipantType,
   } from '@g-loot/react-tournament-brackets/dist/cjs';
 }

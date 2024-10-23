@@ -1,41 +1,31 @@
-import { getAllParticipants } from '@lib/api/content-api';
-import { useAsyncList } from '@react-stately/data';
+import { MatchType, ParticipantType } from '@g-loot/react-tournament-brackets';
+import { Round } from '@lib/types';
+import { ListData, useListData } from '@react-stately/data';
 
-export default function useMatchData() {
-  return useAsyncList({
-    async load({ signal }) {
-      const items = await getAllParticipants();
-      // const items = chunk(shuffle(partisipants), 2).map(([a, b], index) => {
-      //   return {
-      //     id: 19936,
-      //     name: 'Match A-32',
-      //     nextMatchId: 19934,
-      //     // nextLooserMatchId: null,
-      //     tournamentRoundText: 'A',
-      //     startTime: '2024-10-21T00:00:00.000Z',
-      //     state: 'SCHEDULED',
-      //     participants: [
-      //       {
-      //         id: a.slug,
-      //         resultText: '0',
-      //         isWinner: false,
-      //         status: null,
-      //         name: a.name,
-      //         picture: a.imageSquare.url,
-      //       },
-      //       {
-      //         id: b.slug,
-      //         resultText: '0',
-      //         isWinner: false,
-      //         status: null,
-      //         name: b.name,
-      //         picture: b.imageSquare.url,
-      //       },
-      //     ],
-      //   };
-      // });
-
-      return { items: [] };
-    },
+export default function useMatchData(rounds: Round[]): ListData<MatchType> {
+  return useListData<MatchType>({
+    initialItems: rounds.flatMap((round) =>
+      round.schedule.map((m) => {
+        return {
+          id: m.id,
+          name: m.title,
+          nextMatchId: m.nextMatch?.id ?? null,
+          // nextLooserMatchId: null,
+          tournamentRoundText: round.slug,
+          startTime: round.start,
+          state: 'SCHEDULED',
+          participants: m.participants.map((p) => {
+            return {
+              id: p.slug,
+              resultText: '0',
+              isWinner: false,
+              status: null,
+              name: p.name,
+              picture: p.imageSquare.url,
+            } as ParticipantType;
+          }),
+        } as MatchType;
+      })
+    ),
   });
 }
