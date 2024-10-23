@@ -7,7 +7,6 @@ import useMatchData from './use-match-data';
 
 export default function TournamentBrackets({ rounds }: { rounds: Round[] }) {
   const list = useMatchData(rounds);
-  console.log('list = ', list);
   return (
     <SingleEliminationBracket
       matches={list.items}

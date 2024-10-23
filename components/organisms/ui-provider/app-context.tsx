@@ -47,7 +47,6 @@ export function AppContextProvider({
   const userApi = useMemo(() => new UserApi(createClient()), []);
 
   async function setSelectedItem(item: Participant) {
-    console.log(`setSelectedItem(${item.id})`);
     if (selectedItem?.id !== item.id) {
       _setSelectedItem(item);
       setStatus('loading');
