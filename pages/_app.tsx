@@ -3,7 +3,6 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { AppProps } from 'next/app';
 
 import UiProvider from '@components/organisms/ui-provider';
-import { DEBUG } from '@lib/constants';
 import { Participant, Round } from '@lib/types';
 
 import '@styles/chrome-bug.css';
@@ -21,7 +20,7 @@ type Props = {
 };
 
 export default function App({ Component, pageProps }: AppProps<Props>) {
-  if (DEBUG) console.log('App(props)', pageProps);
+  // if (DEBUG) console.log('App(props)', pageProps);
   const { participants = [], rounds = [] } = pageProps;
   return (
     <UiProvider participants={participants} rounds={rounds}>

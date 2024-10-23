@@ -1,8 +1,16 @@
 import { UserApi } from '@lib/api/user-api';
 import { createClient } from '@lib/supabase/client';
 import type { AppUser, AsyncStatus, Participant, Round } from '@lib/types';
-import { createContext, Dispatch, ReactNode, SetStateAction, useMemo, useState } from 'react';
-import { AuthProvider } from '../auth-provider';
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react';
+import { useAuth } from '../auth-provider';
 
 export interface AppContextType {
   selectedItem: Participant | null;
@@ -38,6 +46,7 @@ export function AppContextProvider({ children, participants = [], rounds = [] }:
       }, {} as Record<string, Participant>),
     [participants]
   );
+  const { user: principal } = useAuth();
 
   async function setSelectedItem(item: Participant) {
     if (selectedItem?.id !== item.id) {
@@ -57,19 +66,24 @@ export function AppContextProvider({ children, participants = [], rounds = [] }:
     }
   }
 
+  useEffect(() => {
+    if (principal) {
+      userApi.fetchUserById(principal.id).then(setUser).catch(console.error);
+    }
+  }, [principal, userApi]);
   return (
-    <AuthProvider>
-      <AppContext.Provider
-        value={{
-          rounds,
-          participantsById,
-          selectedItem,
-          setSelectedItem,
-          status,
-          user,
-          setUser,
-        }}
-      ></AppContext.Provider>
-    </AuthProvider>
+    <AppContext.Provider
+      value={{
+        rounds,
+        participantsById,
+        selectedItem,
+        setSelectedItem,
+        status,
+        user,
+        setUser,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
   );
 }

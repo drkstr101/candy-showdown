@@ -5,6 +5,7 @@ import NProgress from '@components/nprogress';
 import ResizeHandler from '@components/resize-handler';
 import { Participant, Round } from '@lib/types';
 import { AppContextProvider } from './app-context';
+import { AuthProvider } from '../auth-provider';
 
 export interface UiProviderProps {
   children: ReactNode;
@@ -21,7 +22,9 @@ export default function UiProvider({ ...props }: UiProviderProps) {
   }, []);
   return (
     <OverlayProvider>
-      <AppContextProvider {...props} />
+      <AuthProvider>
+        <AppContextProvider {...props} />
+      </AuthProvider>
       <ResizeHandler />
       <NProgress />
     </OverlayProvider>
