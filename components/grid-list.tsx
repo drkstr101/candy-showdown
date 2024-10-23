@@ -10,14 +10,14 @@ import { tv } from 'tailwind-variants';
 import { Checkbox } from './checkbox';
 import { composeTailwindRenderProps, focusRing } from './ui-helpers';
 
-export function GridList<T extends object>({ children, ...props }: GridListProps<T>) {
+export function GridList<T extends object>({ children, className, ...props }: GridListProps<T>) {
   return (
     <AriaGridList
-      {...props}
       className={composeTailwindRenderProps(
-        props.className,
+        className,
         'relative overflow-auto rounded-lg border dark:border-neutral-600'
       )}
+      {...props}
     >
       {children}
     </AriaGridList>

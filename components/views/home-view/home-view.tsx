@@ -2,18 +2,29 @@ import { GridList, GridListItem } from '@components/grid-list';
 import { useAppContext } from '@components/organisms/ui-provider';
 import { Participant } from '@lib/types';
 import { useListData } from '@react-stately/data';
+import { Selection } from '@react-types/shared';
 import Image from 'next/image';
 import { useMemo } from 'react';
 import SidePanel from './side-panel';
 
 export default function HomeView() {
-  const { participantsById, user, selectedItem, setSelectedItem, status } = useAppContext();
-  const participants = useMemo(() => Object.values(participantsById), [participantsById]);
+  const { participantsBySlug, user, selectedItem, setSelectedItem, status } = useAppContext();
+  const participants = useMemo(() => Object.values(participantsBySlug), [participantsBySlug]);
   const list = useListData<Participant>({
     initialItems: participants,
-    initialSelectedKeys: selectedItem ? new Set([selectedItem.id]) : new Set(),
-    getKey: (item: Participant) => item.id,
+    initialSelectedKeys: selectedItem ? new Set([selectedItem.slug]) : new Set(),
+    getKey: (item: Participant) => item.slug,
   });
+
+  function handleSelection(keys: Selection): void {
+    if (keys === 'all') throw new Error('Unsupported selection mode.');
+    // keys is now instanceof Set
+    list.setSelectedKeys(keys);
+    const slug = keys.values().toArray().at(0) ?? null;
+    if (slug) {
+      setSelectedItem(participantsBySlug[slug]);
+    }
+  }
 
   return (
     <div className="mx-auto flex h-full w-full max-w-7xl flex-row px-4 py-8 sm:px-6 lg:px-8">
@@ -21,18 +32,16 @@ export default function HomeView() {
         <div className="relative h-full w-full min-w-64 overflow-hidden p-2 sm:min-w-72">
           <GridList<Participant>
             className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3"
-            selectedKeys={list.selectedKeys}
-            onSelectionChange={list.setSelectedKeys}
             selectionMode="single"
+            selectionBehavior="replace"
+            items={list.items}
+            onSelectionChange={handleSelection}
+            selectedKeys={list.selectedKeys}
+            defaultSelectedKeys={list.selectedKeys}
             aria-label="Tournament participants"
           >
             {list.items.map((item) => (
-              <GridListItem
-                key={item.id}
-                value={item}
-                aria-label={item.name}
-                onAction={() => setSelectedItem(item)}
-              >
+              <GridListItem id={item.slug} key={item.slug} value={item} aria-label={item.name}>
                 <div className="flex-shrink-0">
                   <Image
                     alt=""

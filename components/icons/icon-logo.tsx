@@ -16,7 +16,7 @@ export default function IconLogo({
 }: IconLogoProps) {
   return (
     <div style={{ width: 40, height: 30 }} {...props}>
-      <Image alt="APS Logo" className="mt-0.5 h-full w-full" src={apsLogo} />
+      <Image alt="APS Logo" className="mt-0.5 h-full w-full" src={apsLogo} priority={true} />
     </div>
   );
 }
